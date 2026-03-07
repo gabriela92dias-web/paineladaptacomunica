@@ -7,45 +7,119 @@
     <link rel="stylesheet" href="./estilos.css" />
   </head>
   <body>
-    <div class="app-shell">
+    <div class="app-shell" id="app-shell" data-sidebar="expanded">
       <aside class="sidebar glass-panel">
-        <div class="brand-signature">
-          <div class="brand-signature__mark">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="sidebar-top">
+          <div class="brand-signature">
+            <div class="brand-signature__mark">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <p class="eyebrow">Adapta Platform</p>
+              <h1>Control Center</h1>
+            </div>
           </div>
-          <div>
-            <p class="eyebrow">Adapta Platform</p>
-            <h1>Control Center</h1>
-          </div>
+          <button class="ghost-button sidebar-toggle" id="sidebar-toggle" type="button">
+            Sidebar
+          </button>
         </div>
 
         <nav class="sidebar-nav" aria-label="Navegacao principal">
-          <a class="nav-link nav-link--active" href="#dashboard">Dashboard</a>
+          <a class="nav-link nav-link--active" href="#dashboard">
+            <span class="nav-icon">D</span>
+            <span class="nav-label">Dashboard</span>
+          </a>
 
-          <div class="nav-group">
-            <p class="nav-group__title">Brand</p>
-            <a class="nav-link" href="#identity">Identity</a>
-            <a class="nav-link" href="#materials">Materials</a>
-            <a class="nav-link" href="#guidelines">Guidelines</a>
-          </div>
+          <section class="nav-group">
+            <button
+              class="nav-group__toggle"
+              type="button"
+              data-group-toggle="brand"
+              aria-expanded="true"
+            >
+              <span class="nav-icon">B</span>
+              <span class="nav-label">Brand</span>
+              <span class="nav-caret">+</span>
+            </button>
+            <div class="nav-group__items" id="group-brand">
+              <a class="nav-link nav-link--child" href="#identity">
+                <span class="nav-icon">I</span>
+                <span class="nav-label">Identity</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#materials">
+                <span class="nav-icon">M</span>
+                <span class="nav-label">Materials</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#guidelines">
+                <span class="nav-icon">G</span>
+                <span class="nav-label">Guidelines</span>
+              </a>
+            </div>
+          </section>
 
-          <div class="nav-group">
-            <p class="nav-group__title">Marketing</p>
-            <a class="nav-link" href="#campaigns">Campaigns</a>
-            <a class="nav-link" href="#planner">Planner</a>
-            <a class="nav-link" href="#assets">Assets</a>
-          </div>
+          <section class="nav-group">
+            <button
+              class="nav-group__toggle"
+              type="button"
+              data-group-toggle="marketing"
+              aria-expanded="true"
+            >
+              <span class="nav-icon">M</span>
+              <span class="nav-label">Marketing</span>
+              <span class="nav-caret">+</span>
+            </button>
+            <div class="nav-group__items" id="group-marketing">
+              <a class="nav-link nav-link--child" href="#campaigns">
+                <span class="nav-icon">C</span>
+                <span class="nav-label">Campaigns</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#planner">
+                <span class="nav-icon">P</span>
+                <span class="nav-label">Planner</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#assets">
+                <span class="nav-icon">A</span>
+                <span class="nav-label">Assets</span>
+              </a>
+            </div>
+          </section>
 
-          <div class="nav-group">
-            <p class="nav-group__title">Tools</p>
-            <a class="nav-link" href="#colors">Colors</a>
-            <a class="nav-link" href="#gradients">Gradients</a>
-            <a class="nav-link" href="#typography">Typography</a>
-            <a class="nav-link" href="#mascots">Mascots</a>
-            <a class="nav-link" href="#analysis">Analysis</a>
-          </div>
+          <section class="nav-group">
+            <button
+              class="nav-group__toggle"
+              type="button"
+              data-group-toggle="tools"
+              aria-expanded="true"
+            >
+              <span class="nav-icon">T</span>
+              <span class="nav-label">Tools</span>
+              <span class="nav-caret">+</span>
+            </button>
+            <div class="nav-group__items" id="group-tools">
+              <a class="nav-link nav-link--child" href="#colors">
+                <span class="nav-icon">C</span>
+                <span class="nav-label">Colors</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#gradients">
+                <span class="nav-icon">G</span>
+                <span class="nav-label">Gradients</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#typography">
+                <span class="nav-icon">T</span>
+                <span class="nav-label">Typography</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#mascots">
+                <span class="nav-icon">M</span>
+                <span class="nav-label">Mascots</span>
+              </a>
+              <a class="nav-link nav-link--child" href="#analysis">
+                <span class="nav-icon">A</span>
+                <span class="nav-label">Analysis</span>
+              </a>
+            </div>
+          </section>
         </nav>
 
         <div class="sidebar-footer">
@@ -76,24 +150,23 @@
                 C
               </button>
             </div>
-            <button class="ghost-button" type="button">Busca</button>
-            <button class="ghost-button" type="button">Tema</button>
-            <button class="ghost-button" type="button">Admin</button>
           </div>
         </header>
-
-        <section class="ticker glass-panel" aria-label="Atividade recente">
-          <div class="ticker__label">activity</div>
-          <div class="ticker__viewport">
-            <div class="ticker__track" id="ticker-track"></div>
-          </div>
-        </section>
 
         <section class="control-stage glass-panel">
           <aside class="stage-rail stage-rail--left">
             <div class="stage-rail__header">
               <p class="eyebrow">Operations</p>
               <h3>Operacao</h3>
+            </div>
+
+            <div class="rail-section rail-section--activity">
+              <p class="section-label">Activity</p>
+              <div class="activity-strip">
+                <div class="activity-strip__viewport">
+                  <div class="activity-strip__track" id="activity-track"></div>
+                </div>
+              </div>
             </div>
 
             <div class="rail-section">
@@ -185,6 +258,18 @@
             <span>Proxima fase: integrar modulos</span>
           </div>
         </section>
+
+        <div class="fab-dock" aria-label="Acoes rapidas">
+          <button class="fab fab--primary" type="button" title="Adicionar">
+            <span>+</span>
+          </button>
+          <button class="fab" type="button" title="Tools">
+            <span>T</span>
+          </button>
+          <button class="fab" type="button" title="Acoes">
+            <span>A</span>
+          </button>
+        </div>
       </main>
     </div>
 

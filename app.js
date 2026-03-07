@@ -1,5 +1,7 @@
+const appShell = document.getElementById("app-shell");
+const sidebarToggle = document.getElementById("sidebar-toggle");
 const monthLabel = document.getElementById("radar-month-label");
-const tickerTrack = document.getElementById("ticker-track");
+const activityTrack = document.getElementById("activity-track");
 const dashboard = document.getElementById("dashboard");
 const radarSegmentsContainer = document.getElementById("radar-segments");
 const radarEventsContainer = document.getElementById("radar-events");
@@ -13,11 +15,12 @@ const timelineList = document.getElementById("timeline-list");
 const toolGroups = document.getElementById("tool-groups");
 const overviewMetrics = document.getElementById("overview-metrics");
 const variantButtons = [...document.querySelectorAll("[data-variant-button]")];
+const groupButtons = [...document.querySelectorAll("[data-group-toggle]")];
 
 const currentMonth = "Marco";
 monthLabel.textContent = currentMonth;
 
-const tickerItems = [
+const activityItems = [
   "Guidelines em revisao",
   "Calendario mensal pronto",
   "Mascots em revisao",
@@ -170,11 +173,11 @@ const variantMeta = {
   C: "Console institucional",
 };
 
-function renderTicker() {
-  const content = [...tickerItems, ...tickerItems]
+function renderActivity() {
+  const content = [...activityItems, ...activityItems]
     .map((item) => `<span class="ticker-item">${item}</span>`)
     .join("");
-  tickerTrack.innerHTML = content;
+  activityTrack.innerHTML = content;
 }
 
 function renderRadar() {
@@ -344,6 +347,11 @@ function setVariant(variant) {
   });
 }
 
+function setSidebarState(nextState) {
+  appShell.dataset.sidebar = nextState;
+  sidebarToggle.textContent = nextState === "compact" ? "Expandir" : "Sidebar";
+}
+
 function colorIcon() {
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -396,7 +404,7 @@ function analysisIcon() {
   `;
 }
 
-renderTicker();
+renderActivity();
 renderRadar();
 renderMonthTimeline();
 renderOperations();
@@ -409,4 +417,22 @@ variantButtons.forEach((button) => {
   });
 });
 
+groupButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const groupId = button.dataset.groupToggle;
+    const target = document.getElementById(`group-${groupId}`);
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
+    if (target) {
+      target.hidden = expanded;
+    }
+  });
+});
+
+sidebarToggle.addEventListener("click", () => {
+  const nextState = appShell.dataset.sidebar === "compact" ? "expanded" : "compact";
+  setSidebarState(nextState);
+});
+
 setVariant("A");
+setSidebarState("expanded");
