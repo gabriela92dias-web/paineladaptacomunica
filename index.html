@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta Platform - Control Center</title>
+    <link rel="stylesheet" href="./estilos.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-panel">
+        <div class="brand-signature">
+          <div class="brand-signature__mark">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>
+            <p class="eyebrow">Adapta Platform</p>
+            <h1>Control Center</h1>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Navegacao principal">
+          <a class="nav-link nav-link--active" href="#dashboard">Dashboard</a>
+
+          <div class="nav-group">
+            <p class="nav-group__title">Brand</p>
+            <a class="nav-link" href="#identity">Identity</a>
+            <a class="nav-link" href="#materials">Materials</a>
+            <a class="nav-link" href="#guidelines">Guidelines</a>
+          </div>
+
+          <div class="nav-group">
+            <p class="nav-group__title">Marketing</p>
+            <a class="nav-link" href="#campaigns">Campaigns</a>
+            <a class="nav-link" href="#planner">Planner</a>
+            <a class="nav-link" href="#assets">Assets</a>
+          </div>
+
+          <div class="nav-group">
+            <p class="nav-group__title">Tools</p>
+            <a class="nav-link" href="#colors">Colors</a>
+            <a class="nav-link" href="#gradients">Gradients</a>
+            <a class="nav-link" href="#typography">Typography</a>
+            <a class="nav-link" href="#mascots">Mascots</a>
+            <a class="nav-link" href="#analysis">Analysis</a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="status-pill status-pill--inline">
+            <span class="status-dot"></span>
+            modo cromatico suspenso
+          </div>
+          <p class="muted-copy">
+            Estrutura pronta para receber tokens oficiais no momento da liberacao.
+          </p>
+        </div>
+      </aside>
+
+      <main class="dashboard" id="dashboard">
+        <header class="topbar glass-panel">
+          <div>
+            <p class="eyebrow">Visao institucional</p>
+            <h2>Central de controle da marca e comunicacao</h2>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="ghost-button" type="button">Search</button>
+            <button class="ghost-button" type="button">Theme</button>
+            <button class="ghost-button" type="button">Admin</button>
+          </div>
+        </header>
+
+        <section class="ticker glass-panel" aria-label="Atividade recente">
+          <div class="ticker__label">system activity</div>
+          <div class="ticker__viewport">
+            <div class="ticker__track" id="ticker-track"></div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel panel-brand glass-panel">
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Brand hub</p>
+                <h3>Acesso rapido</h3>
+              </div>
+              <div class="status-pill">pronto para navegacao</div>
+            </div>
+
+            <div class="brand-actions" id="brand-actions"></div>
+
+            <div class="panel-callout">
+              <p>Aguardando atualizacao cromatica</p>
+              <span>
+                Identidade, materiais e templates seguem neutros ate a definicao oficial
+                dos tokens.
+              </span>
+            </div>
+          </article>
+
+          <article class="panel panel-radar glass-panel">
+            <div class="panel__header panel__header--split">
+              <div>
+                <p class="eyebrow">Month radar</p>
+                <h3>Calendario mensal estrategico</h3>
+              </div>
+              <div class="status-stack">
+                <span class="status-pill">
+                  <span class="status-dot"></span>
+                  overview executivo
+                </span>
+                <span class="mini-note">sem detalhes operacionais profundos</span>
+              </div>
+            </div>
+
+            <div class="radar-layout">
+              <div class="radar-frame">
+                <div class="radar-scan"></div>
+                <div class="radar-center">
+                  <span class="radar-center__month" id="radar-month-label"></span>
+                  <span class="radar-center__year">2026</span>
+                </div>
+                <div class="radar-ring radar-ring--outer"></div>
+                <div class="radar-ring radar-ring--inner"></div>
+                <div class="radar-grid"></div>
+                <div class="radar-segments" id="radar-segments"></div>
+                <div class="radar-events" id="radar-events"></div>
+              </div>
+
+              <div class="radar-details glass-subpanel">
+                <p class="eyebrow">Foco da semana</p>
+                <h4 id="week-title">Semana 1</h4>
+                <p class="radar-details__copy" id="week-summary"></p>
+                <ul class="detail-list" id="week-items"></ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel panel-operations glass-panel">
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Operations</p>
+                <h3>Alertas e atividade</h3>
+              </div>
+              <div class="status-pill">
+                <span class="status-dot"></span>
+                sistema vivo
+              </div>
+            </div>
+
+            <div class="operations-block">
+              <p class="section-label">Alertas</p>
+              <ul class="alert-list" id="alert-list"></ul>
+            </div>
+
+            <div class="operations-block">
+              <p class="section-label">Atividade recente</p>
+              <ul class="timeline-list" id="timeline-list"></ul>
+            </div>
+          </article>
+
+          <article class="panel panel-tools glass-panel">
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Tools</p>
+                <h3>Instrumentos da plataforma</h3>
+              </div>
+              <div class="status-pill">modulos preparados</div>
+            </div>
+
+            <div class="tool-groups" id="tool-groups"></div>
+          </article>
+
+          <article class="panel panel-overview glass-panel">
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Overview</p>
+                <h3>Estado geral da organizacao</h3>
+              </div>
+              <div class="status-pill">dados de superficie</div>
+            </div>
+
+            <div class="overview-metrics" id="overview-metrics"></div>
+
+            <div class="overview-footer">
+              <div class="glass-subpanel overview-footer__note">
+                <p class="section-label">Camada cromatica</p>
+                <strong>Em espera deliberada</strong>
+                <span>
+                  Cores, gradientes e paletas permanecem desativados ate aprovacao
+                  oficial.
+                </span>
+              </div>
+
+              <div class="glass-subpanel overview-footer__note">
+                <p class="section-label">Proxima fase</p>
+                <strong>Integracao gradual dos modulos</strong>
+                <span>
+                  O shell visual esta pronto para receber Brand, Marketing e Tools sem
+                  reescrita imediata.
+                </span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
