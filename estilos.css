@@ -12,7 +12,7 @@
   --radius-xl: 28px;
   --radius-lg: 20px;
   --grid-gap: 1.15rem;
-  --sidebar-width: 292px;
+  --sidebar-width: 248px;
 }
 
 * {
@@ -31,7 +31,7 @@ body {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 25%),
     linear-gradient(145deg, #090909 0%, #060606 45%, #020202 100%);
-  font-size: 16px;
+  font-size: clamp(16px, 0.92vw, 18px);
   overflow-x: hidden;
 }
 
@@ -253,9 +253,9 @@ a {
 }
 
 .topbar h2 {
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.35rem);
   line-height: 1.08;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 
 .topbar-actions {
@@ -323,12 +323,13 @@ a {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 1fr minmax(620px, 1.65fr) 1fr;
-  grid-template-rows: minmax(440px, 1.32fr) minmax(310px, 0.95fr);
+  grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+  grid-template-rows: minmax(520px, 1.45fr) minmax(320px, 1fr) minmax(320px, 1fr);
   gap: var(--grid-gap);
   grid-template-areas:
-    "brand radar operations"
-    "tools overview overview";
+    "radar radar"
+    "brand operations"
+    "tools overview";
   flex: 1;
   min-height: 0;
   align-items: stretch;
@@ -352,7 +353,7 @@ a {
 }
 
 .panel h3 {
-  font-size: 1.28rem;
+  font-size: 1.4rem;
   line-height: 1.08;
 }
 
@@ -479,8 +480,8 @@ a {
 
 .radar-layout {
   display: grid;
-  grid-template-columns: minmax(380px, 1fr) minmax(280px, 0.84fr);
-  gap: 1.2rem;
+  grid-template-columns: minmax(460px, 1.15fr) minmax(320px, 0.85fr);
+  gap: 1.4rem;
   align-items: center;
   flex: 1;
 }
@@ -488,7 +489,7 @@ a {
 .radar-frame {
   position: relative;
   aspect-ratio: 1 / 1;
-  width: min(100%, 560px);
+  width: min(100%, 620px);
   margin: 0 auto;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -552,7 +553,7 @@ a {
 }
 
 .radar-center__month {
-  font-size: clamp(1.65rem, 2.3vw, 2.1rem);
+  font-size: clamp(1.8rem, 2.7vw, 2.45rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -722,7 +723,7 @@ a {
 
 .tool-groups {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   flex: 1;
 }
@@ -873,11 +874,11 @@ a {
 
 @media (max-width: 1440px) {
   .dashboard-grid {
-    grid-template-columns: 1fr 1.25fr;
-    grid-template-rows: minmax(360px, auto) minmax(470px, auto) minmax(320px, auto);
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+    grid-template-rows: minmax(470px, auto) minmax(320px, auto) minmax(320px, auto);
     grid-template-areas:
-      "brand operations"
       "radar radar"
+      "brand operations"
       "tools overview";
   }
 
@@ -886,11 +887,7 @@ a {
   }
 
   .radar-frame {
-    width: min(100%, 520px);
-  }
-
-  .tool-groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 560px);
   }
 }
 
