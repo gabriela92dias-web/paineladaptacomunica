@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Color Core Familias</title>
+    <link rel="stylesheet" href="./color-core-familias.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Color Core</p>
+          <h1>Proposta inicial das 3 familias</h1>
+          <p class="hero-text">
+            Preview independente para visualizar a sugestao de sistema do Color
+            Core em ambiente neutro. Cada familia aparece organizada por centro
+            de luz, acentos e campo derivado.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">Como ler</p>
+            <ul>
+              <li>Centro de luz = identidade principal da familia.</li>
+              <li>Acentos = pontos vivos para ativacao.</li>
+              <li>Campo derivado = atmosfera, nao swatch protagonista.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel intro-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Regra do sistema</p>
+            <h2>Nucleo, acentos e campo derivado</h2>
+          </div>
+          <p class="section-note">
+            A proposta abandona a escadinha rigida. Cada familia funciona por
+            centro de luz, acentos vivos e um campo claro derivado da propria
+            luz.
+          </p>
+        </div>
+
+        <div class="rule-grid">
+          <article>
+            <strong>Centro de luz</strong>
+            <p>O tom que segura a leitura principal da familia.</p>
+          </article>
+          <article>
+            <strong>Acentos</strong>
+            <p>Os pontos vivos de detalhe, chamada e pulso visual.</p>
+          </article>
+          <article>
+            <strong>Campo derivado</strong>
+            <p>A atmosfera clara da familia, tratada como camada e nao chip.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="family-grid">
+        <article
+          class="family-card"
+          style="
+            --center: #FFE0A9;
+            --accent-a: #FCDE73;
+            --accent-b: #FC8473;
+            --field-a: rgba(255, 224, 169, 0.52);
+            --field-b: rgba(252, 132, 115, 0.20);
+            --line-a: rgba(252, 132, 115, 0.28);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 1</p>
+              <h3>Energia</h3>
+            </div>
+            <span class="family-badge">manga + coral</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro de luz</strong>
+                <p>#FFE0A9</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento A</strong>
+                <p>#FCDE73</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento B</strong>
+                <p>#FC8473</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campo derivado</strong>
+              <p>Wash quente, auroral e social.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-a">Acento</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>quente, auroral, viva</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="family-card"
+          style="
+            --center: #F6C1D1;
+            --accent-a: #FF78A8;
+            --accent-b: #8A4B69;
+            --field-a: rgba(246, 193, 209, 0.46);
+            --field-b: rgba(255, 120, 168, 0.16);
+            --line-a: rgba(138, 75, 105, 0.24);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 2</p>
+              <h3>Alegria</h3>
+            </div>
+            <span class="family-badge">pink + boysenberry</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro de luz</strong>
+                <p>#F6C1D1</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento A</strong>
+                <p>#FF78A8</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento B</strong>
+                <p>#8A4B69</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campo derivado</strong>
+              <p>Wash afetivo, aberto e humano.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-a">Acento</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>aberta, calorosa, presente</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="family-card"
+          style="
+            --center: #C8CEFF;
+            --accent-a: #8F98FF;
+            --accent-b: #6E57E8;
+            --field-a: rgba(200, 206, 255, 0.44);
+            --field-b: rgba(110, 87, 232, 0.12);
+            --line-a: rgba(110, 87, 232, 0.24);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 3</p>
+              <h3>Seguranca</h3>
+            </div>
+            <span class="family-badge">pervinca + roxo</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro de luz</strong>
+                <p>#C8CEFF</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento A</strong>
+                <p>#8F98FF</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento B</strong>
+                <p>#6E57E8</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campo derivado</strong>
+              <p>Wash nublado, calmo e confiavel.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-a">Acento</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>calma, nublada, estavel</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
