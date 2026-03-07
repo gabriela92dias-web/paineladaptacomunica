@@ -15,20 +15,20 @@ const currentMonth = "Marco";
 monthLabel.textContent = currentMonth;
 
 const tickerItems = [
-  "Guidelines atualizadas e aguardando definicao cromatica",
-  "Novo shell visual da plataforma em construcao",
-  "Planner mensal pronto para receber campanhas reais",
-  "Mascots mantido em espera para revisao cromatica futura",
-  "Ferramentas de cor preparadas, mas com camada cromatica suspensa",
+  "Guidelines em revisao executiva",
+  "Shell visual da plataforma em construcao",
+  "Calendario mensal preparado para integracao real",
+  "Mascots em revisao para fase posterior",
+  "Colors e gradients seguem aguardando liberacao cromatica",
 ];
 
 const brandActions = [
-  { icon: "ID", title: "Identity", note: "Logo, assinatura e estrutura institucional" },
-  { icon: "GL", title: "Guidelines", note: "Diretrizes em leitura executiva" },
-  { icon: "MT", title: "Materials", note: "Pecas neutras e placeholders preparados" },
-  { icon: "TP", title: "Templates", note: "Modelos prontos para receber tokens" },
-  { icon: "EX", title: "Export", note: "Pacotes e saidas padronizadas" },
-  { icon: "ST", title: "Settings", note: "Controles de plataforma e modos" },
+  { icon: "ID", title: "Identity", note: "Logo e estrutura" },
+  { icon: "GL", title: "Guidelines", note: "Diretrizes centrais" },
+  { icon: "MT", title: "Materials", note: "Pecas neutras" },
+  { icon: "TP", title: "Templates", note: "Modelos base" },
+  { icon: "EX", title: "Export", note: "Pacotes e saidas" },
+  { icon: "ST", title: "Settings", note: "Controles gerais" },
 ];
 
 const weeks = [
@@ -38,7 +38,7 @@ const weeks = [
     start: -90,
     size: 72,
     angle: -54,
-    summary: "Inicio do mes com foco em alinhamento institucional e consolidacao do calendario executivo.",
+    summary: "Alinhamento institucional e consolidacao do calendario executivo.",
     items: [
       { title: "Revisao de identidade institucional", meta: "Brand / alinhamento interno" },
       { title: "Conferencia do planner mensal", meta: "Marketing / visao macro" },
@@ -51,7 +51,7 @@ const weeks = [
     start: -18,
     size: 72,
     angle: 18,
-    summary: "Semana de concentracao em campanha, agenda institucional e checkpoints de direcao.",
+    summary: "Janela de agenda institucional e checkpoints de direcao.",
     items: [
       { title: "Janela de campanha institucional", meta: "Marketing / marco do mes" },
       { title: "Atualizacao do calendario de eventos", meta: "Operations / visao geral" },
@@ -64,7 +64,7 @@ const weeks = [
     start: 54,
     size: 72,
     angle: 90,
-    summary: "Meio do mes reservado para acompanhamento de operacao e leitura de atividade recente.",
+    summary: "Semana voltada a acompanhamento e leitura de atividade recente.",
     items: [
       { title: "Checkpoint de campanhas ativas", meta: "Marketing / acompanhamento" },
       { title: "Analise grafica institucional", meta: "Tools / readiness" },
@@ -77,7 +77,7 @@ const weeks = [
     start: 126,
     size: 72,
     angle: 162,
-    summary: "Fechamento do ciclo mensal com relatorios, consolidacao e preparacao do mes seguinte.",
+    summary: "Fechamento do ciclo com relatorios e preparacao do mes seguinte.",
     items: [
       { title: "Resumo mensal de atividade", meta: "Operations / consolidacao" },
       { title: "Organizacao de ativos e pautas", meta: "Marketing / preparacao" },
@@ -90,7 +90,7 @@ const weeks = [
     start: 198,
     size: 72,
     angle: 234,
-    summary: "Janela adicional para meses longos, usada como buffer de replanejamento e organizacao.",
+    summary: "Buffer para replanejamento, ajuste de prioridades e organizacao.",
     items: [
       { title: "Buffer estrategico e retomada", meta: "Direcao / baixa densidade" },
       { title: "Ajustes de prioridade do proximo ciclo", meta: "Platform / governanca" },
@@ -108,16 +108,16 @@ const radarEvents = [
 ];
 
 const alerts = [
-  { title: "Camada cromatica segue bloqueada", meta: "Todos os modulos cromaticos devem permanecer em espera" },
-  { title: "Templates visuais em modo neutro", meta: "Pecas mostram placeholders e avisos de atualizacao pendente" },
-  { title: "Integracao dos modulos ainda nao iniciada", meta: "Dashboard atual e um shell visual seguro" },
+  { title: "Camada cromatica bloqueada", meta: "Todos os modulos cromaticos seguem em espera" },
+  { title: "Templates em modo neutro", meta: "Pecas mostram placeholders provisorios" },
+  { title: "Integracao real ainda nao iniciada", meta: "Este dashboard e um shell visual seguro" },
 ];
 
 const timeline = [
   { time: "15:20", title: "Shell do dashboard iniciado", meta: "Nova central de controle visual em construcao" },
   { time: "14:42", title: "Estrutura de navegacao consolidada", meta: "Dashboard, Brand, Marketing e Tools definidos" },
-  { time: "13:18", title: "Radar mensal escolhido como foco central", meta: "Substitui radar de campanhas para leitura executiva" },
-  { time: "11:56", title: "Congelamento cromatico reafirmado", meta: "Cores, paletas e gradientes seguem desativados" },
+  { time: "13:18", title: "Radar mensal definido como foco", meta: "Calendario estrategico para leitura executiva" },
+  { time: "11:56", title: "Congelamento cromatico reafirmado", meta: "Cores, paletas e gradientes seguem desligados" },
 ];
 
 const tools = [
@@ -126,21 +126,21 @@ const tools = [
     items: [
       {
         name: "Colors",
-        note: "Em espera ate a liberacao dos tokens",
+        note: "Aguardando tokens",
         badge: "off",
         icon: colorIcon(),
         disabled: true,
       },
       {
         name: "Gradients",
-        note: "Preview cromatico suspenso",
+        note: "Modulo em espera",
         badge: "off",
         icon: gradientIcon(),
         disabled: true,
       },
       {
         name: "Typography",
-        note: "Ativo como camada estrutural",
+        note: "Camada estrutural",
         badge: "ready",
         icon: typographyIcon(),
         disabled: false,
@@ -152,7 +152,7 @@ const tools = [
     items: [
       {
         name: "Mascots",
-        note: "Preparado para revisao visual posterior",
+        note: "Revisao posterior",
         badge: "standby",
         icon: mascotIcon(),
         disabled: false,
@@ -164,7 +164,7 @@ const tools = [
     items: [
       {
         name: "Graphic Analysis",
-        note: "Modulo de leitura e verificacao",
+        note: "Leitura e verificacao",
         badge: "ready",
         icon: analysisIcon(),
         disabled: false,
@@ -174,10 +174,10 @@ const tools = [
 ];
 
 const metrics = [
-  { label: "Areas visiveis", value: "4", meta: "Dashboard, Brand, Marketing e Tools" },
-  { label: "Semanas do radar", value: "5", meta: "Mes representado como instrumento analogico" },
-  { label: "Modulos cromaticos", value: "OFF", meta: "Colors, gradients e paletas em espera" },
-  { label: "Estado do shell", value: "v1", meta: "Camada visual pronta para evolucao" },
+  { label: "Areas", value: "4", meta: "Dashboard, Brand, Marketing e Tools" },
+  { label: "Radar", value: "5", meta: "Semanas do mes no instrumento central" },
+  { label: "Cor", value: "OFF", meta: "Colors, gradients e paletas em espera" },
+  { label: "Shell", value: "v1", meta: "Base visual pronta para evolucao" },
 ];
 
 function renderTicker() {
