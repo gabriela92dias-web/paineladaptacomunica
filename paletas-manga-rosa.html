@@ -747,6 +747,97 @@
       </div>
     </section>
 
+    <section class="value-panel" id="rose-lab">
+      <div class="eyebrow">Laboratorio atual</div>
+      <h2>Rosa-base fixo: #B95673</h2>
+      <p>Sem mexer na mae aprovada, este laboratorio abre so os outros papeis ao redor dela: super claro, neutro elegante e neonpastel. Todas as opcoes abaixo preservam a mesma matriz do rosa-base.</p>
+
+      <div class="value-review-panel">
+        <div class="value-review-toolbar">
+          <div class="value-review-modes">
+            <button class="value-mode-button is-active" id="rose-approve-mode" data-mode="approve" type="button">Modo aprovar</button>
+            <button class="value-mode-button" id="rose-reject-mode" data-mode="reject" type="button">Modo reprovar</button>
+            <button class="value-mode-button" id="rose-clear-mode" data-mode="clear" type="button">Limpar marcacoes</button>
+          </div>
+          <div class="value-review-status" id="rose-review-status">Clique nas opcoes do laboratorio do rosa para aprovar ou reprovar.</div>
+        </div>
+        <div class="value-review-grid">
+          <div class="value-review-column">
+            <h3 id="rose-approved-title">Aprovadas (0)</h3>
+            <div class="value-review-list" id="rose-approved-list">
+              <div class="value-review-empty">Nada aprovado ainda.</div>
+            </div>
+          </div>
+          <div class="value-review-column">
+            <h3 id="rose-rejected-title">Reprovadas (0)</h3>
+            <div class="value-review-list" id="rose-rejected-list">
+              <div class="value-review-empty">Nada reprovado ainda.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <h3>Mae fixa</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#B95673">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B95673</span></div>
+            </div>
+          </div>
+          <div class="value-note">Esta e a ancora fixa. Nao estamos substituindo esse tom.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Super claro</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#EEE7E9">
+              <div class="value-swatch-label"><strong>A - Veu rosado</strong><span>#EEE7E9</span></div>
+            </div>
+            <div class="value-swatch" style="background:#EFE6E9">
+              <div class="value-swatch-label"><strong>B - Nuvem rosa</strong><span>#EFE6E9</span></div>
+            </div>
+            <div class="value-swatch" style="background:#F3ECEE">
+              <div class="value-swatch-label"><strong>C - Leite rosa</strong><span>#F3ECEE</span></div>
+            </div>
+          </div>
+          <div class="value-note">Versoes muito claras, quase fundo, mantendo o eixo do rosa-base.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Neutro elegante</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#A58D94">
+              <div class="value-swatch-label"><strong>A - Taupe rosado</strong><span>#A58D94</span></div>
+            </div>
+            <div class="value-swatch" style="background:#AB8791">
+              <div class="value-swatch-label"><strong>B - Rosa cassis</strong><span>#AB8791</span></div>
+            </div>
+            <div class="value-swatch" style="background:#B4939C">
+              <div class="value-swatch-label"><strong>C - Pó de framboesa</strong><span>#B4939C</span></div>
+            </div>
+          </div>
+          <div class="value-note">Aqui a funcao e ser medio, elegante e contido, sem roubar o papel da mae.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Neonpastel</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#EE779A">
+              <div class="value-swatch-label"><strong>A - Pink sorbet</strong><span>#EE779A</span></div>
+            </div>
+            <div class="value-swatch" style="background:#F782A5">
+              <div class="value-swatch-label"><strong>B - Pink glow</strong><span>#F782A5</span></div>
+            </div>
+            <div class="value-swatch" style="background:#FE90B0">
+              <div class="value-swatch-label"><strong>C - Pink candy</strong><span>#FE90B0</span></div>
+            </div>
+          </div>
+          <div class="value-note">Pastel vibrante: claro, aceso e artificial na medida, mas ainda na mesma matriz do rosa-base.</div>
+        </article>
+      </div>
+    </section>
+
     <section class="grid">
       <article class="card">
         <div class="card-header">
@@ -909,10 +1000,22 @@
     const rejectedList = document.getElementById('rejected-list');
     const approvedTitle = document.getElementById('approved-title');
     const rejectedTitle = document.getElementById('rejected-title');
+    const roseLab = document.getElementById('rose-lab');
+    const roseApproveModeButton = document.getElementById('rose-approve-mode');
+    const roseRejectModeButton = document.getElementById('rose-reject-mode');
+    const roseClearModeButton = document.getElementById('rose-clear-mode');
+    const roseReviewStatus = document.getElementById('rose-review-status');
+    const roseApprovedList = document.getElementById('rose-approved-list');
+    const roseRejectedList = document.getElementById('rose-rejected-list');
+    const roseApprovedTitle = document.getElementById('rose-approved-title');
+    const roseRejectedTitle = document.getElementById('rose-rejected-title');
     let selectedKeys = [];
     let reviewMode = 'approve';
     let approvedValueKeys = [];
     let rejectedValueKeys = [];
+    let roseReviewMode = 'approve';
+    let roseApprovedKeys = [];
+    let roseRejectedKeys = [];
 
     swatches.forEach((swatch) => {
       const hex = swatch.querySelector('.label').textContent.trim();
@@ -1014,6 +1117,60 @@
         approvedValueKeys = [];
         rejectedValueKeys = [];
         updateValueReviewUI();
+      });
+    }
+
+    const roseLabSwatches = roseLab
+      ? Array.from(roseLab.querySelectorAll('.value-swatch')).filter((swatch) => !swatch.closest('.value-card')?.querySelector('.value-swatch-label strong')?.textContent.includes('Mae aprovada'))
+      : [];
+
+    const hasRoseLabReview =
+      roseLab &&
+      roseApproveModeButton &&
+      roseRejectModeButton &&
+      roseClearModeButton &&
+      roseReviewStatus &&
+      roseApprovedList &&
+      roseRejectedList &&
+      roseApprovedTitle &&
+      roseRejectedTitle;
+
+    if (hasRoseLabReview) {
+      roseLabSwatches.forEach((swatch) => {
+        const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
+        const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
+        const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
+        const key = `${family}::${labelStrong}::${hex}`;
+        swatch.dataset.roseReviewKey = key;
+        swatch.dataset.roseFamily = family;
+        swatch.dataset.roseLabel = labelStrong;
+        swatch.dataset.roseHex = hex;
+        swatch.setAttribute('role', 'button');
+        swatch.setAttribute('tabindex', '0');
+        swatch.setAttribute('aria-label', `${labelStrong} ${hex} da secao ${family}`);
+        swatch.addEventListener('click', () => toggleRoseReview(swatch));
+        swatch.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleRoseReview(swatch);
+          }
+        });
+      });
+
+      roseApproveModeButton.addEventListener('click', () => {
+        roseReviewMode = 'approve';
+        updateRoseReviewUI();
+      });
+
+      roseRejectModeButton.addEventListener('click', () => {
+        roseReviewMode = 'reject';
+        updateRoseReviewUI();
+      });
+
+      roseClearModeButton.addEventListener('click', () => {
+        roseApprovedKeys = [];
+        roseRejectedKeys = [];
+        updateRoseReviewUI();
       });
     }
 
@@ -1151,9 +1308,85 @@
       }
     }
 
+    function toggleRoseReview(swatch) {
+      const key = swatch.dataset.roseReviewKey;
+      const approvedIndex = roseApprovedKeys.indexOf(key);
+      const rejectedIndex = roseRejectedKeys.indexOf(key);
+
+      if (roseReviewMode === 'approve') {
+        if (approvedIndex >= 0) {
+          roseApprovedKeys.splice(approvedIndex, 1);
+        } else {
+          roseApprovedKeys.push(key);
+        }
+        if (rejectedIndex >= 0) {
+          roseRejectedKeys.splice(rejectedIndex, 1);
+        }
+      }
+
+      if (roseReviewMode === 'reject') {
+        if (rejectedIndex >= 0) {
+          roseRejectedKeys.splice(rejectedIndex, 1);
+        } else {
+          roseRejectedKeys.push(key);
+        }
+        if (approvedIndex >= 0) {
+          roseApprovedKeys.splice(approvedIndex, 1);
+        }
+      }
+
+      updateRoseReviewUI();
+    }
+
+    function renderRoseReviewList(target, keys, emptyText) {
+      if (keys.length === 0) {
+        target.innerHTML = `<div class="value-review-empty">${emptyText}</div>`;
+        return;
+      }
+
+      target.innerHTML = keys.map((key) => {
+        const swatch = roseLabSwatches.find((item) => item.dataset.roseReviewKey === key);
+        return `
+          <div class="value-review-chip">
+            <div class="value-review-chip-swatch" style="background:${swatch.dataset.roseHex}"></div>
+            <div class="value-review-chip-copy">
+              <strong>${swatch.dataset.roseLabel}</strong>
+              <span>${swatch.dataset.roseFamily} - ${swatch.dataset.roseHex}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateRoseReviewUI() {
+      roseApproveModeButton.classList.toggle('is-active', roseReviewMode === 'approve');
+      roseRejectModeButton.classList.toggle('is-active', roseReviewMode === 'reject');
+
+      roseLabSwatches.forEach((swatch) => {
+        const key = swatch.dataset.roseReviewKey;
+        swatch.classList.toggle('is-approved', roseApprovedKeys.includes(key));
+        swatch.classList.toggle('is-rejected', roseRejectedKeys.includes(key));
+      });
+
+      roseApprovedTitle.textContent = `Aprovadas (${roseApprovedKeys.length})`;
+      roseRejectedTitle.textContent = `Reprovadas (${roseRejectedKeys.length})`;
+
+      renderRoseReviewList(roseApprovedList, roseApprovedKeys, 'Nada aprovado ainda.');
+      renderRoseReviewList(roseRejectedList, roseRejectedKeys, 'Nada reprovado ainda.');
+
+      if (roseReviewMode === 'approve') {
+        roseReviewStatus.textContent = 'Modo aprovar ativo. Clique nas opcoes do rosa para colocar nas aprovadas.';
+      } else {
+        roseReviewStatus.textContent = 'Modo reprovar ativo. Clique nas opcoes do rosa para colocar nas reprovadas.';
+      }
+    }
+
     updateSelectionUI();
     if (hasValueReview) {
       updateValueReviewUI();
+    }
+    if (hasRoseLabReview) {
+      updateRoseReviewUI();
     }
   </script>
 </body>
