@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Avaliacao Rapida Color Core</title>
+    <link rel="stylesheet" href="./color-core-avaliacao.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Color Core</p>
+          <h1>Avaliacao rapida</h1>
+          <p class="hero-text">
+            Compare 4 possibilidades por familia. Dê notas de 0 a 10 em cada
+            rota, escreva observacoes por familia e exporte tudo para me mandar.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="action-row">
+            <button id="copy-feedback-btn" class="action-btn" type="button">
+              Copiar respostas
+            </button>
+            <button id="download-feedback-btn" class="action-btn ghost" type="button">
+              Baixar JSON
+            </button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">Como usar</p>
+            <ul>
+              <li>Dê uma nota de 0 a 10 para cada rota.</li>
+              <li>Escreva observacoes so se precisar.</li>
+              <li>Copie ou baixe o resumo e me envie.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="family-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Familia 1</p>
+            <h2>Energia</h2>
+          </div>
+          <div class="winner-box" data-winner-family="energia">Sem vencedor</div>
+        </div>
+
+        <div class="option-grid">
+          <article
+            class="option-card"
+            data-family="energia"
+            data-option="A"
+            style="
+              --c1:#FFF6E8;
+              --c2:#FFE8CC;
+              --c3:#F6E0B8;
+              --c4:#FFD58D;
+              --c5:#F7A07F;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">A</span>
+              <div>
+                <strong>Manga palida</strong>
+                <p>amarelo manga -> coral tangerina</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="energia-A"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="energia"
+            data-option="B"
+            style="
+              --c1:#FFF8EC;
+              --c2:#FFEFD7;
+              --c3:#F8E2A5;
+              --c4:#FFD86F;
+              --c5:#F4A68B;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">B</span>
+              <div>
+                <strong>Manga leitosa</strong>
+                <p>mais clara, mais wash, menos tangerina</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="energia-B"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="energia"
+            data-option="C"
+            style="
+              --c1:#FFF3DF;
+              --c2:#FFE2B8;
+              --c3:#F5D58E;
+              --c4:#FFC86C;
+              --c5:#F58E72;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">C</span>
+              <div>
+                <strong>Polpa frutada</strong>
+                <p>mais polpa, mais fruta, mais coral final</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="energia-C"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="energia"
+            data-option="D"
+            style="
+              --c1:#FFF7EE;
+              --c2:#FDE6D1;
+              --c3:#F3DBB1;
+              --c4:#FFD19B;
+              --c5:#F8A891;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">D</span>
+              <div>
+                <strong>Aurora pessego</strong>
+                <p>mais pessego, menos manga dura, coral macio</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="energia-D"></div>
+          </article>
+        </div>
+
+        <label class="notes-label" for="notes-energia">Observacoes sobre Energia</label>
+        <textarea
+          id="notes-energia"
+          class="notes-field"
+          data-notes-family="energia"
+          placeholder="Ex.: A e D estão mais perto; C fecha rápido demais no coral."
+        ></textarea>
+      </section>
+
+      <section class="family-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Familia 2</p>
+            <h2>Alegria</h2>
+          </div>
+          <div class="winner-box" data-winner-family="alegria">Sem vencedor</div>
+        </div>
+
+        <div class="option-grid">
+          <article
+            class="option-card"
+            data-family="alegria"
+            data-option="A"
+            style="
+              --c1:#FCEBED;
+              --c2:#F4D0D6;
+              --c3:#E58A98;
+              --c4:#D97995;
+              --c5:#A45277;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">A</span>
+              <div>
+                <strong>Melancia limpa</strong>
+                <p>rosa melancia -> berry suave</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="alegria-A"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="alegria"
+            data-option="B"
+            style="
+              --c1:#FDECEF;
+              --c2:#F7D3DA;
+              --c3:#E97F92;
+              --c4:#F06B92;
+              --c5:#A64A70;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">B</span>
+              <div>
+                <strong>Melancia viva</strong>
+                <p>mais fresca, mais fruta, berry mais limpo</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="alegria-B"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="alegria"
+            data-option="C"
+            style="
+              --c1:#FDEDF2;
+              --c2:#F5D6DE;
+              --c3:#E6A1B0;
+              --c4:#E57F9F;
+              --c5:#9F5679;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">C</span>
+              <div>
+                <strong>Blush morango</strong>
+                <p>mais suave, mais aberto, menos melancia direta</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="alegria-C"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="alegria"
+            data-option="D"
+            style="
+              --c1:#FCE9F0;
+              --c2:#F1CBD6;
+              --c3:#D98AA6;
+              --c4:#DF709A;
+              --c5:#8E4165;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">D</span>
+              <div>
+                <strong>Berry afinado</strong>
+                <p>mais berry no fim, sem cair em vinho frio</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="alegria-D"></div>
+          </article>
+        </div>
+
+        <label class="notes-label" for="notes-alegria">Observacoes sobre Alegria</label>
+        <textarea
+          id="notes-alegria"
+          class="notes-field"
+          data-notes-family="alegria"
+          placeholder="Ex.: B está mais melancia; D chega mais perto do berry final que eu queria."
+        ></textarea>
+      </section>
+
+      <section class="family-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Familia 3</p>
+            <h2>Seguranca</h2>
+          </div>
+          <div class="winner-box" data-winner-family="seguranca">Sem vencedor</div>
+        </div>
+
+        <div class="option-grid">
+          <article
+            class="option-card"
+            data-family="seguranca"
+            data-option="A"
+            style="
+              --c1:#F1E6F0;
+              --c2:#DEC7DE;
+              --c3:#B473B1;
+              --c4:#A694D6;
+              --c5:#8B77BF;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">A</span>
+              <div>
+                <strong>Lavanda rosada</strong>
+                <p>lavanda quente -> roxo frio</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="seguranca-A"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="seguranca"
+            data-option="B"
+            style="
+              --c1:#F4E9F4;
+              --c2:#E3CCE1;
+              --c3:#B983C0;
+              --c4:#A8A0DD;
+              --c5:#8771BA;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">B</span>
+              <div>
+                <strong>Pervinca morna</strong>
+                <p>mais aberta, mais clara, roxo final firme</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="seguranca-B"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="seguranca"
+            data-option="C"
+            style="
+              --c1:#F0E7F1;
+              --c2:#D8C8DC;
+              --c3:#AE7AAE;
+              --c4:#9CA0D8;
+              --c5:#8167B3;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">C</span>
+              <div>
+                <strong>Lavanda nebulosa</strong>
+                <p>mais nublada, menos rosa, mais repousada</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="seguranca-C"></div>
+          </article>
+
+          <article
+            class="option-card"
+            data-family="seguranca"
+            data-option="D"
+            style="
+              --c1:#F5EDF6;
+              --c2:#E6D6E7;
+              --c3:#C09ACB;
+              --c4:#A8A7E1;
+              --c5:#8A70B5;
+            "
+          >
+            <div class="option-head">
+              <span class="option-id">D</span>
+              <div>
+                <strong>Rosy lilac</strong>
+                <p>mais claro e quase floral, com denso roxo frio</p>
+              </div>
+            </div>
+            <div class="swatch-line">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mini-scene">
+              <div class="mini-field"></div>
+              <div class="mini-bar"></div>
+              <div class="mini-pills">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="score-row" data-score-row="seguranca-D"></div>
+          </article>
+        </div>
+
+        <label class="notes-label" for="notes-seguranca">Observacoes sobre Seguranca</label>
+        <textarea
+          id="notes-seguranca"
+          class="notes-field"
+          data-notes-family="seguranca"
+          placeholder="Ex.: A é mais quente; C e D descansam mais; B está mais equilibrada."
+        ></textarea>
+      </section>
+
+      <section class="panel export-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Exportacao</p>
+            <h2>Resumo para compartilhar</h2>
+          </div>
+          <p class="section-note">
+            O resumo abaixo atualiza automaticamente com as notas e as
+            observacoes. Copie ou baixe para me mandar.
+          </p>
+        </div>
+
+        <textarea
+          id="feedback-export"
+          class="export-output"
+          readonly
+          aria-label="Resumo exportavel da avaliacao"
+        ></textarea>
+      </section>
+    </main>
+
+    <script src="./color-core-avaliacao.js"></script>
+  </body>
+</html>
