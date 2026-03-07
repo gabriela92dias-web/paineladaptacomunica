@@ -1,6 +1,5 @@
 const monthLabel = document.getElementById("radar-month-label");
 const tickerTrack = document.getElementById("ticker-track");
-const brandActionsContainer = document.getElementById("brand-actions");
 const radarSegmentsContainer = document.getElementById("radar-segments");
 const radarEventsContainer = document.getElementById("radar-events");
 const weekTitle = document.getElementById("week-title");
@@ -20,13 +19,6 @@ const tickerItems = [
   "Calendario mensal preparado para integracao real",
   "Mascots em revisao para fase posterior",
   "Colors e gradients seguem aguardando liberacao cromatica",
-];
-
-const brandActions = [
-  { icon: "ID", title: "Identity", note: "Logo e estrutura" },
-  { icon: "GL", title: "Guidelines", note: "Diretrizes centrais" },
-  { icon: "MT", title: "Materials", note: "Pecas neutras" },
-  { icon: "ST", title: "Settings", note: "Controles gerais" },
 ];
 
 const weeks = [
@@ -106,8 +98,7 @@ const alerts = [
 
 const timeline = [
   { time: "15:20", title: "Shell do dashboard iniciado", meta: "Nova central de controle visual em construcao" },
-  { time: "14:42", title: "Estrutura de navegacao consolidada", meta: "Dashboard, Brand, Marketing e Tools definidos" },
-  { time: "13:18", title: "Radar mensal definido como foco", meta: "Calendario estrategico para leitura executiva" },
+  { time: "14:42", title: "Estrutura de navegacao consolidada", meta: "Radar central, operations e tools como orbitas" },
 ];
 
 const tools = [
@@ -175,22 +166,6 @@ function renderTicker() {
     .map((item) => `<span class="ticker-item">${item}</span>`)
     .join("");
   tickerTrack.innerHTML = content;
-}
-
-function renderBrandActions() {
-  brandActionsContainer.innerHTML = brandActions
-    .map(
-      (action) => `
-        <button class="brand-action" type="button">
-          <span class="brand-action__icon">${action.icon}</span>
-          <div>
-            <strong>${action.title}</strong>
-            <span>${action.note}</span>
-          </div>
-        </button>
-      `,
-    )
-    .join("");
 }
 
 function renderRadar() {
@@ -374,7 +349,6 @@ function analysisIcon() {
 }
 
 renderTicker();
-renderBrandActions();
 renderRadar();
 renderOperations();
 renderTools();

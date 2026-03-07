@@ -80,26 +80,28 @@
           </div>
         </section>
 
-        <section class="dashboard-grid">
-          <article class="panel panel-brand glass-panel">
-            <div class="panel__header">
-              <div>
-                <p class="eyebrow">Brand hub</p>
-                <h3>Acesso rapido</h3>
-              </div>
-              <div class="status-pill">pronto para navegacao</div>
+        <section class="control-stage glass-panel">
+          <aside class="stage-rail stage-rail--left">
+            <div class="stage-rail__header">
+              <p class="eyebrow">Operations</p>
+              <h3>Alertas e atividade</h3>
             </div>
 
-            <div class="brand-actions" id="brand-actions"></div>
-
-            <div class="panel-strip">
-              <strong>Cor em espera deliberada</strong>
-              <span>Brand segue neutro ate a liberacao oficial dos tokens.</span>
+            <div class="rail-section">
+              <p class="section-label">Alertas</p>
+              <ul class="alert-list" id="alert-list"></ul>
             </div>
-          </article>
 
-          <article class="panel panel-radar glass-panel">
-            <div class="panel__header panel__header--split">
+            <div class="rail-divider"></div>
+
+            <div class="rail-section">
+              <p class="section-label">Atividade recente</p>
+              <ul class="timeline-list" id="timeline-list"></ul>
+            </div>
+          </aside>
+
+          <section class="stage-core">
+            <div class="stage-core__header">
               <div>
                 <p class="eyebrow">Month radar</p>
                 <h3>Calendario mensal estrategico</h3>
@@ -109,11 +111,11 @@
                   <span class="status-dot"></span>
                   overview executivo
                 </span>
-                <span class="mini-note">sem detalhes operacionais profundos</span>
+                <span class="mini-note">instrumento central do mes</span>
               </div>
             </div>
 
-            <div class="radar-layout">
+            <div class="radar-stage">
               <div class="radar-frame">
                 <div class="radar-scan"></div>
                 <div class="radar-center">
@@ -127,66 +129,44 @@
                 <div class="radar-events" id="radar-events"></div>
               </div>
 
-              <div class="radar-details glass-subpanel">
+              <div class="radar-focus glass-subpanel">
                 <p class="eyebrow">Foco da semana</p>
                 <h4 id="week-title">Semana 1</h4>
                 <p class="radar-details__copy" id="week-summary"></p>
                 <ul class="detail-list" id="week-items"></ul>
               </div>
             </div>
-          </article>
+          </section>
 
-          <article class="panel panel-operations glass-panel">
-            <div class="panel__header">
-              <div>
-                <p class="eyebrow">Operations</p>
-                <h3>Alertas e atividade</h3>
-              </div>
-              <div class="status-pill">
-                <span class="status-dot"></span>
-                sistema vivo
-              </div>
-            </div>
-
-            <div class="operations-block">
-              <p class="section-label">Alertas</p>
-              <ul class="alert-list" id="alert-list"></ul>
-            </div>
-
-            <div class="operations-block">
-              <p class="section-label">Atividade recente</p>
-              <ul class="timeline-list" id="timeline-list"></ul>
-            </div>
-          </article>
-
-          <article class="panel panel-tools glass-panel">
-            <div class="panel__header">
-              <div>
-                <p class="eyebrow">Tools</p>
-                <h3>Instrumentos da plataforma</h3>
-              </div>
-              <div class="status-pill">modulos preparados</div>
+          <aside class="stage-rail stage-rail--right">
+            <div class="stage-rail__header">
+              <p class="eyebrow">Tools</p>
+              <h3>Instrumentos</h3>
             </div>
 
             <div class="tool-groups" id="tool-groups"></div>
-          </article>
 
-          <article class="panel panel-overview glass-panel">
-            <div class="panel__header">
-              <div>
-                <p class="eyebrow">Overview</p>
-                <h3>Estado geral da organizacao</h3>
-              </div>
-              <div class="status-pill">dados de superficie</div>
+            <div class="tool-note">
+              Colors e gradients seguem aguardando liberacao cromatica.
             </div>
+          </aside>
+        </section>
 
-            <div class="overview-metrics" id="overview-metrics"></div>
-
-            <div class="overview-strip glass-subpanel">
-              <span>Camada cromatica em espera</span>
-              <span>Proxima fase: integrar modulos reais sem reescrita imediata</span>
+        <section class="status-deck glass-panel">
+          <div class="status-deck__header">
+            <div>
+              <p class="eyebrow">Overview</p>
+              <h3>Estado geral da organizacao</h3>
             </div>
-          </article>
+            <div class="status-pill">dados de superficie</div>
+          </div>
+
+          <div class="overview-metrics" id="overview-metrics"></div>
+
+          <div class="overview-strip glass-subpanel">
+            <span>Camada cromatica em espera deliberada</span>
+            <span>Proxima fase: integrar modulos reais sem reescrita imediata</span>
+          </div>
         </section>
       </main>
     </div>
