@@ -232,7 +232,7 @@ button {
 
 .token-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 18px;
 }
@@ -283,6 +283,21 @@ button {
 
 .token-dot.accent-b {
   background: var(--accent-b);
+}
+
+.family-spectrum {
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--field-high) 0%,
+    var(--field-low) 26%,
+    var(--center) 50%,
+    var(--accent-a) 74%,
+    var(--accent-b) 100%
+  );
+  border: 1px solid var(--line-a);
+  margin-bottom: 18px;
 }
 
 .sample-grid {
