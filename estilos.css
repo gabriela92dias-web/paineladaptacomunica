@@ -678,6 +678,152 @@ button {
   line-height: 1.6;
 }
 
+.tone-lab {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.tone-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+
+.tone-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.tone-head h3 {
+  margin: 0;
+}
+
+.tone-swatch {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--tone-main);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  flex: 0 0 auto;
+}
+
+.tone-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tone-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  background: var(--tone-soft);
+  color: var(--tone-main);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tone-demo {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: var(--demo-bg);
+  border: 1px solid var(--demo-border);
+  border-radius: 18px;
+}
+
+.tone-surface-secondary {
+  padding: 14px;
+  background: var(--tone-surface);
+  border: 1px solid var(--tone-line);
+  border-radius: 16px;
+}
+
+.tone-surface-secondary strong,
+.tone-radar-legend span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.tone-surface-secondary p,
+.tone-radar-legend small {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.tone-hover-row,
+.tone-accent-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tone-hover-idle,
+.tone-hover-active,
+.tone-accent-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.tone-hover-idle {
+  background: transparent;
+  border: 1px solid var(--demo-border);
+  color: var(--text-muted);
+}
+
+.tone-hover-active {
+  background: var(--tone-soft);
+  border: 1px solid var(--tone-line);
+  color: var(--tone-main);
+}
+
+.tone-radar-block {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.tone-radar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 1px solid var(--tone-line);
+  background:
+    radial-gradient(circle at center, var(--tone-soft) 0 18%, transparent 18% 38%, var(--tone-soft) 38% 40%, transparent 40% 62%, var(--tone-soft) 62% 64%, transparent 64% 100%),
+    conic-gradient(from 0deg, transparent 0 20%, var(--tone-main) 20% 42%, transparent 42% 58%, var(--tone-main) 58% 74%, transparent 74% 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.tone-accent-pill {
+  background: var(--tone-main);
+  color: var(--surface);
+}
+
+.tone-accent-line {
+  display: block;
+  height: 8px;
+  width: 94px;
+  border-radius: 999px;
+  background: var(--tone-main);
+}
+
 .v1-demo .brand-mark,
 .v1-demo .icon-chip {
   background: var(--v1-accent-soft);
@@ -766,6 +912,7 @@ button {
 @media (max-width: 980px) {
   .hero,
   .grid.two-up,
+  .tone-lab,
   .checklist,
   .stats-grid {
     grid-template-columns: 1fr;
