@@ -7,13 +7,13 @@
   --shadow-md: 0 16px 34px rgba(17, 28, 24, 0.08);
   --transition: 180ms ease;
 
-  --green-050: #f2f8f3;
-  --green-100: #dce9df;
-  --green-signal: #b4f3b1;
-  --green-300: #a4c2ad;
-  --green-500: #6e947d;
-  --green-700: #2f574b;
-  --green-900: #112a24;
+  --green-050: #f4f8f0;
+  --green-100: #dfe8d8;
+  --green-signal: #bfe5ae;
+  --green-300: #aac19d;
+  --green-500: #77937a;
+  --green-700: #33564b;
+  --green-900: #132923;
 
   --neutral-000: #ffffff;
   --neutral-050: #f6f8f7;
@@ -86,7 +86,7 @@ body[data-mode="dark"] {
   --brand-fill-text: var(--neutral-950);
   --brand-signal: var(--green-signal);
   --brand-signal-text: var(--neutral-950);
-  --brand-soft: rgba(164, 194, 173, 0.14);
+  --brand-soft: rgba(170, 193, 157, 0.16);
   --brand-border: var(--green-500);
   --brand-highlight: var(--green-100);
   --chip-bg: rgba(220, 233, 223, 0.08);
@@ -306,7 +306,7 @@ button {
 }
 
 .signal-row {
-  box-shadow: inset 0 0 0 1px rgba(180, 243, 177, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(191, 229, 174, 0.55);
 }
 
 .swatch {
