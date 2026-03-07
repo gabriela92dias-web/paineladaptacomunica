@@ -303,7 +303,7 @@ button {
 
 .tone-accent-pill {
   background: var(--tone-main);
-  color: var(--neutral-000);
+  color: var(--tone-contrast, var(--neutral-000));
 }
 
 .tone-accent-line {
@@ -314,9 +314,46 @@ button {
   background: var(--tone-main);
 }
 
+.swatch-notes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.swatch-note {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.swatch-note-dot {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: var(--note);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin-bottom: 12px;
+}
+
+.swatch-note strong,
+.swatch-note small {
+  display: block;
+}
+
+.swatch-note strong {
+  margin-bottom: 4px;
+}
+
+.swatch-note small {
+  color: var(--text-muted);
+}
+
 @media (max-width: 980px) {
   .hero,
-  .tone-lab {
+  .tone-lab,
+  .swatch-notes {
     grid-template-columns: 1fr;
   }
 
