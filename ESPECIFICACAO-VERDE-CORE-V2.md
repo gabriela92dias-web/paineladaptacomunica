@@ -2,7 +2,8 @@
 
 **Status:** Aprovado para consolidacao  
 **Escopo:** Interface institucional e chrome principal do produto  
-**Relacionado a:** `integracao-funcional.html`, `estilos.css`, `app.js`
+**Relacionado a:** `integracao-funcional.html`, `estilos.css`, `app.js`  
+**Apêndice tecnico:** `APENDICE-CROMATICO-VERDE-CORE-V2.md`
 
 ---
 
@@ -87,19 +88,22 @@ Decisoes sobre onde cada token entra e onde nao deve entrar.
 
 ---
 
-## 4. Paleta primitiva aprovada
+## 4. Estrutura das escalas
 
-### 4.1 Green scale
+### 4.1 Familia verde
 
-```txt
-green.050    #F4F8F0
-green.100    #DFE8D8
-green.signal #BFE5AE
-green.300    #AAC19D
-green.500    #77937A
-green.700    #33564B
-green.900    #132923
-```
+O Verde Core trabalha com uma escala curta e legivel, com poucos degraus e
+distancia suficiente entre eles.
+
+Niveis previstos:
+
+- `green.050`
+- `green.100`
+- `green.signal`
+- `green.300`
+- `green.500`
+- `green.700`
+- `green.900`
 
 ### 4.2 Papel conceitual dos verdes
 
@@ -111,18 +115,21 @@ green.900    #132923
 - `green.700` -> verde institucional principal
 - `green.900` -> verde profundo, denso e estrutural
 
-### 4.3 Neutral scale
+### 4.3 Familia neutral
 
-```txt
-neutral.000  #FFFFFF
-neutral.050  #F7F8F4
-neutral.100  #ECEEE7
-neutral.300  #C8CDC3
-neutral.500  #6E786D
-neutral.700  #434A43
-neutral.900  #1A211C
-neutral.950  #0D110E
-```
+Os neutros acompanham a familia verde sem competir com ela.  
+Eles devem permanecer discretos, estruturais e apenas levemente aquecidos.
+
+Niveis previstos:
+
+- `neutral.000`
+- `neutral.050`
+- `neutral.100`
+- `neutral.300`
+- `neutral.500`
+- `neutral.700`
+- `neutral.900`
+- `neutral.950`
 
 ### 4.4 Papel conceitual dos neutros
 
@@ -139,64 +146,39 @@ neutral.950  #0D110E
 
 Uso restrito a analise, simulacao ou sinalizacao administrativa.
 
-```txt
-data.purple  #9886B3
-data.pink    #FF89DA
-data.yellow  #FFEC88
-data.orange  #FFB36B
-```
+Os valores tecnicos e cromaticos dessa camada ficam registrados no apendice.
 
 ---
 
 ## 5. Tokens semanticos
 
-### 5.1 Light mode
+Este documento registra o **papel** dos tokens.  
+O mapeamento exato entre tokens, escalas e valores esta no apendice tecnico.
 
-```txt
-bg               neutral.050
-surface          neutral.000
-surfaceSubtle    neutral.100
+### 5.1 Tokens estruturais
 
-text             neutral.900
-textMuted        neutral.500
+- `bg`
+- `surface`
+- `surfaceSubtle`
+- `text`
+- `textMuted`
 
-brandInk         green.700
-brandFill        green.700
-brandFillText    neutral.000
+### 5.2 Tokens de marca
 
-brandSignal      green.signal
-brandSignalText  neutral.950
+- `brandInk`
+- `brandFill`
+- `brandFillText`
+- `brandSignal`
+- `brandSignalText`
+- `brandSoft`
+- `brandBorder`
+- `brandHighlight`
+- `focusRing`
 
-brandSoft        green.100
-brandBorder      green.300
-brandHighlight   green.500
+### 5.3 Regra entre modos
 
-focusRing        green.500
-```
-
-### 5.2 Dark mode
-
-```txt
-bg               neutral.950
-surface          neutral.900
-surfaceSubtle    #222923
-
-text             #F7FAF8
-textMuted        neutral.300
-
-brandInk         green.100
-brandFill        green.300
-brandFillText    neutral.950
-
-brandSignal      green.signal
-brandSignalText  neutral.950
-
-brandSoft        rgba(170, 193, 157, 0.16)
-brandBorder      green.500
-brandHighlight   green.100
-
-focusRing        green.300
-```
+No light e no dark, os nomes e papeis se mantem.  
+O que muda entre os modos e a calibragem da intensidade, nao a funcao semantica.
 
 ---
 
@@ -423,6 +405,10 @@ Essa preview existe para validar:
 - comportamento de light e dark mode;
 - diferenca entre accent unico e familia tonal;
 - uso controlado do `brandSignal`.
+
+Os valores cromaticos exatos ficam registrados separadamente em:
+
+- `APENDICE-CROMATICO-VERDE-CORE-V2.md`
 
 ---
 
