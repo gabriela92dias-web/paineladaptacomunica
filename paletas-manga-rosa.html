@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview - Paletas Manga Rosa</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f2f0;
+      --card: #fffcfb;
+      --text: #2f2430;
+      --muted: #6b5d6d;
+      --border: rgba(47, 36, 48, 0.08);
+      --shadow: 0 18px 42px rgba(81, 56, 75, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(232, 121, 146, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(108, 98, 158, 0.12), transparent 30%),
+        linear-gradient(180deg, #f7f4f3 0%, var(--bg) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .page {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      padding: 28px 28px 24px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 252, 251, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(47, 36, 48, 0.05);
+      color: var(--text);
+      font-size: 0.88rem;
+      letter-spacing: 0.01em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      padding: 20px 20px 10px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(47, 36, 48, 0.05);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.28rem;
+      letter-spacing: -0.03em;
+    }
+
+    .description {
+      margin: 8px 0 0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+      gap: 8px;
+      padding: 18px 20px 14px;
+    }
+
+    .swatch {
+      position: relative;
+      aspect-ratio: 1 / 1.12;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: #ddd;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+    }
+
+    .swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(47, 36, 48, 0.14);
+    }
+
+    .swatch:focus-visible {
+      outline: 3px solid rgba(108, 98, 158, 0.45);
+      outline-offset: 2px;
+    }
+
+    .swatch.is-selected {
+      border-color: rgba(47, 36, 48, 0.4);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 6px rgba(108, 98, 158, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .swatch.is-selected::before {
+      content: attr(data-order);
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .swatch.is-disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+    }
+
+    .swatch::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 42%;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.18) 100%);
+    }
+
+    .label {
+      position: absolute;
+      left: 10px;
+      bottom: 9px;
+      z-index: 1;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.02em;
+    }
+
+    .meta {
+      padding: 0 20px 20px;
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .selection-panel {
+      margin-bottom: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 252, 251, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .selection-header {
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .selection-copy {
+      max-width: 620px;
+    }
+
+    .selection-copy h2 {
+      margin-bottom: 8px;
+    }
+
+    .selection-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .selection-summary {
+      min-width: 148px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(47, 36, 48, 0.04);
+      text-align: right;
+    }
+
+    .selection-summary strong {
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .selection-summary span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .selection-empty {
+      grid-column: 1 / -1;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px dashed rgba(47, 36, 48, 0.16);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      background: rgba(47, 36, 48, 0.02);
+    }
+
+    .selected-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: #fff;
+      min-height: 74px;
+    }
+
+    .selected-chip-swatch {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(47, 36, 48, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .selected-chip-copy {
+      min-width: 0;
+    }
+
+    .selected-chip-copy strong,
+    .selected-chip-copy span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .selected-chip-copy strong {
+      font-size: 0.92rem;
+    }
+
+    .selected-chip-copy span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .selection-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .action-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font: inherit;
+      color: #fff;
+      background: #5e4f8e;
+      cursor: pointer;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    .action-button.secondary {
+      background: rgba(47, 36, 48, 0.08);
+      color: var(--text);
+    }
+
+    .action-button:hover:enabled {
+      transform: translateY(-1px);
+    }
+
+    .action-button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .value-panel {
+      margin-bottom: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 252, 251, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .value-panel p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .value-card {
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      border-radius: 20px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .value-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .value-swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+    }
+
+    .value-swatch {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1.2;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+    }
+
+    .value-swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(47, 36, 48, 0.14);
+    }
+
+    .value-swatch:focus-visible {
+      outline: 3px solid rgba(108, 98, 158, 0.42);
+      outline-offset: 2px;
+    }
+
+    .value-swatch.is-approved {
+      border-color: rgba(40, 139, 92, 0.55);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 6px rgba(77, 189, 127, 0.38);
+    }
+
+    .value-swatch.is-rejected {
+      border-color: rgba(196, 71, 108, 0.58);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 6px rgba(232, 92, 133, 0.32);
+      opacity: 0.94;
+    }
+
+    .value-swatch.is-approved::before,
+    .value-swatch.is-rejected::before {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .value-swatch.is-approved::before {
+      content: "OK";
+    }
+
+    .value-swatch.is-rejected::before {
+      content: "X";
+    }
+
+    .value-review-panel {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: rgba(47, 36, 48, 0.03);
+    }
+
+    .value-review-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .value-review-modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .value-mode-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font: inherit;
+      background: rgba(47, 36, 48, 0.08);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.16s ease, opacity 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+    }
+
+    .value-mode-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .value-mode-button.is-active[data-mode="approve"] {
+      background: #2e9c67;
+      color: #fff;
+    }
+
+    .value-mode-button.is-active[data-mode="reject"] {
+      background: #cb5378;
+      color: #fff;
+    }
+
+    .value-review-status {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .value-review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .value-review-column {
+      padding: 14px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+    }
+
+    .value-review-column h3 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .value-review-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .value-review-empty {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      padding: 2px 0;
+    }
+
+    .value-review-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: rgba(47, 36, 48, 0.02);
+    }
+
+    .value-review-chip-swatch {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(47, 36, 48, 0.12);
+    }
+
+    .value-review-chip-copy {
+      min-width: 0;
+    }
+
+    .value-review-chip-copy strong,
+    .value-review-chip-copy span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .value-review-chip-copy strong {
+      font-size: 0.86rem;
+    }
+
+    .value-review-chip-copy span {
+      margin-top: 3px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .value-swatch::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 52%;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .value-swatch-label {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      z-index: 1;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+
+    .value-swatch-label strong,
+    .value-swatch-label span {
+      display: block;
+    }
+
+    .value-note {
+      margin-top: 12px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding: 0 2px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(47, 36, 48, 0.06);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88em;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100vw - 20px, 1180px);
+        padding-top: 20px;
+      }
+
+      .selection-header {
+        flex-direction: column;
+      }
+
+      .selection-summary {
+        width: 100%;
+        text-align: left;
+      }
+
+      .hero,
+      .selection-panel,
+      .card-header,
+      .swatches,
+      .meta {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>Paletas baseadas na manga rosa</h1>
+      <p>
+        Preview com 8 direcoes cromaticas derivadas da leitura "fruta madura + roxo azulado + polpa cremosa",
+        removendo totalmente os verdes para deixar o foco no eixo frutado, malva e violeta frio.
+      </p>
+      <div class="pill-row">
+        <span class="pill">sem verde</span>
+        <span class="pill">frutado surreal</span>
+        <span class="pill">violeta empoeirado</span>
+        <span class="pill">polpa cremosa</span>
+        <span class="pill">tropical fria</span>
+      </div>
+    </section>
+
+    <section class="selection-panel">
+      <div class="selection-header">
+        <div class="selection-copy">
+          <div class="eyebrow">Cores maes</div>
+          <h2>Selecione ate 5 cores-base</h2>
+          <p>Clique nas amostras que mais representam seu nucleo cromatico. Aqui a ideia e escolher as maes; variacoes de brilho e saturacao ficam para depois.</p>
+        </div>
+        <div class="selection-summary">
+          <strong id="selection-count">0/5</strong>
+          <span id="selection-status">Nenhuma cor selecionada ainda.</span>
+        </div>
+      </div>
+      <div class="selection-grid" id="selected-colors">
+        <div class="selection-empty">Suas 5 cores maes vao aparecer aqui conforme voce clica nas amostras abaixo.</div>
+      </div>
+      <div class="selection-actions">
+        <button class="action-button" id="copy-selection" type="button" disabled>Copiar hexes</button>
+        <button class="action-button secondary" id="clear-selection" type="button" disabled>Limpar selecao</button>
+      </div>
+    </section>
+
+    <section class="value-panel">
+      <div class="eyebrow">Fonte de verdade</div>
+      <h2>5 cores-mãe originalmente aprovadas</h2>
+      <p>Essas sao as ancoras fixas do sistema. A partir daqui, qualquer exploracao futura precisa preservar a mesma matriz da mae correspondente e nunca substituir essas cinco sem comparacao explicita.</p>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <h3>Amarelo manga</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#F1C96A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F1C96A</span></div>
+            </div>
+          </div>
+          <div class="value-note">Base quente, solar e frutada.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Laranja coral</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#F07B6A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F07B6A</span></div>
+            </div>
+          </div>
+          <div class="value-note">Cor viva de polpa/casca, clara e comunicativa.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Rosa</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#B95673">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B95673</span></div>
+            </div>
+          </div>
+          <div class="value-note">Rosa-base original, mais contido e elegante que as tentativas pop.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Roxo</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#8B5A83">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#8B5A83</span></div>
+            </div>
+          </div>
+          <div class="value-note">Roxo-base original, sem empurrar para ameixa pop nem para pervinca.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Azul</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#B8A4D5">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B8A4D5</span></div>
+            </div>
+          </div>
+          <div class="value-note">Azul-lilas original, ponto frio de referencia para futuras derivacoes.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="value-panel" id="rose-lab">
+      <div class="eyebrow">Laboratorio expandido</div>
+      <h2>Cores extras para todas as familias</h2>
+      <p>As 5 maes continuam fixas. Aqui aparecem cores extras de todas as familias ao mesmo tempo, sempre preservando a mesma matriz da mae correspondente, mas agora com uma progressao mais escalonada: menos acinzentada e mais proxima da cor-base.</p>
+
+      <div class="value-review-panel">
+        <div class="value-review-toolbar">
+          <div class="value-review-modes">
+            <button class="value-mode-button is-active" id="rose-approve-mode" data-mode="approve" type="button">Modo aprovar</button>
+            <button class="value-mode-button" id="rose-reject-mode" data-mode="reject" type="button">Modo reprovar</button>
+            <button class="value-mode-button" id="rose-clear-mode" data-mode="clear" type="button">Limpar marcacoes</button>
+          </div>
+          <div class="value-review-status" id="rose-review-status">Clique nas opcoes do laboratorio para aprovar ou reprovar.</div>
+        </div>
+        <div class="value-review-grid">
+          <div class="value-review-column">
+            <h3 id="rose-approved-title">Aprovadas (0)</h3>
+            <div class="value-review-list" id="rose-approved-list">
+              <div class="value-review-empty">Nada aprovado ainda.</div>
+            </div>
+          </div>
+          <div class="value-review-column">
+            <h3 id="rose-rejected-title">Reprovadas (0)</h3>
+            <div class="value-review-list" id="rose-rejected-list">
+              <div class="value-review-empty">Nada reprovado ainda.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <h3>Amarelo manga</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#F1C96A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F1C96A</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E4D3AA">
+              <div class="value-swatch-label"><strong>Super claro A</strong><span>#E4D3AA</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E7DCC0">
+              <div class="value-swatch-label"><strong>Super claro B</strong><span>#E7DCC0</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E5C985">
+              <div class="value-swatch-label"><strong>Neutro A</strong><span>#E5C985</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E3CE9C">
+              <div class="value-swatch-label"><strong>Neutro B</strong><span>#E3CE9C</span></div>
+            </div>
+            <div class="value-swatch" style="background:#FBD989">
+              <div class="value-swatch-label"><strong>Neonpastel A</strong><span>#FBD989</span></div>
+            </div>
+            <div class="value-swatch" style="background:#FFE29E">
+              <div class="value-swatch-label"><strong>Neonpastel B</strong><span>#FFE29E</span></div>
+            </div>
+          </div>
+          <div class="value-note">No amarelo, a escada ficou mais continua: manteiga quente, dourado suave e highlight macio sem quebrar a familia.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Laranja coral</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#F07B6A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F07B6A</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E3B1AA">
+              <div class="value-swatch-label"><strong>Super claro A</strong><span>#E3B1AA</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E7C5C0">
+              <div class="value-swatch-label"><strong>Super claro B</strong><span>#E7C5C0</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E49185">
+              <div class="value-swatch-label"><strong>Neutro A</strong><span>#E49185</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E2A49B">
+              <div class="value-swatch-label"><strong>Neutro B</strong><span>#E2A49B</span></div>
+            </div>
+            <div class="value-swatch" style="background:#FA9789">
+              <div class="value-swatch-label"><strong>Neonpastel A</strong><span>#FA9789</span></div>
+            </div>
+            <div class="value-swatch" style="background:#FEAA9E">
+              <div class="value-swatch-label"><strong>Neonpastel B</strong><span>#FEAA9E</span></div>
+            </div>
+          </div>
+          <div class="value-note">No laranja, os degraus agora ficam mais suaves e cremosos, sem aquele corte brusco entre neutro e pop.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Rosa</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#B95673">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B95673</span></div>
+            </div>
+            <div class="value-swatch" style="background:#B98997">
+              <div class="value-swatch-label"><strong>Super claro A</strong><span>#B98997</span></div>
+            </div>
+            <div class="value-swatch" style="background:#C09CA6">
+              <div class="value-swatch-label"><strong>Super claro B</strong><span>#C09CA6</span></div>
+            </div>
+            <div class="value-swatch" style="background:#B36B80">
+              <div class="value-swatch-label"><strong>Neutro A</strong><span>#B36B80</span></div>
+            </div>
+            <div class="value-swatch" style="background:#B67D8D">
+              <div class="value-swatch-label"><strong>Neutro B</strong><span>#B67D8D</span></div>
+            </div>
+            <div class="value-swatch" style="background:#CD6B88">
+              <div class="value-swatch-label"><strong>Neonpastel A</strong><span>#CD6B88</span></div>
+            </div>
+            <div class="value-swatch" style="background:#D97995">
+              <div class="value-swatch-label"><strong>Neonpastel B</strong><span>#D97995</span></div>
+            </div>
+          </div>
+          <div class="value-note">No rosa, os passos agora andam mais juntos: saem do contido e sobem de forma organica ate o brilho suave.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Roxo</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#8B5A83">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#8B5A83</span></div>
+            </div>
+            <div class="value-swatch" style="background:#AA6EA0">
+              <div class="value-swatch-label"><strong>Super claro A</strong><span>#AA6EA0</span></div>
+            </div>
+            <div class="value-swatch" style="background:#AF82A8">
+              <div class="value-swatch-label"><strong>Super claro B</strong><span>#AF82A8</span></div>
+            </div>
+            <div class="value-swatch" style="background:#975D8E">
+              <div class="value-swatch-label"><strong>Neutro A</strong><span>#975D8E</span></div>
+            </div>
+            <div class="value-swatch" style="background:#9F6997">
+              <div class="value-swatch-label"><strong>Neutro B</strong><span>#9F6997</span></div>
+            </div>
+            <div class="value-swatch" style="background:#AA649F">
+              <div class="value-swatch-label"><strong>Neonpastel A</strong><span>#AA649F</span></div>
+            </div>
+            <div class="value-swatch" style="background:#BA6EAD">
+              <div class="value-swatch-label"><strong>Neonpastel B</strong><span>#BA6EAD</span></div>
+            </div>
+          </div>
+          <div class="value-note">O roxo ficou menos cinza e menos brusco, com uma escalada mais fechada dentro da mesma familia berry.</div>
+        </article>
+
+        <article class="value-card">
+          <h3>Azul</h3>
+          <div class="value-swatches">
+            <div class="value-swatch" style="background:#B8A4D5">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B8A4D5</span></div>
+            </div>
+            <div class="value-swatch" style="background:#D4CBE1">
+              <div class="value-swatch-label"><strong>Super claro A</strong><span>#D4CBE1</span></div>
+            </div>
+            <div class="value-swatch" style="background:#E2DDE9">
+              <div class="value-swatch-label"><strong>Super claro B</strong><span>#E2DDE9</span></div>
+            </div>
+            <div class="value-swatch" style="background:#B4A3CC">
+              <div class="value-swatch-label"><strong>Neutro A</strong><span>#B4A3CC</span></div>
+            </div>
+            <div class="value-swatch" style="background:#BFB2D1">
+              <div class="value-swatch-label"><strong>Neutro B</strong><span>#BFB2D1</span></div>
+            </div>
+            <div class="value-swatch" style="background:#BDA6DD">
+              <div class="value-swatch-label"><strong>Neonpastel A</strong><span>#BDA6DD</span></div>
+            </div>
+            <div class="value-swatch" style="background:#CAB6E7">
+              <div class="value-swatch-label"><strong>Neonpastel B</strong><span>#CAB6E7</span></div>
+            </div>
+          </div>
+          <div class="value-note">No azul, a progressao tambem ficou mais curta e mais coesa, sem abrir um abismo entre neutro e extra claro.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">01</div>
+          <h2>Manga Rosa Nebulosa</h2>
+          <p class="description">Delicada, fria e frutada. O roxo azulado aparece como neblina sobre rosa manga e pessego.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#F3E6E2"><span class="label">#F3E6E2</span></div>
+          <div class="swatch" style="background:#F2DE8D"><span class="label">#F2DE8D</span></div>
+          <div class="swatch" style="background:#F4BC9A"><span class="label">#F4BC9A</span></div>
+          <div class="swatch" style="background:#E97A92"><span class="label">#E97A92</span></div>
+          <div class="swatch" style="background:#C890B8"><span class="label">#C890B8</span></div>
+          <div class="swatch" style="background:#6C629E"><span class="label">#6C629E</span></div>
+        </div>
+        <div class="meta">creme rosado, amarelo polpa, pessego claro, rosa manga, malva suave, roxo azulado</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">02</div>
+          <h2>Polpa e Casca</h2>
+          <p class="description">Mais solar e madura, com coral e ameixa rosada equilibrando o brilho dos tons de fruta.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#F6EEE5"><span class="label">#F6EEE5</span></div>
+          <div class="swatch" style="background:#EFD97A"><span class="label">#EFD97A</span></div>
+          <div class="swatch" style="background:#F0B07D"><span class="label">#F0B07D</span></div>
+          <div class="swatch" style="background:#EA7A68"><span class="label">#EA7A68</span></div>
+          <div class="swatch" style="background:#D95E7F"><span class="label">#D95E7F</span></div>
+          <div class="swatch" style="background:#9B4C7A"><span class="label">#9B4C7A</span></div>
+        </div>
+        <div class="meta">marfim quente, amarelo manteiga, damasco, coral manga, rosa frutado, ameixa rosada</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">03</div>
+          <h2>Manga Lilas</h2>
+          <p class="description">Mais eterea e floral, com malvas, lavandas e um violeta frio que deixa tudo com cara de cor tratada.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#EBCFD4"><span class="label">#EBCFD4</span></div>
+          <div class="swatch" style="background:#F4C6B3"><span class="label">#F4C6B3</span></div>
+          <div class="swatch" style="background:#D9899C"><span class="label">#D9899C</span></div>
+          <div class="swatch" style="background:#B77AAE"><span class="label">#B77AAE</span></div>
+          <div class="swatch" style="background:#B8A4D5"><span class="label">#B8A4D5</span></div>
+          <div class="swatch" style="background:#5C4F8F"><span class="label">#5C4F8F</span></div>
+        </div>
+        <div class="meta">rosa po claro, blush pessego, rosa queimado, malva, lavanda acinzentada, violeta azulado</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">04</div>
+          <h2>Tropical Fria</h2>
+          <p class="description">A versao de maior contraste entre quentes suculentos e profundidade violeta quase noturna.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#F5EDE7"><span class="label">#F5EDE7</span></div>
+          <div class="swatch" style="background:#EBDD98"><span class="label">#EBDD98</span></div>
+          <div class="swatch" style="background:#F2A382"><span class="label">#F2A382</span></div>
+          <div class="swatch" style="background:#E65D7D"><span class="label">#E65D7D</span></div>
+          <div class="swatch" style="background:#A98BC8"><span class="label">#A98BC8</span></div>
+          <div class="swatch" style="background:#3F2C69"><span class="label">#3F2C69</span></div>
+        </div>
+        <div class="meta">creme leitoso, amarelo polpa palido, coral palido, rosa manga intensa, lilas frio, roxo noturno azulado</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">05</div>
+          <h2>Manga Aveludada</h2>
+          <p class="description">Mais fosca e sofisticada, puxando para maquiagem, tecido opaco e fruta sombreada.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#EAD8D3"><span class="label">#EAD8D3</span></div>
+          <div class="swatch" style="background:#EAB59D"><span class="label">#EAB59D</span></div>
+          <div class="swatch" style="background:#D89BAA"><span class="label">#D89BAA</span></div>
+          <div class="swatch" style="background:#B95673"><span class="label">#B95673</span></div>
+          <div class="swatch" style="background:#8B5A83"><span class="label">#8B5A83</span></div>
+          <div class="swatch" style="background:#4B1F5E"><span class="label">#4B1F5E</span></div>
+        </div>
+        <div class="meta">nude rosado, pessego opaco, rosa cha, framboesa suave, ameixa empoeirada, berinjela fria</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">06</div>
+          <h2>Doce de Manga</h2>
+          <p class="description">Mais alegre, cremosa e gourmand, com quentes doces e um pink mais vibrante.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#F7E9C9"><span class="label">#F7E9C9</span></div>
+          <div class="swatch" style="background:#F1C96A"><span class="label">#F1C96A</span></div>
+          <div class="swatch" style="background:#F4AE82"><span class="label">#F4AE82</span></div>
+          <div class="swatch" style="background:#F07B6A"><span class="label">#F07B6A</span></div>
+          <div class="swatch" style="background:#EA5D88"><span class="label">#EA5D88</span></div>
+          <div class="swatch" style="background:#C85C97"><span class="label">#C85C97</span></div>
+        </div>
+        <div class="meta">baunilha, amarelo manga, damasco claro, coral doce, pink manga, rosa magenta suave</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">07</div>
+          <h2>Fruta ao Entardecer</h2>
+          <p class="description">Mais madura e profunda, com corpo de rosado queimado e fundo violeta escurecido.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#E9C7C7"><span class="label">#E9C7C7</span></div>
+          <div class="swatch" style="background:#E7A17D"><span class="label">#E7A17D</span></div>
+          <div class="swatch" style="background:#D96C63"><span class="label">#D96C63</span></div>
+          <div class="swatch" style="background:#B94A72"><span class="label">#B94A72</span></div>
+          <div class="swatch" style="background:#7E355B"><span class="label">#7E355B</span></div>
+          <div class="swatch" style="background:#433A78"><span class="label">#433A78</span></div>
+        </div>
+        <div class="meta">rose claro, pessego queimado, coral queimado, rosa escuro, vinho ameixa, roxo azulado profundo</div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">08</div>
+          <h2>Manga Irreal</h2>
+          <p class="description">A mais proxima da ideia de "parece editada", com luz leitosa e violeta frio bem presente.</p>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background:#F6EFF0"><span class="label">#F6EFF0</span></div>
+          <div class="swatch" style="background:#EFE5AA"><span class="label">#EFE5AA</span></div>
+          <div class="swatch" style="background:#F4B794"><span class="label">#F4B794</span></div>
+          <div class="swatch" style="background:#F05B86"><span class="label">#F05B86</span></div>
+          <div class="swatch" style="background:#B473B1"><span class="label">#B473B1</span></div>
+          <div class="swatch" style="background:#6856A6"><span class="label">#6856A6</span></div>
+          <div class="swatch" style="background:#4F1E67"><span class="label">#4F1E67</span></div>
+        </div>
+        <div class="meta">branco rosado, amarelo nevoa, pessego luminoso, rosa eletrico suave, malva frio, violeta azulado, ameixa escura</div>
+      </article>
+    </section>
+
+    <footer>
+      Clique nas amostras para montar suas 5 cores maes. Depois, abra este arquivo diretamente no navegador ou rode um servidor local na pasta do projeto.
+      Caminho do arquivo: <code>/workspace/paletas-manga-rosa.html</code>
+    </footer>
+  </main>
+  <script>
+    const selectionLimit = 5;
+    const initialSelectedHexes = ['#F1C96A', '#F07B6A', '#B95673', '#8B5A83', '#B8A4D5'];
+    const swatches = Array.from(document.querySelectorAll('.swatch'));
+    const selectedColorsContainer = document.getElementById('selected-colors');
+    const selectionCount = document.getElementById('selection-count');
+    const selectionStatus = document.getElementById('selection-status');
+    const copySelectionButton = document.getElementById('copy-selection');
+    const clearSelectionButton = document.getElementById('clear-selection');
+    const valueSwatches = Array.from(document.querySelectorAll('.value-swatch'));
+    const reviewApproveModeButton = document.getElementById('review-approve-mode');
+    const reviewRejectModeButton = document.getElementById('review-reject-mode');
+    const reviewClearModeButton = document.getElementById('review-clear-mode');
+    const valueReviewStatus = document.getElementById('value-review-status');
+    const approvedList = document.getElementById('approved-list');
+    const rejectedList = document.getElementById('rejected-list');
+    const approvedTitle = document.getElementById('approved-title');
+    const rejectedTitle = document.getElementById('rejected-title');
+    const roseLab = document.getElementById('rose-lab');
+    const roseApproveModeButton = document.getElementById('rose-approve-mode');
+    const roseRejectModeButton = document.getElementById('rose-reject-mode');
+    const roseClearModeButton = document.getElementById('rose-clear-mode');
+    const roseReviewStatus = document.getElementById('rose-review-status');
+    const roseApprovedList = document.getElementById('rose-approved-list');
+    const roseRejectedList = document.getElementById('rose-rejected-list');
+    const roseApprovedTitle = document.getElementById('rose-approved-title');
+    const roseRejectedTitle = document.getElementById('rose-rejected-title');
+    let selectedKeys = [];
+    let reviewMode = 'approve';
+    let approvedValueKeys = [];
+    let rejectedValueKeys = [];
+    let roseReviewMode = 'approve';
+    let roseApprovedKeys = [];
+    let roseRejectedKeys = [];
+
+    swatches.forEach((swatch) => {
+      const hex = swatch.querySelector('.label').textContent.trim();
+      const palette = swatch.closest('.card').querySelector('h2').textContent.trim();
+      const key = `${palette}::${hex}`;
+      swatch.dataset.key = key;
+      swatch.dataset.hex = hex;
+      swatch.dataset.palette = palette;
+      swatch.setAttribute('role', 'button');
+      swatch.setAttribute('tabindex', '0');
+      swatch.setAttribute('aria-label', `Selecionar ${hex} da paleta ${palette}`);
+      swatch.setAttribute('aria-pressed', 'false');
+      swatch.addEventListener('click', () => toggleSwatch(swatch));
+      swatch.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleSwatch(swatch);
+        }
+      });
+    });
+
+    selectedKeys = initialSelectedHexes
+      .map((hex) => swatches.find((swatch) => swatch.dataset.hex === hex))
+      .filter(Boolean)
+      .map((swatch) => swatch.dataset.key);
+
+    copySelectionButton.addEventListener('click', async () => {
+      const hexes = selectedKeys
+        .map((key) => swatches.find((swatch) => swatch.dataset.key === key)?.dataset.hex)
+        .filter(Boolean)
+        .join(', ');
+
+      if (!hexes) {
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(hexes);
+        copySelectionButton.textContent = 'Hexes copiados';
+        window.setTimeout(() => {
+          copySelectionButton.textContent = 'Copiar hexes';
+        }, 1400);
+      } catch (error) {
+        copySelectionButton.textContent = 'Nao foi possivel copiar';
+        window.setTimeout(() => {
+          copySelectionButton.textContent = 'Copiar hexes';
+        }, 1400);
+      }
+    });
+
+    clearSelectionButton.addEventListener('click', () => {
+      selectedKeys = [];
+      updateSelectionUI();
+    });
+
+    const hasValueReview =
+      reviewApproveModeButton &&
+      reviewRejectModeButton &&
+      reviewClearModeButton &&
+      valueReviewStatus &&
+      approvedList &&
+      rejectedList &&
+      approvedTitle &&
+      rejectedTitle;
+
+    if (hasValueReview) {
+      valueSwatches.forEach((swatch) => {
+        const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
+        const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
+        const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
+        const key = `${family}::${labelStrong}::${hex}`;
+        swatch.dataset.reviewKey = key;
+        swatch.dataset.family = family;
+        swatch.dataset.label = labelStrong;
+        swatch.dataset.hex = hex;
+        swatch.setAttribute('role', 'button');
+        swatch.setAttribute('tabindex', '0');
+        swatch.setAttribute('aria-label', `${labelStrong} ${hex} da familia ${family}`);
+        swatch.addEventListener('click', () => toggleValueReview(swatch));
+        swatch.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleValueReview(swatch);
+          }
+        });
+      });
+
+      reviewApproveModeButton.addEventListener('click', () => {
+        reviewMode = 'approve';
+        updateValueReviewUI();
+      });
+
+      reviewRejectModeButton.addEventListener('click', () => {
+        reviewMode = 'reject';
+        updateValueReviewUI();
+      });
+
+      reviewClearModeButton.addEventListener('click', () => {
+        approvedValueKeys = [];
+        rejectedValueKeys = [];
+        updateValueReviewUI();
+      });
+    }
+
+    const roseLabSwatches = roseLab
+      ? Array.from(roseLab.querySelectorAll('.value-swatch')).filter((swatch) => !swatch.querySelector('.value-swatch-label strong')?.textContent.includes('Mae aprovada'))
+      : [];
+
+    const hasRoseLabReview =
+      roseLab &&
+      roseApproveModeButton &&
+      roseRejectModeButton &&
+      roseClearModeButton &&
+      roseReviewStatus &&
+      roseApprovedList &&
+      roseRejectedList &&
+      roseApprovedTitle &&
+      roseRejectedTitle;
+
+    if (hasRoseLabReview) {
+      roseLabSwatches.forEach((swatch) => {
+        const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
+        const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
+        const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
+        const key = `${family}::${labelStrong}::${hex}`;
+        swatch.dataset.roseReviewKey = key;
+        swatch.dataset.roseFamily = family;
+        swatch.dataset.roseLabel = labelStrong;
+        swatch.dataset.roseHex = hex;
+        swatch.setAttribute('role', 'button');
+        swatch.setAttribute('tabindex', '0');
+        swatch.setAttribute('aria-label', `${labelStrong} ${hex} da secao ${family}`);
+        swatch.addEventListener('click', () => toggleRoseReview(swatch));
+        swatch.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleRoseReview(swatch);
+          }
+        });
+      });
+
+      roseApproveModeButton.addEventListener('click', () => {
+        roseReviewMode = 'approve';
+        updateRoseReviewUI();
+      });
+
+      roseRejectModeButton.addEventListener('click', () => {
+        roseReviewMode = 'reject';
+        updateRoseReviewUI();
+      });
+
+      roseClearModeButton.addEventListener('click', () => {
+        roseApprovedKeys = [];
+        roseRejectedKeys = [];
+        updateRoseReviewUI();
+      });
+    }
+
+    function toggleSwatch(swatch) {
+      const key = swatch.dataset.key;
+      const existingIndex = selectedKeys.indexOf(key);
+
+      if (existingIndex >= 0) {
+        selectedKeys.splice(existingIndex, 1);
+        updateSelectionUI();
+        return;
+      }
+
+      if (selectedKeys.length >= selectionLimit) {
+        selectionStatus.textContent = 'Voce ja escolheu 5 cores maes. Remova uma para trocar.';
+        return;
+      }
+
+      selectedKeys.push(key);
+      updateSelectionUI();
+    }
+
+    function updateSelectionUI() {
+      swatches.forEach((swatch) => {
+        const index = selectedKeys.indexOf(swatch.dataset.key);
+        const isSelected = index >= 0;
+        const isDisabled = !isSelected && selectedKeys.length >= selectionLimit;
+
+        swatch.classList.toggle('is-selected', isSelected);
+        swatch.classList.toggle('is-disabled', isDisabled);
+        swatch.dataset.order = isSelected ? String(index + 1) : '';
+        swatch.setAttribute('aria-pressed', String(isSelected));
+      });
+
+      selectionCount.textContent = `${selectedKeys.length}/5`;
+      copySelectionButton.disabled = selectedKeys.length === 0;
+      clearSelectionButton.disabled = selectedKeys.length === 0;
+
+      if (selectedKeys.length === 0) {
+        selectionStatus.textContent = 'Nenhuma cor selecionada ainda.';
+        selectedColorsContainer.innerHTML = '<div class="selection-empty">Suas 5 cores maes vao aparecer aqui conforme voce clica nas amostras abaixo.</div>';
+        return;
+      }
+
+      if (selectedKeys.length < selectionLimit) {
+        selectionStatus.textContent = `Faltam ${selectionLimit - selectedKeys.length} cor(es) para fechar suas 5 maes.`;
+      } else {
+        selectionStatus.textContent = 'Suas 5 cores maes estao completas.';
+      }
+
+      selectedColorsContainer.innerHTML = selectedKeys.map((key, index) => {
+        const swatch = swatches.find((item) => item.dataset.key === key);
+        return `
+          <div class="selected-chip">
+            <div class="selected-chip-swatch" style="background:${swatch.dataset.hex}"></div>
+            <div class="selected-chip-copy">
+              <strong>${index + 1}. ${swatch.dataset.hex}</strong>
+              <span>${swatch.dataset.palette}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleValueReview(swatch) {
+      const key = swatch.dataset.reviewKey;
+      const approvedIndex = approvedValueKeys.indexOf(key);
+      const rejectedIndex = rejectedValueKeys.indexOf(key);
+
+      if (reviewMode === 'approve') {
+        if (approvedIndex >= 0) {
+          approvedValueKeys.splice(approvedIndex, 1);
+        } else {
+          approvedValueKeys.push(key);
+        }
+        if (rejectedIndex >= 0) {
+          rejectedValueKeys.splice(rejectedIndex, 1);
+        }
+      }
+
+      if (reviewMode === 'reject') {
+        if (rejectedIndex >= 0) {
+          rejectedValueKeys.splice(rejectedIndex, 1);
+        } else {
+          rejectedValueKeys.push(key);
+        }
+        if (approvedIndex >= 0) {
+          approvedValueKeys.splice(approvedIndex, 1);
+        }
+      }
+
+      updateValueReviewUI();
+    }
+
+    function renderValueReviewList(target, keys, emptyText) {
+      if (keys.length === 0) {
+        target.innerHTML = `<div class="value-review-empty">${emptyText}</div>`;
+        return;
+      }
+
+      target.innerHTML = keys.map((key) => {
+        const swatch = valueSwatches.find((item) => item.dataset.reviewKey === key);
+        return `
+          <div class="value-review-chip">
+            <div class="value-review-chip-swatch" style="background:${swatch.dataset.hex}"></div>
+            <div class="value-review-chip-copy">
+              <strong>${swatch.dataset.label}</strong>
+              <span>${swatch.dataset.family} - ${swatch.dataset.hex}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateValueReviewUI() {
+      reviewApproveModeButton.classList.toggle('is-active', reviewMode === 'approve');
+      reviewRejectModeButton.classList.toggle('is-active', reviewMode === 'reject');
+
+      valueSwatches.forEach((swatch) => {
+        const key = swatch.dataset.reviewKey;
+        swatch.classList.toggle('is-approved', approvedValueKeys.includes(key));
+        swatch.classList.toggle('is-rejected', rejectedValueKeys.includes(key));
+      });
+
+      approvedTitle.textContent = `Aprovadas (${approvedValueKeys.length})`;
+      rejectedTitle.textContent = `Reprovadas (${rejectedValueKeys.length})`;
+
+      renderValueReviewList(approvedList, approvedValueKeys, 'Nada aprovado ainda.');
+      renderValueReviewList(rejectedList, rejectedValueKeys, 'Nada reprovado ainda.');
+
+      if (reviewMode === 'approve') {
+        valueReviewStatus.textContent = 'Modo aprovar ativo. Clique numa amostra para colocar nas aprovadas.';
+      } else {
+        valueReviewStatus.textContent = 'Modo reprovar ativo. Clique numa amostra para colocar nas reprovadas.';
+      }
+    }
+
+    function toggleRoseReview(swatch) {
+      const key = swatch.dataset.roseReviewKey;
+      const approvedIndex = roseApprovedKeys.indexOf(key);
+      const rejectedIndex = roseRejectedKeys.indexOf(key);
+
+      if (roseReviewMode === 'approve') {
+        if (approvedIndex >= 0) {
+          roseApprovedKeys.splice(approvedIndex, 1);
+        } else {
+          roseApprovedKeys.push(key);
+        }
+        if (rejectedIndex >= 0) {
+          roseRejectedKeys.splice(rejectedIndex, 1);
+        }
+      }
+
+      if (roseReviewMode === 'reject') {
+        if (rejectedIndex >= 0) {
+          roseRejectedKeys.splice(rejectedIndex, 1);
+        } else {
+          roseRejectedKeys.push(key);
+        }
+        if (approvedIndex >= 0) {
+          roseApprovedKeys.splice(approvedIndex, 1);
+        }
+      }
+
+      updateRoseReviewUI();
+    }
+
+    function renderRoseReviewList(target, keys, emptyText) {
+      if (keys.length === 0) {
+        target.innerHTML = `<div class="value-review-empty">${emptyText}</div>`;
+        return;
+      }
+
+      target.innerHTML = keys.map((key) => {
+        const swatch = roseLabSwatches.find((item) => item.dataset.roseReviewKey === key);
+        return `
+          <div class="value-review-chip">
+            <div class="value-review-chip-swatch" style="background:${swatch.dataset.roseHex}"></div>
+            <div class="value-review-chip-copy">
+              <strong>${swatch.dataset.roseLabel}</strong>
+              <span>${swatch.dataset.roseFamily} - ${swatch.dataset.roseHex}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateRoseReviewUI() {
+      roseApproveModeButton.classList.toggle('is-active', roseReviewMode === 'approve');
+      roseRejectModeButton.classList.toggle('is-active', roseReviewMode === 'reject');
+
+      roseLabSwatches.forEach((swatch) => {
+        const key = swatch.dataset.roseReviewKey;
+        swatch.classList.toggle('is-approved', roseApprovedKeys.includes(key));
+        swatch.classList.toggle('is-rejected', roseRejectedKeys.includes(key));
+      });
+
+      roseApprovedTitle.textContent = `Aprovadas (${roseApprovedKeys.length})`;
+      roseRejectedTitle.textContent = `Reprovadas (${roseRejectedKeys.length})`;
+
+      renderRoseReviewList(roseApprovedList, roseApprovedKeys, 'Nada aprovado ainda.');
+      renderRoseReviewList(roseRejectedList, roseRejectedKeys, 'Nada reprovado ainda.');
+
+      if (roseReviewMode === 'approve') {
+        roseReviewStatus.textContent = 'Modo aprovar ativo. Clique nas opcoes do rosa para colocar nas aprovadas.';
+      } else {
+        roseReviewStatus.textContent = 'Modo reprovar ativo. Clique nas opcoes do rosa para colocar nas reprovadas.';
+      }
+    }
+
+    updateSelectionUI();
+    if (hasValueReview) {
+      updateValueReviewUI();
+    }
+    if (hasRoseLabReview) {
+      updateRoseReviewUI();
+    }
+  </script>
+</body>
+</html>
