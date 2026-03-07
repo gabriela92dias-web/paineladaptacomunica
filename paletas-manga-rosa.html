@@ -387,7 +387,7 @@
 
     .value-swatches {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 8px;
     }
 
@@ -690,128 +690,59 @@
     </section>
 
     <section class="value-panel">
-      <div class="eyebrow">Sistema final</div>
-      <h2>Mae, flash, luz e nevoa para suas 5 cores-base</h2>
-      <p>As maes seguem pop e acesas, as versoes claras continuam como voce tinha aprovado, e a camada flash volta como esse ponto marca-texto pastel vibrante que estava fazendo falta.</p>
-      <div class="value-review-panel">
-        <div class="value-review-toolbar">
-          <div class="value-review-modes">
-            <button class="value-mode-button is-active" id="review-approve-mode" data-mode="approve" type="button">Modo aprovar</button>
-            <button class="value-mode-button" id="review-reject-mode" data-mode="reject" type="button">Modo reprovar</button>
-            <button class="value-mode-button" id="review-clear-mode" data-mode="clear" type="button">Limpar marcacoes</button>
-          </div>
-          <div class="value-review-status" id="value-review-status">Clique nas amostras abaixo para aprovar ou reprovar.</div>
-        </div>
-        <div class="value-review-grid">
-          <div class="value-review-column">
-            <h3 id="approved-title">Aprovadas (0)</h3>
-            <div class="value-review-list" id="approved-list">
-              <div class="value-review-empty">Nada aprovado ainda.</div>
-            </div>
-          </div>
-          <div class="value-review-column">
-            <h3 id="rejected-title">Reprovadas (0)</h3>
-            <div class="value-review-list" id="rejected-list">
-              <div class="value-review-empty">Nada reprovado ainda.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="eyebrow">Fonte de verdade</div>
+      <h2>5 cores-mãe originalmente aprovadas</h2>
+      <p>Essas sao as ancoras fixas do sistema. A partir daqui, qualquer exploracao futura precisa preservar a mesma matriz da mae correspondente e nunca substituir essas cinco sem comparacao explicita.</p>
 
       <div class="value-grid">
         <article class="value-card">
           <h3>Amarelo manga</h3>
           <div class="value-swatches">
-            <div class="value-swatch" style="background:#F2EEE4">
-              <div class="value-swatch-label"><strong>Super claro - Creme manga</strong><span>#F2EEE4</span></div>
-            </div>
-            <div class="value-swatch" style="background:#B1A98B">
-              <div class="value-swatch-label"><strong>Neutro - Areia manga</strong><span>#B1A98B</span></div>
-            </div>
-            <div class="value-swatch" style="background:#EECB4F">
-              <div class="value-swatch-label"><strong>Mae - Manga viva</strong><span>#EECB4F</span></div>
-            </div>
-            <div class="value-swatch" style="background:#FCDE73">
-              <div class="value-swatch-label"><strong>Neonpastel - Manga highlight</strong><span>#FCDE73</span></div>
+            <div class="value-swatch" style="background:#F1C96A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F1C96A</span></div>
             </div>
           </div>
-          <div class="value-note">Aqui a matiz se mantém estável: do creme quase branco ate o amarelo highlight, passando por um neutro dourado elegante.</div>
+          <div class="value-note">Base quente, solar e frutada.</div>
         </article>
 
         <article class="value-card">
           <h3>Laranja coral</h3>
           <div class="value-swatches">
-            <div class="value-swatch" style="background:#F2E5E4">
-              <div class="value-swatch-label"><strong>Super claro - Leite coral</strong><span>#F2E5E4</span></div>
-            </div>
-            <div class="value-swatch" style="background:#B1908B">
-              <div class="value-swatch-label"><strong>Neutro - Terracota suave</strong><span>#B1908B</span></div>
-            </div>
-            <div class="value-swatch" style="background:#EE634F">
-              <div class="value-swatch-label"><strong>Mae - Coral vivo</strong><span>#EE634F</span></div>
-            </div>
-            <div class="value-swatch" style="background:#FC8473">
-              <div class="value-swatch-label"><strong>Neonpastel - Coral sorbet</strong><span>#FC8473</span></div>
+            <div class="value-swatch" style="background:#F07B6A">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#F07B6A</span></div>
             </div>
           </div>
-          <div class="value-note">O laranja mantém a mesma matriz do começo ao fim: leiteo, neutro elegante, vivo e sorbet pop.</div>
+          <div class="value-note">Cor viva de polpa/casca, clara e comunicativa.</div>
         </article>
 
         <article class="value-card">
-          <h3>Rosa pink</h3>
+          <h3>Rosa</h3>
           <div class="value-swatches">
-            <div class="value-swatch" style="background:#F2E4EA">
-              <div class="value-swatch-label"><strong>Super claro - Rosa voile</strong><span>#F2E4EA</span></div>
-            </div>
-            <div class="value-swatch" style="background:#B18B9C">
-              <div class="value-swatch-label"><strong>Neutro - Rosa cassis</strong><span>#B18B9C</span></div>
-            </div>
-            <div class="value-swatch" style="background:#EE4F96">
-              <div class="value-swatch-label"><strong>Mae - Rosa vivo</strong><span>#EE4F96</span></div>
-            </div>
-            <div class="value-swatch" style="background:#FC73B1">
-              <div class="value-swatch-label"><strong>Neonpastel - Pink glow</strong><span>#FC73B1</span></div>
+            <div class="value-swatch" style="background:#B95673">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B95673</span></div>
             </div>
           </div>
-          <div class="value-note">No rosa, a diferença agora não é de família, e sim de papel: voile, neutro sofisticado, mãe viva e glow pastel.</div>
+          <div class="value-note">Rosa-base original, mais contido e elegante que as tentativas pop.</div>
         </article>
 
         <article class="value-card">
-          <h3>Roxo boysenberry</h3>
+          <h3>Roxo</h3>
           <div class="value-swatches">
-            <div class="value-swatch" style="background:#F2E4EE">
-              <div class="value-swatch-label"><strong>Super claro - Voile berry</strong><span>#F2E4EE</span></div>
-            </div>
-            <div class="value-swatch" style="background:#B18BA8">
-              <div class="value-swatch-label"><strong>Neutro - Berry elegante</strong><span>#B18BA8</span></div>
-            </div>
-            <div class="value-swatch" style="background:#EE4FC6">
-              <div class="value-swatch-label"><strong>Mae - Berry vivo</strong><span>#EE4FC6</span></div>
-            </div>
-            <div class="value-swatch" style="background:#FC73DA">
-              <div class="value-swatch-label"><strong>Neonpastel - Berry light</strong><span>#FC73DA</span></div>
+            <div class="value-swatch" style="background:#8B5A83">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#8B5A83</span></div>
             </div>
           </div>
-          <div class="value-note">Essa família permanece nitidamente red-violet: mais boysenberry do que pervinca, mas com a mesma arquitetura dos outros grupos.</div>
+          <div class="value-note">Roxo-base original, sem empurrar para ameixa pop nem para pervinca.</div>
         </article>
 
         <article class="value-card">
-          <h3>Azul pervinca</h3>
+          <h3>Azul</h3>
           <div class="value-swatches">
-            <div class="value-swatch" style="background:#E7E4F2">
-              <div class="value-swatch-label"><strong>Super claro - Voile pervinca</strong><span>#E7E4F2</span></div>
-            </div>
-            <div class="value-swatch" style="background:#948BB1">
-              <div class="value-swatch-label"><strong>Neutro - Lavanda elegante</strong><span>#948BB1</span></div>
-            </div>
-            <div class="value-swatch" style="background:#764FEE">
-              <div class="value-swatch-label"><strong>Mae - Pervinca viva</strong><span>#764FEE</span></div>
-            </div>
-            <div class="value-swatch" style="background:#9573FC">
-              <div class="value-swatch-label"><strong>Neonpastel - Pervinca digital</strong><span>#9573FC</span></div>
+            <div class="value-swatch" style="background:#B8A4D5">
+              <div class="value-swatch-label"><strong>Mae aprovada</strong><span>#B8A4D5</span></div>
             </div>
           </div>
-          <div class="value-note">No azul, a família fica claramente fria e digital: voile gelado, neutro lavanda, mãe pervinca e neonpastel nítido.</div>
+          <div class="value-note">Azul-lilas original, ponto frio de referencia para futuras derivacoes.</div>
         </article>
       </div>
     </section>
@@ -962,7 +893,7 @@
   </main>
   <script>
     const selectionLimit = 5;
-    const initialSelectedHexes = ['#F1C96A', '#F07B6A', '#F05B86', '#6856A6', '#B8A4D5'];
+    const initialSelectedHexes = ['#F1C96A', '#F07B6A', '#B95673', '#8B5A83', '#B8A4D5'];
     const swatches = Array.from(document.querySelectorAll('.swatch'));
     const selectedColorsContainer = document.getElementById('selected-colors');
     const selectionCount = document.getElementById('selection-count');
@@ -1037,42 +968,54 @@
       updateSelectionUI();
     });
 
-    valueSwatches.forEach((swatch) => {
-      const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
-      const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
-      const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
-      const key = `${family}::${labelStrong}::${hex}`;
-      swatch.dataset.reviewKey = key;
-      swatch.dataset.family = family;
-      swatch.dataset.label = labelStrong;
-      swatch.dataset.hex = hex;
-      swatch.setAttribute('role', 'button');
-      swatch.setAttribute('tabindex', '0');
-      swatch.setAttribute('aria-label', `${labelStrong} ${hex} da familia ${family}`);
-      swatch.addEventListener('click', () => toggleValueReview(swatch));
-      swatch.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          toggleValueReview(swatch);
-        }
+    const hasValueReview =
+      reviewApproveModeButton &&
+      reviewRejectModeButton &&
+      reviewClearModeButton &&
+      valueReviewStatus &&
+      approvedList &&
+      rejectedList &&
+      approvedTitle &&
+      rejectedTitle;
+
+    if (hasValueReview) {
+      valueSwatches.forEach((swatch) => {
+        const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
+        const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
+        const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
+        const key = `${family}::${labelStrong}::${hex}`;
+        swatch.dataset.reviewKey = key;
+        swatch.dataset.family = family;
+        swatch.dataset.label = labelStrong;
+        swatch.dataset.hex = hex;
+        swatch.setAttribute('role', 'button');
+        swatch.setAttribute('tabindex', '0');
+        swatch.setAttribute('aria-label', `${labelStrong} ${hex} da familia ${family}`);
+        swatch.addEventListener('click', () => toggleValueReview(swatch));
+        swatch.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleValueReview(swatch);
+          }
+        });
       });
-    });
 
-    reviewApproveModeButton.addEventListener('click', () => {
-      reviewMode = 'approve';
-      updateValueReviewUI();
-    });
+      reviewApproveModeButton.addEventListener('click', () => {
+        reviewMode = 'approve';
+        updateValueReviewUI();
+      });
 
-    reviewRejectModeButton.addEventListener('click', () => {
-      reviewMode = 'reject';
-      updateValueReviewUI();
-    });
+      reviewRejectModeButton.addEventListener('click', () => {
+        reviewMode = 'reject';
+        updateValueReviewUI();
+      });
 
-    reviewClearModeButton.addEventListener('click', () => {
-      approvedValueKeys = [];
-      rejectedValueKeys = [];
-      updateValueReviewUI();
-    });
+      reviewClearModeButton.addEventListener('click', () => {
+        approvedValueKeys = [];
+        rejectedValueKeys = [];
+        updateValueReviewUI();
+      });
+    }
 
     function toggleSwatch(swatch) {
       const key = swatch.dataset.key;
@@ -1209,7 +1152,9 @@
     }
 
     updateSelectionUI();
-    updateValueReviewUI();
+    if (hasValueReview) {
+      updateValueReviewUI();
+    }
   </script>
 </body>
 </html>
