@@ -423,6 +423,10 @@ groupButtons.forEach((button) => {
     const target = document.getElementById(`group-${groupId}`);
     const expanded = button.getAttribute("aria-expanded") === "true";
     button.setAttribute("aria-expanded", String(!expanded));
+      const caret = button.querySelector(".nav-caret");
+      if (caret) {
+        caret.textContent = expanded ? "+" : "-";
+      }
     if (target) {
       target.hidden = expanded;
     }

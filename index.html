@@ -41,7 +41,7 @@
             >
               <span class="nav-icon">B</span>
               <span class="nav-label">Brand</span>
-              <span class="nav-caret">+</span>
+              <span class="nav-caret">-</span>
             </button>
             <div class="nav-group__items" id="group-brand">
               <a class="nav-link nav-link--child" href="#identity">
@@ -68,7 +68,7 @@
             >
               <span class="nav-icon">M</span>
               <span class="nav-label">Marketing</span>
-              <span class="nav-caret">+</span>
+              <span class="nav-caret">-</span>
             </button>
             <div class="nav-group__items" id="group-marketing">
               <a class="nav-link nav-link--child" href="#campaigns">
@@ -95,7 +95,7 @@
             >
               <span class="nav-icon">T</span>
               <span class="nav-label">Tools</span>
-              <span class="nav-caret">+</span>
+              <span class="nav-caret">-</span>
             </button>
             <div class="nav-group__items" id="group-tools">
               <a class="nav-link nav-link--child" href="#colors">
@@ -198,17 +198,33 @@
             </div>
 
             <div class="radar-stage">
-              <div class="radar-frame">
-                <div class="radar-scan"></div>
-                <div class="radar-center">
-                  <span class="radar-center__month" id="radar-month-label"></span>
-                  <span class="radar-center__year">2026</span>
+              <div class="radar-well">
+                <div class="radar-safe">
+                  <div class="radar-frame">
+                    <div class="radar-scan"></div>
+                    <div class="radar-center">
+                      <span class="radar-center__month" id="radar-month-label"></span>
+                      <span class="radar-center__year">2026</span>
+                    </div>
+                    <div class="radar-ring radar-ring--outer"></div>
+                    <div class="radar-ring radar-ring--inner"></div>
+                    <div class="radar-calibration">
+                      <span class="radar-calibration__tick radar-calibration__tick--1"></span>
+                      <span class="radar-calibration__tick radar-calibration__tick--2"></span>
+                      <span class="radar-calibration__tick radar-calibration__tick--3"></span>
+                      <span class="radar-calibration__tick radar-calibration__tick--4"></span>
+                      <span class="radar-calibration__tick radar-calibration__tick--5"></span>
+                      <span class="radar-calibration__label radar-calibration__label--1">W1</span>
+                      <span class="radar-calibration__label radar-calibration__label--2">W2</span>
+                      <span class="radar-calibration__label radar-calibration__label--3">W3</span>
+                      <span class="radar-calibration__label radar-calibration__label--4">W4</span>
+                      <span class="radar-calibration__label radar-calibration__label--5">W5</span>
+                    </div>
+                    <div class="radar-grid"></div>
+                    <div class="radar-segments" id="radar-segments"></div>
+                    <div class="radar-events" id="radar-events"></div>
+                  </div>
                 </div>
-                <div class="radar-ring radar-ring--outer"></div>
-                <div class="radar-ring radar-ring--inner"></div>
-                <div class="radar-grid"></div>
-                <div class="radar-segments" id="radar-segments"></div>
-                <div class="radar-events" id="radar-events"></div>
               </div>
 
               <div class="radar-focus glass-subpanel">
