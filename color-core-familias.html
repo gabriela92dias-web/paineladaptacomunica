@@ -42,12 +42,13 @@
         <div class="panel-heading">
           <div>
             <p class="section-kicker">Regra do sistema</p>
-            <h2>Nucleo, acentos e campo derivado</h2>
+            <h2>Centro, dois campos e dois acentos</h2>
           </div>
           <p class="section-note">
-            A proposta abandona a escadinha rigida. Cada familia funciona por
-            centro de luz, acentos vivos e um campo claro derivado da propria
-            luz.
+            A proposta abandona a escadinha rigida, mas tambem supera o modelo
+            simplificado demais de 3 partes. Cada familia passa a funcionar com
+            5 posicoes: centro, campo alto, campo velado, acento vivo e acento
+            denso.
           </p>
         </div>
 
@@ -57,12 +58,20 @@
             <p>O tom que segura a leitura principal da familia.</p>
           </article>
           <article>
-            <strong>Acentos</strong>
-            <p>Os pontos vivos de detalhe, chamada e pulso visual.</p>
+            <strong>Campo alto</strong>
+            <p>O claro mais aberto, de ar e expansao.</p>
           </article>
           <article>
-            <strong>Campo derivado</strong>
-            <p>A atmosfera clara da familia, tratada como camada e nao chip.</p>
+            <strong>Campo velado</strong>
+            <p>O claro com mais corpo, ainda suave e atmosferico.</p>
+          </article>
+          <article>
+            <strong>Acento vivo</strong>
+            <p>O ponto mais aceso de chamada, detalhe e energia.</p>
+          </article>
+          <article>
+            <strong>Acento denso</strong>
+            <p>A versao mais firme da familia, sem escurecer demais.</p>
           </article>
         </div>
       </section>
@@ -72,10 +81,12 @@
           class="family-card"
           style="
             --center: #FFE0A9;
+            --field-high: #FFF0DE;
+            --field-low: #FFDCCB;
             --accent-a: #FCDE73;
             --accent-b: #FC8473;
-            --field-a: rgba(255, 224, 169, 0.52);
-            --field-b: rgba(252, 132, 115, 0.20);
+            --field-a: rgba(255, 224, 169, 0.48);
+            --field-b: rgba(255, 220, 203, 0.28);
             --line-a: rgba(252, 132, 115, 0.28);
           "
         >
@@ -91,21 +102,35 @@
             <div class="token-block">
               <span class="token-dot center"></span>
               <div>
-                <strong>Centro de luz</strong>
+                <strong>Centro</strong>
                 <p>#FFE0A9</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#FFF0DE</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#FFDCCB</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-a"></span>
               <div>
-                <strong>Acento A</strong>
+                <strong>Acento vivo</strong>
                 <p>#FCDE73</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-b"></span>
               <div>
-                <strong>Acento B</strong>
+                <strong>Acento denso</strong>
                 <p>#FC8473</p>
               </div>
             </div>
@@ -113,18 +138,19 @@
 
           <div class="sample-grid">
             <div class="sample-card field-sample">
-              <strong>Campo derivado</strong>
-              <p>Wash quente, auroral e social.</p>
+              <strong>Campos</strong>
+              <p>Alto para ar; velado para calor com mais corpo.</p>
             </div>
 
             <div class="sample-card interface-sample">
               <div class="sample-topbar">
                 <span class="sample-chip chip-center">Centro</span>
-                <span class="sample-chip chip-a">Acento</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
               </div>
               <div class="sample-line"></div>
               <div class="sample-pills">
-                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-b">Acento denso</span>
                 <span class="sample-pill pill-outline">Hover</span>
               </div>
             </div>
@@ -143,10 +169,12 @@
           class="family-card"
           style="
             --center: #F6C1D1;
+            --field-high: #FBE6EE;
+            --field-low: #F6D3DE;
             --accent-a: #FF78A8;
             --accent-b: #8A4B69;
-            --field-a: rgba(246, 193, 209, 0.46);
-            --field-b: rgba(255, 120, 168, 0.16);
+            --field-a: rgba(246, 193, 209, 0.44);
+            --field-b: rgba(246, 211, 222, 0.24);
             --line-a: rgba(138, 75, 105, 0.24);
           "
         >
@@ -162,21 +190,35 @@
             <div class="token-block">
               <span class="token-dot center"></span>
               <div>
-                <strong>Centro de luz</strong>
+                <strong>Centro</strong>
                 <p>#F6C1D1</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#FBE6EE</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#F6D3DE</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-a"></span>
               <div>
-                <strong>Acento A</strong>
+                <strong>Acento vivo</strong>
                 <p>#FF78A8</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-b"></span>
               <div>
-                <strong>Acento B</strong>
+                <strong>Acento denso</strong>
                 <p>#8A4B69</p>
               </div>
             </div>
@@ -184,18 +226,19 @@
 
           <div class="sample-grid">
             <div class="sample-card field-sample">
-              <strong>Campo derivado</strong>
-              <p>Wash afetivo, aberto e humano.</p>
+              <strong>Campos</strong>
+              <p>Rosados, afetivos e mais limpos do que cosméticos.</p>
             </div>
 
             <div class="sample-card interface-sample">
               <div class="sample-topbar">
                 <span class="sample-chip chip-center">Centro</span>
-                <span class="sample-chip chip-a">Acento</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
               </div>
               <div class="sample-line"></div>
               <div class="sample-pills">
-                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-b">Acento denso</span>
                 <span class="sample-pill pill-outline">Hover</span>
               </div>
             </div>
@@ -214,10 +257,12 @@
           class="family-card"
           style="
             --center: #C8CEFF;
+            --field-high: #ECEFFF;
+            --field-low: #DDE1FF;
             --accent-a: #8F98FF;
             --accent-b: #6E57E8;
-            --field-a: rgba(200, 206, 255, 0.44);
-            --field-b: rgba(110, 87, 232, 0.12);
+            --field-a: rgba(200, 206, 255, 0.4);
+            --field-b: rgba(221, 225, 255, 0.22);
             --line-a: rgba(110, 87, 232, 0.24);
           "
         >
@@ -233,21 +278,35 @@
             <div class="token-block">
               <span class="token-dot center"></span>
               <div>
-                <strong>Centro de luz</strong>
+                <strong>Centro</strong>
                 <p>#C8CEFF</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#ECEFFF</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#DDE1FF</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-a"></span>
               <div>
-                <strong>Acento A</strong>
+                <strong>Acento vivo</strong>
                 <p>#8F98FF</p>
               </div>
             </div>
             <div class="token-block">
               <span class="token-dot accent-b"></span>
               <div>
-                <strong>Acento B</strong>
+                <strong>Acento denso</strong>
                 <p>#6E57E8</p>
               </div>
             </div>
@@ -255,18 +314,19 @@
 
           <div class="sample-grid">
             <div class="sample-card field-sample">
-              <strong>Campo derivado</strong>
-              <p>Wash nublado, calmo e confiavel.</p>
+              <strong>Campos</strong>
+              <p>Nublados, calmos e mais aereos do que gelados.</p>
             </div>
 
             <div class="sample-card interface-sample">
               <div class="sample-topbar">
                 <span class="sample-chip chip-center">Centro</span>
-                <span class="sample-chip chip-a">Acento</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
               </div>
               <div class="sample-line"></div>
               <div class="sample-pills">
-                <span class="sample-pill pill-b">Pulso</span>
+                <span class="sample-pill pill-b">Acento denso</span>
                 <span class="sample-pill pill-outline">Hover</span>
               </div>
             </div>

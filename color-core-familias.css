@@ -184,7 +184,7 @@ button {
 
 .rule-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -269,6 +269,14 @@ button {
   background: var(--center);
 }
 
+.token-dot.field-high {
+  background: var(--field-high);
+}
+
+.token-dot.field-low {
+  background: var(--field-low);
+}
+
 .token-dot.accent-a {
   background: var(--accent-a);
 }
@@ -338,6 +346,11 @@ button {
   color: #211a17;
 }
 
+.chip-field {
+  background: linear-gradient(135deg, var(--field-high) 0%, var(--field-low) 100%);
+  color: #211a17;
+}
+
 .chip-a {
   background: var(--accent-a);
   color: #211a17;
@@ -358,7 +371,12 @@ button {
   height: 10px;
   width: 78%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--center) 0%, var(--accent-a) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--field-high) 0%,
+    var(--center) 42%,
+    var(--accent-a) 100%
+  );
 }
 
 .poster-sample {
