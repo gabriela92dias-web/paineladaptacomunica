@@ -27,6 +27,15 @@
             <button class="segmented-btn" data-mode-target="dark">Dark</button>
           </div>
 
+          <div class="export-actions">
+            <button class="action-btn" id="copy-feedback-btn" type="button">
+              Copiar respostas
+            </button>
+            <button class="action-btn ghost" id="download-feedback-btn" type="button">
+              Baixar JSON
+            </button>
+          </div>
+
           <div class="legend-card">
             <p class="legend-title">Como ler</p>
             <ul>
@@ -165,6 +174,34 @@
               </div>
             </div>
           </div>
+
+          <div class="feedback-card" data-family="Energia">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Energia</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Energia">
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-energia">Observacoes</label>
+            <textarea
+              id="obs-energia"
+              class="feedback-notes"
+              data-notes-family="Energia"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
+          </div>
         </article>
 
         <article
@@ -254,6 +291,34 @@
                 <p>rosa melancia para berry limpo</p>
               </div>
             </div>
+          </div>
+
+          <div class="feedback-card" data-family="Alegria">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Alegria</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Alegria">
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-alegria">Observacoes</label>
+            <textarea
+              id="obs-alegria"
+              class="feedback-notes"
+              data-notes-family="Alegria"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
           </div>
         </article>
 
@@ -345,10 +410,59 @@
               </div>
             </div>
           </div>
+
+          <div class="feedback-card" data-family="Seguranca">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Seguranca</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Seguranca">
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-seguranca">Observacoes</label>
+            <textarea
+              id="obs-seguranca"
+              class="feedback-notes"
+              data-notes-family="Seguranca"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
+          </div>
         </article>
+      </section>
+
+      <section class="panel export-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Exportacao</p>
+            <h2>Resumo para compartilhar</h2>
+          </div>
+          <p class="section-note">
+            Use os botoes para copiar ou baixar as respostas. O texto abaixo
+            atualiza conforme voce marca aprovado, desaprovado ou escreve
+            observacoes.
+          </p>
+        </div>
+
+        <textarea
+          id="feedback-export"
+          class="export-output"
+          readonly
+          aria-label="Resumo exportavel do feedback"
+        ></textarea>
       </section>
     </main>
 
-    <script src="./app.js"></script>
+    <script src="./color-core-familias.js"></script>
   </body>
 </html>
