@@ -19,7 +19,7 @@ O objetivo e manter:
 - leitura monocromatica da marca;
 - maior hierarquia interna na interface;
 - mais respiracao entre estrutura e destaque;
-- separacao clara entre interface institucional e contextos multicor.
+- clareza de escopo para a linguagem institucional.
 
 ---
 
@@ -57,16 +57,11 @@ Os neutros devem ser discretamente aquecidos para conversar com a familia verde,
 O verde claro e quente de alta visibilidade existe no sistema, mas com uso controlado.  
 Ele aparece como **sinal** e nao como base universal da interface.
 
-### 2.5 Multicor nao invade o chrome institucional
+### 2.5 Escopo fechado do Verde Core
 
-Paletas multicor ficam reservadas a:
-
-- campanhas;
-- visualizacao de espectro;
-- simulacoes cromaticas;
-- conteudo editorial expandido;
-- ferramentas analiticas;
-- alertas administrativos especificos.
+Este material documenta apenas a linguagem institucional em verde.  
+Outras camadas de linguagem devem ser registradas em materiais proprios, sem
+interferir na definicao do Verde Core.
 
 ---
 
@@ -142,11 +137,14 @@ Niveis previstos:
 - `neutral.900` -> texto principal no light e superficie no dark
 - `neutral.950` -> fundo principal no dark
 
-### 4.5 Data/admin
+### 4.5 Limite desta especificacao
 
-Uso restrito a analise, simulacao ou sinalizacao administrativa.
+Esta especificacao cobre apenas:
 
-Os valores tecnicos e cromaticos dessa camada ficam registrados no apendice.
+- familia verde;
+- familia neutral;
+- papeis semanticos do Verde Core;
+- comportamento institucional do sistema.
 
 ---
 
@@ -325,9 +323,9 @@ Uso:
 
 ---
 
-## 8. Relacao entre Verde Core e Color Core
+## 8. Escopo do Verde Core
 
-### 8.1 Verde Core
+### 8.1 O que ele cobre
 
 Responsavel por:
 
@@ -337,20 +335,14 @@ Responsavel por:
 - navegacao;
 - padrao recorrente da marca.
 
-### 8.2 Color Core
+### 8.2 O que ele nao cobre
 
-Responsavel por:
+Este material nao cobre:
 
-- campanhas;
-- modulos tematicos;
-- linguagem editorial expandida;
-- visualizacao de espectro;
-- simulacao e analise cromatica.
-
-### 8.3 Regra de fronteira
-
-O Color Core nao substitui a estrutura institucional.  
-Ele entra como camada expressiva ou analitica, sem quebrar a leitura principal do produto.
+- camadas expressivas paralelas;
+- linguagens tematicas complementares;
+- exploracoes cromaticas fora da familia verde;
+- qualquer sistema que nao faca parte do chrome institucional.
 
 ---
 
@@ -361,14 +353,14 @@ Ele entra como camada expressiva ou analitica, sem quebrar a leitura principal d
 - o sistema continua monocromatico por familia;
 - o verde claro quente nao volta a ser universal;
 - neutros continuam subordinados ao verde;
-- multicor permanece contextual.
+- o escopo permanece fechado no verde institucional.
 
 ### 9.2 O que evitar
 
 - criar novos verdes medios muito proximos entre si;
 - usar `brandSignal` como acao padrao de tudo;
 - reaquecer neutros a ponto de virar paleta bege;
-- misturar Color Core na navegacao institucional.
+- misturar outras linguagens cromaticas no chrome institucional.
 
 ### 9.3 Criterio para futuras decisoes
 
@@ -388,7 +380,7 @@ Antes de aprovar uma nova aplicacao do sistema, verificar:
 - O verde continua sendo assinatura, e nao ruido?
 - O CTA especial esta reservado ao que realmente precisa de alta enfase?
 - Os neutros continuam discretos, mas conectados ao verde?
-- O multicor esta restrito ao contexto certo?
+- O material continua fiel ao escopo verde institucional?
 
 ---
 
@@ -418,4 +410,4 @@ Com o Verde Core v2 consolidado, o proximo movimento do sistema deve ser:
 
 1. aplicar os tokens em componentes reais;
 2. documentar exemplos de implementacao;
-3. abrir o desenho do **Color Core v1** sem reabrir a base institucional.
+3. manter qualquer camada complementar em documentacao separada.

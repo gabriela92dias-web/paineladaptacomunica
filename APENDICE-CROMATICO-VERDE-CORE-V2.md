@@ -54,15 +54,6 @@ neutral.900  #1A211C
 neutral.950  #0D110E
 ```
 
-### 2.3 Data/admin
-
-```txt
-data.purple  #9886B3
-data.pink    #FF89DA
-data.yellow  #FFEC88
-data.orange  #FFB36B
-```
-
 ---
 
 ## 3. Tokens semanticos
@@ -130,3 +121,6 @@ Qualquer alteracao cromatica futura deve atualizar:
 1. este apendice;
 2. a preview visual;
 3. a especificacao principal, se houver mudanca de papel ou governanca.
+
+Este apendice registra apenas a familia verde, a familia neutral e os tokens
+institucionais do Verde Core.

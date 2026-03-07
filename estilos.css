@@ -24,10 +24,6 @@
   --neutral-900: #1a211c;
   --neutral-950: #0d110e;
 
-  --data-purple: #9886b3;
-  --data-pink: #ff89da;
-  --data-yellow: #ffec88;
-  --data-orange: #ffb36b;
 }
 
 * {
@@ -646,38 +642,20 @@ button {
   background: var(--brand-fill);
 }
 
-.mini-spectrum {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-bottom: 18px;
+.boundary-chart span:nth-child(1) {
+  background: rgba(110, 120, 109, 0.18);
 }
 
-.mini-spectrum span {
-  height: 18px;
+.boundary-chart span:nth-child(2) {
+  background: rgba(110, 120, 109, 0.28);
 }
 
-.mini-spectrum .purple,
-.mini-chart .purple {
-  background: var(--data-purple);
+.boundary-chart span:nth-child(3) {
+  background: rgba(110, 120, 109, 0.38);
 }
 
-.mini-spectrum .pink,
-.mini-chart .pink {
-  background: var(--data-pink);
-}
-
-.mini-spectrum .yellow,
-.mini-chart .yellow {
-  background: var(--data-yellow);
-}
-
-.mini-spectrum .orange {
-  background: var(--data-orange);
-}
-
-.mini-chart .green {
-  background: var(--brand-fill);
+.boundary-chart span:nth-child(4) {
+  background: rgba(110, 120, 109, 0.48);
 }
 
 .checklist {
