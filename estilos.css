@@ -9,6 +9,7 @@
 
   --green-050: #f2f8f3;
   --green-100: #dce9df;
+  --green-signal: #b4f3b1;
   --green-300: #a4c2ad;
   --green-500: #6e947d;
   --green-700: #2f574b;
@@ -56,6 +57,8 @@ body[data-mode="light"] {
   --brand-ink: var(--green-700);
   --brand-fill: var(--green-700);
   --brand-fill-text: var(--neutral-000);
+  --brand-signal: var(--green-signal);
+  --brand-signal-text: var(--neutral-950);
   --brand-soft: var(--green-100);
   --brand-border: var(--green-300);
   --brand-highlight: var(--green-500);
@@ -81,6 +84,8 @@ body[data-mode="dark"] {
   --brand-ink: var(--green-100);
   --brand-fill: var(--green-300);
   --brand-fill-text: var(--neutral-950);
+  --brand-signal: var(--green-signal);
+  --brand-signal-text: var(--neutral-950);
   --brand-soft: rgba(164, 194, 173, 0.14);
   --brand-border: var(--green-500);
   --brand-highlight: var(--green-100);
@@ -300,6 +305,10 @@ button {
   border-radius: 12px;
 }
 
+.signal-row {
+  box-shadow: inset 0 0 0 1px rgba(180, 243, 177, 0.5);
+}
+
 .swatch {
   width: 24px;
   height: 24px;
@@ -351,6 +360,10 @@ button {
 
 .semantic-dot.fill {
   background: var(--brand-fill);
+}
+
+.semantic-dot.signal {
+  background: var(--brand-signal);
 }
 
 .semantic-dot.soft {
@@ -754,7 +767,13 @@ button {
 }
 
 .v2-demo .pill.filled,
-.v2-demo .primary-btn {
+.v2-demo .primary-btn,
+.v2-demo .pill.signal {
+  background: var(--brand-signal);
+  color: var(--brand-signal-text);
+}
+
+.v2-demo .pill.filled {
   background: var(--brand-fill);
   color: var(--brand-fill-text);
 }
