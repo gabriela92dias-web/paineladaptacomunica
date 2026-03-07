@@ -26,8 +26,6 @@ const brandActions = [
   { icon: "ID", title: "Identity", note: "Logo e estrutura" },
   { icon: "GL", title: "Guidelines", note: "Diretrizes centrais" },
   { icon: "MT", title: "Materials", note: "Pecas neutras" },
-  { icon: "TP", title: "Templates", note: "Modelos base" },
-  { icon: "EX", title: "Export", note: "Pacotes e saidas" },
   { icon: "ST", title: "Settings", note: "Controles gerais" },
 ];
 
@@ -42,7 +40,6 @@ const weeks = [
     items: [
       { title: "Revisao de identidade institucional", meta: "Brand / alinhamento interno" },
       { title: "Conferencia do planner mensal", meta: "Marketing / visao macro" },
-      { title: "Ferramentas cromaticas em espera", meta: "Tools / aguardando liberacao" },
     ],
   },
   {
@@ -55,7 +52,6 @@ const weeks = [
     items: [
       { title: "Janela de campanha institucional", meta: "Marketing / marco do mes" },
       { title: "Atualizacao do calendario de eventos", meta: "Operations / visao geral" },
-      { title: "Validacao de materiais neutros", meta: "Brand / estado provisorio" },
     ],
   },
   {
@@ -68,7 +64,6 @@ const weeks = [
     items: [
       { title: "Checkpoint de campanhas ativas", meta: "Marketing / acompanhamento" },
       { title: "Analise grafica institucional", meta: "Tools / readiness" },
-      { title: "Ajustes de dashboard executivo", meta: "Platform / shell visual" },
     ],
   },
   {
@@ -81,7 +76,6 @@ const weeks = [
     items: [
       { title: "Resumo mensal de atividade", meta: "Operations / consolidacao" },
       { title: "Organizacao de ativos e pautas", meta: "Marketing / preparacao" },
-      { title: "Reserva para ativacao futura de tokens", meta: "Brand / color readiness" },
     ],
   },
   {
@@ -94,7 +88,6 @@ const weeks = [
     items: [
       { title: "Buffer estrategico e retomada", meta: "Direcao / baixa densidade" },
       { title: "Ajustes de prioridade do proximo ciclo", meta: "Platform / governanca" },
-      { title: "Nenhuma liberacao cromatica prevista", meta: "Color freeze / mantido" },
     ],
   },
 ];
@@ -102,22 +95,19 @@ const weeks = [
 const radarEvents = [
   { label: "Planner mensal", angle: -40, distance: 126 },
   { label: "Evento institucional", angle: 24, distance: 172 },
-  { label: "Checkpoint de direcao", angle: 96, distance: 140 },
-  { label: "Resumo executivo", angle: 166, distance: 168 },
-  { label: "Buffer de replanejamento", angle: 236, distance: 134 },
+  { label: "Checkpoint", angle: 96, distance: 140 },
+  { label: "Resumo", angle: 166, distance: 160 },
 ];
 
 const alerts = [
   { title: "Camada cromatica bloqueada", meta: "Todos os modulos cromaticos seguem em espera" },
   { title: "Templates em modo neutro", meta: "Pecas mostram placeholders provisorios" },
-  { title: "Integracao real ainda nao iniciada", meta: "Este dashboard e um shell visual seguro" },
 ];
 
 const timeline = [
   { time: "15:20", title: "Shell do dashboard iniciado", meta: "Nova central de controle visual em construcao" },
   { time: "14:42", title: "Estrutura de navegacao consolidada", meta: "Dashboard, Brand, Marketing e Tools definidos" },
   { time: "13:18", title: "Radar mensal definido como foco", meta: "Calendario estrategico para leitura executiva" },
-  { time: "11:56", title: "Congelamento cromatico reafirmado", meta: "Cores, paletas e gradientes seguem desligados" },
 ];
 
 const tools = [
@@ -177,7 +167,7 @@ const metrics = [
   { label: "Areas", value: "4", meta: "Dashboard, Brand, Marketing e Tools" },
   { label: "Radar", value: "5", meta: "Semanas do mes no instrumento central" },
   { label: "Cor", value: "OFF", meta: "Colors, gradients e paletas em espera" },
-  { label: "Shell", value: "v1", meta: "Base visual pronta para evolucao" },
+  { label: "Shell", value: "v1", meta: "Base visual pronta" },
 ];
 
 function renderTicker() {
