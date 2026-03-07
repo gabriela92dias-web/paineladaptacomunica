@@ -18,11 +18,10 @@ const currentMonth = "Marco";
 monthLabel.textContent = currentMonth;
 
 const tickerItems = [
-  "Guidelines em revisao executiva",
-  "Shell visual da plataforma em construcao",
-  "Calendario mensal preparado para integracao real",
-  "Mascots em revisao para fase posterior",
-  "Colors e gradients seguem aguardando liberacao cromatica",
+  "Guidelines em revisao",
+  "Calendario mensal pronto",
+  "Mascots em revisao",
+  "Colors e gradients em espera",
 ];
 
 const weeks = [
@@ -32,10 +31,10 @@ const weeks = [
     start: -90,
     size: 72,
     angle: -54,
-    summary: "Alinhamento institucional e consolidacao do calendario executivo.",
+    summary: "Alinhamento institucional.",
     items: [
-      { title: "Revisao de identidade institucional", meta: "Brand / alinhamento interno" },
-      { title: "Conferencia do planner mensal", meta: "Marketing / visao macro" },
+      { title: "Revisao de identidade", meta: "Brand" },
+      { title: "Planner mensal", meta: "Marketing" },
     ],
   },
   {
@@ -44,10 +43,10 @@ const weeks = [
     start: -18,
     size: 72,
     angle: 18,
-    summary: "Janela de agenda institucional e checkpoints de direcao.",
+    summary: "Campanhas e agenda.",
     items: [
-      { title: "Janela de campanha institucional", meta: "Marketing / marco do mes" },
-      { title: "Atualizacao do calendario de eventos", meta: "Operations / visao geral" },
+      { title: "Janela de campanha", meta: "Marketing" },
+      { title: "Eventos do mes", meta: "Ops" },
     ],
   },
   {
@@ -56,10 +55,10 @@ const weeks = [
     start: 54,
     size: 72,
     angle: 90,
-    summary: "Semana voltada a acompanhamento e leitura de atividade recente.",
+    summary: "Acompanhamento do ciclo.",
     items: [
-      { title: "Checkpoint de campanhas ativas", meta: "Marketing / acompanhamento" },
-      { title: "Analise grafica institucional", meta: "Tools / readiness" },
+      { title: "Checkpoint de campanhas", meta: "Marketing" },
+      { title: "Analise grafica", meta: "Tools" },
     ],
   },
   {
@@ -68,10 +67,10 @@ const weeks = [
     start: 126,
     size: 72,
     angle: 162,
-    summary: "Fechamento do ciclo com relatorios e preparacao do mes seguinte.",
+    summary: "Fechamento do mes.",
     items: [
-      { title: "Resumo mensal de atividade", meta: "Operations / consolidacao" },
-      { title: "Organizacao de ativos e pautas", meta: "Marketing / preparacao" },
+      { title: "Resumo mensal", meta: "Ops" },
+      { title: "Preparacao seguinte", meta: "Marketing" },
     ],
   },
   {
@@ -80,29 +79,29 @@ const weeks = [
     start: 198,
     size: 72,
     angle: 234,
-    summary: "Buffer para replanejamento, ajuste de prioridades e organizacao.",
+    summary: "Buffer e ajuste.",
     items: [
-      { title: "Buffer estrategico e retomada", meta: "Direcao / baixa densidade" },
-      { title: "Ajustes de prioridade do proximo ciclo", meta: "Platform / governanca" },
+      { title: "Buffer estrategico", meta: "Direcao" },
+      { title: "Ajuste de prioridades", meta: "Platform" },
     ],
   },
 ];
 
 const radarEvents = [
-  { label: "Planner mensal", angle: -40, distance: 126 },
-  { label: "Evento institucional", angle: 24, distance: 172 },
+  { label: "Planner", angle: -40, distance: 126 },
+  { label: "Evento", angle: 24, distance: 172 },
   { label: "Checkpoint", angle: 96, distance: 140 },
   { label: "Resumo", angle: 166, distance: 160 },
 ];
 
 const alerts = [
-  { title: "Camada cromatica bloqueada", meta: "Todos os modulos cromaticos seguem em espera" },
-  { title: "Templates em modo neutro", meta: "Pecas mostram placeholders provisorios" },
+  { title: "Cor bloqueada", meta: "Tokens pendentes" },
+  { title: "Templates neutros", meta: "Placeholders ativos" },
 ];
 
 const timeline = [
-  { time: "15:20", title: "Shell do dashboard iniciado", meta: "Nova central de controle visual em construcao" },
-  { time: "14:42", title: "Estrutura de navegacao consolidada", meta: "Radar central, operations e tools como orbitas" },
+  { time: "15:20", title: "Shell iniciado", meta: "Nova base" },
+  { time: "14:42", title: "Estrutura consolidada", meta: "Radar + orbitas" },
 ];
 
 const tools = [
@@ -111,21 +110,21 @@ const tools = [
     items: [
       {
         name: "Colors",
-        note: "Aguardando tokens",
+        note: "Tokens",
         badge: "off",
         icon: colorIcon(),
         disabled: true,
       },
       {
         name: "Gradients",
-        note: "Modulo em espera",
+        note: "Em espera",
         badge: "off",
         icon: gradientIcon(),
         disabled: true,
       },
       {
         name: "Typography",
-        note: "Camada estrutural",
+        note: "Estrutural",
         badge: "ready",
         icon: typographyIcon(),
         disabled: false,
@@ -137,7 +136,7 @@ const tools = [
     items: [
       {
         name: "Mascots",
-        note: "Revisao posterior",
+        note: "Posterior",
         badge: "standby",
         icon: mascotIcon(),
         disabled: false,
@@ -149,7 +148,7 @@ const tools = [
     items: [
       {
         name: "Graphic Analysis",
-        note: "Leitura e verificacao",
+        note: "Analise",
         badge: "ready",
         icon: analysisIcon(),
         disabled: false,
@@ -159,16 +158,16 @@ const tools = [
 ];
 
 const metrics = [
-  { label: "Areas", value: "4", meta: "Dashboard, Brand, Marketing e Tools" },
-  { label: "Radar", value: "5", meta: "Semanas do mes no instrumento central" },
-  { label: "Cor", value: "OFF", meta: "Colors, gradients e paletas em espera" },
-  { label: "Shell", value: "v1", meta: "Base visual pronta" },
+  { label: "Areas", value: "4", meta: "Dashboard, Brand, Marketing, Tools" },
+  { label: "Radar", value: "5", meta: "Semanas do mes" },
+  { label: "Cor", value: "OFF", meta: "Modulos cromaticos em espera" },
+  { label: "Shell", value: "v1", meta: "Base pronta" },
 ];
 
 const variantMeta = {
-  A: "Radar dominante com instrumentos orbitais",
-  B: "Radar + leitura narrativa do calendario",
-  C: "Console institucional com instrumentacao tecnica",
+  A: "Radar dominante",
+  B: "Radar + timeline",
+  C: "Console institucional",
 };
 
 function renderTicker() {
