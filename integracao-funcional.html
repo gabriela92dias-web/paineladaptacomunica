@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Verde Core v2</title>
+    <link rel="stylesheet" href="./estilos.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Estudo visual de design system</p>
+          <h1>Verde Core v2</h1>
+          <p class="hero-text">
+            Previa estatica para validar a hipotese de interface monocromatica
+            em verde, agora com familia tonal e papeis semanticos mais claros.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">O que observar</p>
+            <ul>
+              <li>Se a estrutura respira mais com neutros frios.</li>
+              <li>Se a hierarquia melhora quando o verde deixa de ser unico.</li>
+              <li>Se o multicor fica mais contido em contexto analitico.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">1. Tokens</p>
+            <h2>Paleta primitiva e semantica</h2>
+          </div>
+          <p class="section-note">
+            O verde continua sendo a familia principal, mas agora em papeis
+            diferentes: ink, fill, soft, border e highlight.
+          </p>
+        </div>
+
+        <div class="grid two-up">
+          <article class="subpanel">
+            <h3>Primitivos</h3>
+            <div class="swatch-group">
+              <div class="swatch-group-head">
+                <span>Green scale</span>
+                <span class="token-hint">familia da marca</span>
+              </div>
+              <div class="swatch-list">
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#F2F8F3;"></span>
+                  <strong>green.050</strong>
+                  <code>#F2F8F3</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#DCE9DF;"></span>
+                  <strong>green.100</strong>
+                  <code>#DCE9DF</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#A4C2AD;"></span>
+                  <strong>green.300</strong>
+                  <code>#A4C2AD</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#6E947D;"></span>
+                  <strong>green.500</strong>
+                  <code>#6E947D</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#2F574B;"></span>
+                  <strong>green.700</strong>
+                  <code>#2F574B</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#112A24;"></span>
+                  <strong>green.900</strong>
+                  <code>#112A24</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="swatch-group">
+              <div class="swatch-group-head">
+                <span>Neutral scale</span>
+                <span class="token-hint">estrutura fria</span>
+              </div>
+              <div class="swatch-list">
+                <div class="swatch-row">
+                  <span class="swatch outlined" style="background:#FFFFFF;"></span>
+                  <strong>neutral.000</strong>
+                  <code>#FFFFFF</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#F6F8F7;"></span>
+                  <strong>neutral.050</strong>
+                  <code>#F6F8F7</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#EBEFED;"></span>
+                  <strong>neutral.100</strong>
+                  <code>#EBEFED</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#C4CDC8;"></span>
+                  <strong>neutral.300</strong>
+                  <code>#C4CDC8</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#6B7872;"></span>
+                  <strong>neutral.500</strong>
+                  <code>#6B7872</code>
+                </div>
+                <div class="swatch-row">
+                  <span class="swatch" style="background:#18211E;"></span>
+                  <strong>neutral.900</strong>
+                  <code>#18211E</code>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="subpanel">
+            <h3>Semanticos</h3>
+            <div class="semantic-list">
+              <div class="semantic-card">
+                <span class="semantic-dot ink"></span>
+                <div>
+                  <strong>brandInk</strong>
+                  <p>links, icones, numeros, tabs ativas por texto</p>
+                </div>
+              </div>
+              <div class="semantic-card">
+                <span class="semantic-dot fill"></span>
+                <div>
+                  <strong>brandFill</strong>
+                  <p>botoes primarios, progress bars, badges filled</p>
+                </div>
+              </div>
+              <div class="semantic-card">
+                <span class="semantic-dot soft"></span>
+                <div>
+                  <strong>brandSoft</strong>
+                  <p>hover, selecao sutil, pills suaves, fundo de icone</p>
+                </div>
+              </div>
+              <div class="semantic-card">
+                <span class="semantic-dot border"></span>
+                <div>
+                  <strong>brandBorder</strong>
+                  <p>focus, outline, separacoes, estados ativos leves</p>
+                </div>
+              </div>
+              <div class="semantic-card">
+                <span class="semantic-dot highlight"></span>
+                <div>
+                  <strong>brandHighlight</strong>
+                  <p>destaque secundario, dados e detalhes de navegacao</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-card">
+              <h4>Resumo da mudanca</h4>
+              <p>
+                No v1, um unico verde marcava quase toda a interface. No v2,
+                o verde continua central, mas cada papel ganha uma intensidade
+                propria.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">2. Comparacao</p>
+            <h2>V1 versus V2 em contexto</h2>
+          </div>
+          <p class="section-note">
+            Compare a mesma interface com regra de accent unico e com familia
+            tonal. O objetivo e perceber a diferenca de hierarquia.
+          </p>
+        </div>
+
+        <div class="grid two-up">
+          <article class="preview-card" data-preview="v1">
+            <div class="preview-head">
+              <div>
+                <p class="preview-kicker">V1</p>
+                <h3>Accent unico</h3>
+              </div>
+              <span class="preview-badge">Tudo importante = mesmo verde</span>
+            </div>
+
+            <div class="product-demo v1-demo">
+              <div class="topbar">
+                <div class="brand-lockup">
+                  <span class="brand-mark">A</span>
+                  <div>
+                    <strong>Adapta</strong>
+                    <p>Painel institucional</p>
+                  </div>
+                </div>
+                <button class="ghost-btn">Ver relatorio</button>
+              </div>
+
+              <div class="tabs">
+                <button class="tab is-active">Visao geral</button>
+                <button class="tab">Diretrizes</button>
+                <button class="tab">Noticias</button>
+              </div>
+
+              <div class="stats-grid">
+                <article class="stat-card">
+                  <p class="stat-label">Acessos</p>
+                  <strong class="stat-value">2.184</strong>
+                  <span class="stat-meta">+18% no periodo</span>
+                </article>
+                <article class="stat-card">
+                  <p class="stat-label">Guias ativos</p>
+                  <strong class="stat-value">14</strong>
+                  <span class="stat-meta">Atualizados este mes</span>
+                </article>
+                <article class="stat-card">
+                  <p class="stat-label">Campos revisados</p>
+                  <strong class="stat-value">87%</strong>
+                  <span class="stat-meta">Padrao institucional</span>
+                </article>
+              </div>
+
+              <article class="content-card">
+                <div class="content-head">
+                  <div class="icon-chip">i</div>
+                  <div>
+                    <h4>Normas cromaticas</h4>
+                    <p>
+                      Todos os sinais usam a mesma voz cromatica. A interface
+                      fica coerente, mas com menos nuance entre acao, apoio e
+                      destaque.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pill-row">
+                  <span class="pill filled">Primario</span>
+                  <span class="pill filled">Badge novo</span>
+                  <span class="pill filled">Link ativo</span>
+                </div>
+
+                <div class="action-row">
+                  <button class="primary-btn">Publicar guia</button>
+                  <button class="secondary-btn">Revisar status</button>
+                </div>
+              </article>
+            </div>
+          </article>
+
+          <article class="preview-card" data-preview="v2">
+            <div class="preview-head">
+              <div>
+                <p class="preview-kicker">V2</p>
+                <h3>Familia tonal</h3>
+              </div>
+              <span class="preview-badge">Monocromia com hierarquia</span>
+            </div>
+
+            <div class="product-demo v2-demo">
+              <div class="topbar">
+                <div class="brand-lockup">
+                  <span class="brand-mark">A</span>
+                  <div>
+                    <strong>Adapta</strong>
+                    <p>Painel institucional</p>
+                  </div>
+                </div>
+                <button class="ghost-btn">Ver relatorio</button>
+              </div>
+
+              <div class="tabs">
+                <button class="tab is-active">Visao geral</button>
+                <button class="tab">Diretrizes</button>
+                <button class="tab">Noticias</button>
+              </div>
+
+              <div class="stats-grid">
+                <article class="stat-card">
+                  <p class="stat-label">Acessos</p>
+                  <strong class="stat-value">2.184</strong>
+                  <span class="stat-meta">+18% no periodo</span>
+                </article>
+                <article class="stat-card">
+                  <p class="stat-label">Guias ativos</p>
+                  <strong class="stat-value">14</strong>
+                  <span class="stat-meta">Atualizados este mes</span>
+                </article>
+                <article class="stat-card">
+                  <p class="stat-label">Campos revisados</p>
+                  <strong class="stat-value">87%</strong>
+                  <span class="stat-meta">Padrao institucional</span>
+                </article>
+              </div>
+
+              <article class="content-card">
+                <div class="content-head">
+                  <div class="icon-chip">i</div>
+                  <div>
+                    <h4>Normas cromaticas</h4>
+                    <p>
+                      O verde continua dominante, mas agora com papeis distintos
+                      para texto, preenchimento, hover e contorno.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pill-row">
+                  <span class="pill soft">Hover / apoio</span>
+                  <span class="pill filled">CTA principal</span>
+                  <span class="pill outline">Estado ativo</span>
+                </div>
+
+                <div class="action-row">
+                  <button class="primary-btn">Publicar guia</button>
+                  <button class="secondary-btn">Revisar status</button>
+                </div>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">3. Uso controlado do multicor</p>
+            <h2>Color Core e ferramentas analiticas</h2>
+          </div>
+          <p class="section-note">
+            O multicor aparece somente em contexto de analise, sem invadir o
+            chrome principal do produto.
+          </p>
+        </div>
+
+        <div class="grid two-up">
+          <article class="subpanel">
+            <h3>UI institucional</h3>
+            <div class="mini-shell institutional">
+              <div class="mini-bar"></div>
+              <div class="mini-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="mini-chart mono">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <p class="subpanel-copy">
+              A interface principal continua verde + neutro, com foco em
+              leitura, navegacao e consistencia.
+            </p>
+          </article>
+
+          <article class="subpanel">
+            <h3>Ferramenta analitica</h3>
+            <div class="mini-shell analytic">
+              <div class="mini-bar"></div>
+              <div class="mini-spectrum">
+                <span class="purple"></span>
+                <span class="pink"></span>
+                <span class="yellow"></span>
+                <span class="orange"></span>
+              </div>
+              <div class="mini-chart multi">
+                <span class="green"></span>
+                <span class="purple"></span>
+                <span class="pink"></span>
+                <span class="yellow"></span>
+              </div>
+            </div>
+            <p class="subpanel-copy">
+              O multicor fica reservado a demonstracao, simulacao, gradientes e
+              leitura de espectro.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">4. Checklist</p>
+            <h2>Como decidir se o v2 funciona</h2>
+          </div>
+        </div>
+
+        <div class="checklist">
+          <article>
+            <strong>Respiracao</strong>
+            <p>
+              O layout parece mais arejado porque os fundos deixam de competir
+              com os elementos de marca?
+            </p>
+          </article>
+          <article>
+            <strong>Hierarquia</strong>
+            <p>
+              Botoes, links, tabs e badges continuam parentes, mas com pesos
+              diferentes entre si?
+            </p>
+          </article>
+          <article>
+            <strong>Assinatura</strong>
+            <p>
+              O verde parece mais proprio da marca e menos um efeito uniforme
+              sobre tudo?
+            </p>
+          </article>
+          <article>
+            <strong>Convivencia</strong>
+            <p>
+              As secoes analiticas parecem excecoes controladas, e nao
+              interferencias na interface institucional?
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
