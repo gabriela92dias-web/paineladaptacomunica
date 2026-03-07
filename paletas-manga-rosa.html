@@ -397,6 +397,183 @@
       overflow: hidden;
       aspect-ratio: 1 / 1.2;
       border: 1px solid rgba(47, 36, 48, 0.08);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+    }
+
+    .value-swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(47, 36, 48, 0.14);
+    }
+
+    .value-swatch:focus-visible {
+      outline: 3px solid rgba(108, 98, 158, 0.42);
+      outline-offset: 2px;
+    }
+
+    .value-swatch.is-approved {
+      border-color: rgba(40, 139, 92, 0.55);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 6px rgba(77, 189, 127, 0.38);
+    }
+
+    .value-swatch.is-rejected {
+      border-color: rgba(196, 71, 108, 0.58);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 6px rgba(232, 92, 133, 0.32);
+      opacity: 0.94;
+    }
+
+    .value-swatch.is-approved::before,
+    .value-swatch.is-rejected::before {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .value-swatch.is-approved::before {
+      content: "OK";
+    }
+
+    .value-swatch.is-rejected::before {
+      content: "X";
+    }
+
+    .value-review-panel {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: rgba(47, 36, 48, 0.03);
+    }
+
+    .value-review-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .value-review-modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .value-mode-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font: inherit;
+      background: rgba(47, 36, 48, 0.08);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.16s ease, opacity 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+    }
+
+    .value-mode-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .value-mode-button.is-active[data-mode="approve"] {
+      background: #2e9c67;
+      color: #fff;
+    }
+
+    .value-mode-button.is-active[data-mode="reject"] {
+      background: #cb5378;
+      color: #fff;
+    }
+
+    .value-review-status {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .value-review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .value-review-column {
+      padding: 14px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+    }
+
+    .value-review-column h3 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .value-review-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .value-review-empty {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      padding: 2px 0;
+    }
+
+    .value-review-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(47, 36, 48, 0.08);
+      background: rgba(47, 36, 48, 0.02);
+    }
+
+    .value-review-chip-swatch {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(47, 36, 48, 0.12);
+    }
+
+    .value-review-chip-copy {
+      min-width: 0;
+    }
+
+    .value-review-chip-copy strong,
+    .value-review-chip-copy span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .value-review-chip-copy strong {
+      font-size: 0.86rem;
+    }
+
+    .value-review-chip-copy span {
+      margin-top: 3px;
+      font-size: 0.78rem;
+      color: var(--muted);
     }
 
     .value-swatch::after {
@@ -516,6 +693,30 @@
       <div class="eyebrow">Sistema final</div>
       <h2>Mae, flash, luz e nevoa para suas 5 cores-base</h2>
       <p>As maes seguem pop e acesas, as versoes claras continuam como voce tinha aprovado, e a camada flash volta como esse ponto marca-texto pastel vibrante que estava fazendo falta.</p>
+      <div class="value-review-panel">
+        <div class="value-review-toolbar">
+          <div class="value-review-modes">
+            <button class="value-mode-button is-active" id="review-approve-mode" data-mode="approve" type="button">Modo aprovar</button>
+            <button class="value-mode-button" id="review-reject-mode" data-mode="reject" type="button">Modo reprovar</button>
+            <button class="value-mode-button" id="review-clear-mode" data-mode="clear" type="button">Limpar marcacoes</button>
+          </div>
+          <div class="value-review-status" id="value-review-status">Clique nas amostras abaixo para aprovar ou reprovar.</div>
+        </div>
+        <div class="value-review-grid">
+          <div class="value-review-column">
+            <h3 id="approved-title">Aprovadas (0)</h3>
+            <div class="value-review-list" id="approved-list">
+              <div class="value-review-empty">Nada aprovado ainda.</div>
+            </div>
+          </div>
+          <div class="value-review-column">
+            <h3 id="rejected-title">Reprovadas (0)</h3>
+            <div class="value-review-list" id="rejected-list">
+              <div class="value-review-empty">Nada reprovado ainda.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="value-grid">
         <article class="value-card">
@@ -768,7 +969,19 @@
     const selectionStatus = document.getElementById('selection-status');
     const copySelectionButton = document.getElementById('copy-selection');
     const clearSelectionButton = document.getElementById('clear-selection');
+    const valueSwatches = Array.from(document.querySelectorAll('.value-swatch'));
+    const reviewApproveModeButton = document.getElementById('review-approve-mode');
+    const reviewRejectModeButton = document.getElementById('review-reject-mode');
+    const reviewClearModeButton = document.getElementById('review-clear-mode');
+    const valueReviewStatus = document.getElementById('value-review-status');
+    const approvedList = document.getElementById('approved-list');
+    const rejectedList = document.getElementById('rejected-list');
+    const approvedTitle = document.getElementById('approved-title');
+    const rejectedTitle = document.getElementById('rejected-title');
     let selectedKeys = [];
+    let reviewMode = 'approve';
+    let approvedValueKeys = [];
+    let rejectedValueKeys = [];
 
     swatches.forEach((swatch) => {
       const hex = swatch.querySelector('.label').textContent.trim();
@@ -822,6 +1035,43 @@
     clearSelectionButton.addEventListener('click', () => {
       selectedKeys = [];
       updateSelectionUI();
+    });
+
+    valueSwatches.forEach((swatch) => {
+      const family = swatch.closest('.value-card').querySelector('h3').textContent.trim();
+      const labelStrong = swatch.querySelector('.value-swatch-label strong').textContent.trim();
+      const hex = swatch.querySelector('.value-swatch-label span').textContent.trim();
+      const key = `${family}::${labelStrong}::${hex}`;
+      swatch.dataset.reviewKey = key;
+      swatch.dataset.family = family;
+      swatch.dataset.label = labelStrong;
+      swatch.dataset.hex = hex;
+      swatch.setAttribute('role', 'button');
+      swatch.setAttribute('tabindex', '0');
+      swatch.setAttribute('aria-label', `${labelStrong} ${hex} da familia ${family}`);
+      swatch.addEventListener('click', () => toggleValueReview(swatch));
+      swatch.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleValueReview(swatch);
+        }
+      });
+    });
+
+    reviewApproveModeButton.addEventListener('click', () => {
+      reviewMode = 'approve';
+      updateValueReviewUI();
+    });
+
+    reviewRejectModeButton.addEventListener('click', () => {
+      reviewMode = 'reject';
+      updateValueReviewUI();
+    });
+
+    reviewClearModeButton.addEventListener('click', () => {
+      approvedValueKeys = [];
+      rejectedValueKeys = [];
+      updateValueReviewUI();
     });
 
     function toggleSwatch(swatch) {
@@ -885,7 +1135,81 @@
       }).join('');
     }
 
+    function toggleValueReview(swatch) {
+      const key = swatch.dataset.reviewKey;
+      const approvedIndex = approvedValueKeys.indexOf(key);
+      const rejectedIndex = rejectedValueKeys.indexOf(key);
+
+      if (reviewMode === 'approve') {
+        if (approvedIndex >= 0) {
+          approvedValueKeys.splice(approvedIndex, 1);
+        } else {
+          approvedValueKeys.push(key);
+        }
+        if (rejectedIndex >= 0) {
+          rejectedValueKeys.splice(rejectedIndex, 1);
+        }
+      }
+
+      if (reviewMode === 'reject') {
+        if (rejectedIndex >= 0) {
+          rejectedValueKeys.splice(rejectedIndex, 1);
+        } else {
+          rejectedValueKeys.push(key);
+        }
+        if (approvedIndex >= 0) {
+          approvedValueKeys.splice(approvedIndex, 1);
+        }
+      }
+
+      updateValueReviewUI();
+    }
+
+    function renderValueReviewList(target, keys, emptyText) {
+      if (keys.length === 0) {
+        target.innerHTML = `<div class="value-review-empty">${emptyText}</div>`;
+        return;
+      }
+
+      target.innerHTML = keys.map((key) => {
+        const swatch = valueSwatches.find((item) => item.dataset.reviewKey === key);
+        return `
+          <div class="value-review-chip">
+            <div class="value-review-chip-swatch" style="background:${swatch.dataset.hex}"></div>
+            <div class="value-review-chip-copy">
+              <strong>${swatch.dataset.label}</strong>
+              <span>${swatch.dataset.family} - ${swatch.dataset.hex}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateValueReviewUI() {
+      reviewApproveModeButton.classList.toggle('is-active', reviewMode === 'approve');
+      reviewRejectModeButton.classList.toggle('is-active', reviewMode === 'reject');
+
+      valueSwatches.forEach((swatch) => {
+        const key = swatch.dataset.reviewKey;
+        swatch.classList.toggle('is-approved', approvedValueKeys.includes(key));
+        swatch.classList.toggle('is-rejected', rejectedValueKeys.includes(key));
+      });
+
+      approvedTitle.textContent = `Aprovadas (${approvedValueKeys.length})`;
+      rejectedTitle.textContent = `Reprovadas (${rejectedValueKeys.length})`;
+
+      renderValueReviewList(approvedList, approvedValueKeys, 'Nada aprovado ainda.');
+      renderValueReviewList(rejectedList, rejectedValueKeys, 'Nada reprovado ainda.');
+
+      if (reviewMode === 'approve') {
+        valueReviewStatus.textContent = 'Modo aprovar ativo. Clique numa amostra para colocar nas aprovadas.';
+      } else {
+        valueReviewStatus.textContent = 'Modo reprovar ativo. Clique numa amostra para colocar nas reprovadas.';
+      }
+    }
+
     updateSelectionUI();
+    updateValueReviewUI();
   </script>
 </body>
 </html>
