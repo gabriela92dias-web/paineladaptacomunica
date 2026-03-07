@@ -59,6 +59,7 @@ a {
   gap: 1.5rem;
   min-height: 100vh;
   padding: 1.5rem;
+  align-items: stretch;
 }
 
 .glass-panel,
@@ -239,6 +240,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
+  min-height: calc(100vh - 3rem);
 }
 
 .topbar,
@@ -322,15 +324,20 @@ a {
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr minmax(620px, 1.65fr) 1fr;
+  grid-template-rows: minmax(440px, 1.32fr) minmax(310px, 0.95fr);
   gap: var(--grid-gap);
   grid-template-areas:
     "brand radar operations"
     "tools overview overview";
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
 }
 
 .panel {
   padding: 1.5rem;
-  min-height: 250px;
+  min-height: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -351,22 +358,32 @@ a {
 
 .panel-brand {
   grid-area: brand;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-radar {
   grid-area: radar;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-operations {
   grid-area: operations;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-tools {
   grid-area: tools;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-overview {
   grid-area: overview;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel__header {
@@ -388,6 +405,8 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
+  flex: 1;
+  align-content: start;
 }
 
 .brand-action,
@@ -463,6 +482,7 @@ a {
   grid-template-columns: minmax(380px, 1fr) minmax(280px, 0.84fr);
   gap: 1.2rem;
   align-items: center;
+  flex: 1;
 }
 
 .radar-frame {
@@ -692,6 +712,10 @@ a {
   margin-top: 1rem;
 }
 
+.operations-block {
+  flex: 1;
+}
+
 .section-label {
   margin-bottom: 0.75rem;
 }
@@ -700,6 +724,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+  flex: 1;
 }
 
 .tool-group {
@@ -766,6 +791,8 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  flex: 1;
+  align-content: start;
 }
 
 .metric-card {
@@ -847,6 +874,7 @@ a {
 @media (max-width: 1440px) {
   .dashboard-grid {
     grid-template-columns: 1fr 1.25fr;
+    grid-template-rows: minmax(360px, auto) minmax(470px, auto) minmax(320px, auto);
     grid-template-areas:
       "brand operations"
       "radar radar"
@@ -878,6 +906,7 @@ a {
 
   .dashboard-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "radar"
       "brand"
