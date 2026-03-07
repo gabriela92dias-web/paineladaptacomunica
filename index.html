@@ -59,7 +59,7 @@
         </div>
       </aside>
 
-      <main class="dashboard" id="dashboard">
+      <main class="dashboard" id="dashboard" data-variant="A">
         <header class="topbar glass-panel">
           <div>
             <p class="eyebrow">Visao institucional</p>
@@ -67,6 +67,17 @@
           </div>
 
           <div class="topbar-actions">
+            <div class="variant-switcher" aria-label="Variacoes de layout">
+              <button class="variant-button is-active" type="button" data-variant-button="A">
+                A
+              </button>
+              <button class="variant-button" type="button" data-variant-button="B">
+                B
+              </button>
+              <button class="variant-button" type="button" data-variant-button="C">
+                C
+              </button>
+            </div>
             <button class="ghost-button" type="button">Search</button>
             <button class="ghost-button" type="button">Theme</button>
             <button class="ghost-button" type="button">Admin</button>
@@ -135,6 +146,14 @@
                 <p class="radar-details__copy" id="week-summary"></p>
                 <ul class="detail-list" id="week-items"></ul>
               </div>
+            </div>
+
+            <div class="month-timeline glass-subpanel">
+              <div class="month-timeline__header">
+                <p class="eyebrow">Month flow</p>
+                <span id="timeline-variant-label">Leitura resumida do mes</span>
+              </div>
+              <div class="month-timeline__track" id="month-timeline"></div>
             </div>
           </section>
 

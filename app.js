@@ -1,14 +1,18 @@
 const monthLabel = document.getElementById("radar-month-label");
 const tickerTrack = document.getElementById("ticker-track");
+const dashboard = document.getElementById("dashboard");
 const radarSegmentsContainer = document.getElementById("radar-segments");
 const radarEventsContainer = document.getElementById("radar-events");
 const weekTitle = document.getElementById("week-title");
 const weekSummary = document.getElementById("week-summary");
 const weekItems = document.getElementById("week-items");
+const monthTimeline = document.getElementById("month-timeline");
+const timelineVariantLabel = document.getElementById("timeline-variant-label");
 const alertList = document.getElementById("alert-list");
 const timelineList = document.getElementById("timeline-list");
 const toolGroups = document.getElementById("tool-groups");
 const overviewMetrics = document.getElementById("overview-metrics");
+const variantButtons = [...document.querySelectorAll("[data-variant-button]")];
 
 const currentMonth = "Marco";
 monthLabel.textContent = currentMonth;
@@ -161,6 +165,12 @@ const metrics = [
   { label: "Shell", value: "v1", meta: "Base visual pronta" },
 ];
 
+const variantMeta = {
+  A: "Radar dominante com instrumentos orbitais",
+  B: "Radar + leitura narrativa do calendario",
+  C: "Console institucional com instrumentacao tecnica",
+};
+
 function renderTicker() {
   const content = [...tickerItems, ...tickerItems]
     .map((item) => `<span class="ticker-item">${item}</span>`)
@@ -213,9 +223,40 @@ function renderRadar() {
   updateWeekDetails(weeks[0]);
 }
 
+function renderMonthTimeline() {
+  monthTimeline.innerHTML = weeks
+    .map(
+      (week, index) => `
+        <button
+          class="timeline-chip ${index === 0 ? "is-active" : ""}"
+          type="button"
+          data-week-link="${week.id}"
+        >
+          <strong>${week.label}</strong>
+          <span>${week.items[0].title}</span>
+        </button>
+      `,
+    )
+    .join("");
+
+  const chips = [...document.querySelectorAll("[data-week-link]")];
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const id = chip.dataset.weekLink;
+      const targetButton = document.querySelector(`[data-week-id="${id}"]`);
+      if (targetButton instanceof HTMLElement) {
+        targetButton.click();
+      }
+    });
+  });
+}
+
 function updateWeekDetails(week) {
   weekTitle.textContent = week.label;
   weekSummary.textContent = week.summary;
+  document.querySelectorAll("[data-week-link]").forEach((chip) => {
+    chip.classList.toggle("is-active", chip.getAttribute("data-week-link") === week.id);
+  });
   weekItems.innerHTML = week.items
     .map(
       (item) => `
@@ -296,6 +337,14 @@ function renderMetrics() {
     .join("");
 }
 
+function setVariant(variant) {
+  dashboard.dataset.variant = variant;
+  timelineVariantLabel.textContent = variantMeta[variant];
+  variantButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.variantButton === variant);
+  });
+}
+
 function colorIcon() {
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -350,6 +399,15 @@ function analysisIcon() {
 
 renderTicker();
 renderRadar();
+renderMonthTimeline();
 renderOperations();
 renderTools();
 renderMetrics();
+
+variantButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setVariant(button.dataset.variantButton);
+  });
+});
+
+setVariant("A");
