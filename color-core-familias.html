@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Color Core Familias</title>
+    <link rel="stylesheet" href="./color-core-familias.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Color Core</p>
+          <h1>Proposta inicial das 3 familias</h1>
+          <p class="hero-text">
+            Preview independente para visualizar a sugestao de sistema do Color
+            Core em ambiente neutro. Cada familia aparece organizada por centro
+            de luz, acentos e campo derivado.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="export-actions">
+            <button class="action-btn" id="copy-feedback-btn" type="button">
+              Copiar respostas
+            </button>
+            <button class="action-btn ghost" id="download-feedback-btn" type="button">
+              Baixar JSON
+            </button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">Como ler</p>
+            <ul>
+              <li>Centro de luz = identidade principal da familia.</li>
+              <li>Acentos = pontos vivos para ativacao.</li>
+              <li>Campo derivado = atmosfera, nao swatch protagonista.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel intro-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Regra do sistema</p>
+            <h2>Centro, dois campos e dois acentos</h2>
+          </div>
+          <p class="section-note">
+            A proposta abandona a escadinha rigida, mas tambem supera o modelo
+            simplificado demais de 3 partes. Cada familia passa a funcionar com
+            5 posicoes: centro, campo alto, campo velado, acento vivo e acento
+            denso.
+          </p>
+        </div>
+
+        <div class="rule-grid">
+          <article>
+            <strong>Centro de luz</strong>
+            <p>O tom que segura a leitura principal da familia.</p>
+          </article>
+          <article>
+            <strong>Campo alto</strong>
+            <p>O claro mais aberto, de ar e expansao.</p>
+          </article>
+          <article>
+            <strong>Campo velado</strong>
+            <p>O claro com mais corpo, ainda suave e atmosferico.</p>
+          </article>
+          <article>
+            <strong>Acento vivo</strong>
+            <p>O ponto mais aceso de chamada, detalhe e energia.</p>
+          </article>
+          <article>
+            <strong>Acento denso</strong>
+            <p>A versao mais firme da familia, sem escurecer demais.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="family-grid">
+        <article
+          class="family-card"
+          style="
+            --center: #F6E0B8;
+            --field-high: #FFF6E8;
+            --field-low: #FFE8CC;
+            --accent-a: #FFD58D;
+            --accent-b: #F7A07F;
+            --field-a: rgba(246, 224, 184, 0.46);
+            --field-b: rgba(255, 232, 204, 0.28);
+            --line-a: rgba(247, 160, 127, 0.28);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 1</p>
+              <h3>Energia</h3>
+            </div>
+            <span class="family-badge">amarelo palido - coral tangerina</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro</strong>
+                <p>#F6E0B8</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#FFF6E8</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#FFE8CC</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento vivo</strong>
+                <p>#FFD58D</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento denso</strong>
+                <p>#F7A07F</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="family-spectrum"></div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campos</strong>
+              <p>Vai do amarelo palido ao pessego, fechando num coral tangerina.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Acento denso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>amarelo manga para tangerina coral</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feedback-card" data-family="Energia">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Energia</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Energia">
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-energia" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-energia">Observacoes</label>
+            <textarea
+              id="obs-energia"
+              class="feedback-notes"
+              data-notes-family="Energia"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
+          </div>
+        </article>
+
+        <article
+          class="family-card"
+          style="
+            --center: #E58A98;
+            --field-high: #FCEBED;
+            --field-low: #F4D0D6;
+            --accent-a: #D97995;
+            --accent-b: #A45277;
+            --field-a: rgba(229, 138, 152, 0.28);
+            --field-b: rgba(244, 208, 214, 0.24);
+            --line-a: rgba(164, 82, 119, 0.24);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 2</p>
+              <h3>Alegria</h3>
+            </div>
+            <span class="family-badge">rosa melancia - berry suave</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro</strong>
+                <p>#E58A98</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#FCEBED</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#F4D0D6</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento vivo</strong>
+                <p>#D97995</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento denso</strong>
+                <p>#A45277</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="family-spectrum"></div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campos</strong>
+              <p>Vai do blush claro ao rosa melancia sem cair para coral ou vinho.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Acento denso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>rosa melancia para berry limpo</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feedback-card" data-family="Alegria">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Alegria</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Alegria">
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-alegria" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-alegria">Observacoes</label>
+            <textarea
+              id="obs-alegria"
+              class="feedback-notes"
+              data-notes-family="Alegria"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
+          </div>
+        </article>
+
+        <article
+          class="family-card"
+          style="
+            --center: #B473B1;
+            --field-high: #F1E6F0;
+            --field-low: #DEC7DE;
+            --accent-a: #A694D6;
+            --accent-b: #8B77BF;
+            --field-a: rgba(180, 115, 177, 0.30);
+            --field-b: rgba(222, 199, 222, 0.22);
+            --line-a: rgba(139, 119, 191, 0.24);
+          "
+        >
+          <div class="family-head">
+            <div>
+              <p class="preview-kicker">Familia 3</p>
+              <h3>Seguranca</h3>
+            </div>
+            <span class="family-badge">lavanda rosada - roxo frio</span>
+          </div>
+
+          <div class="token-row">
+            <div class="token-block">
+              <span class="token-dot center"></span>
+              <div>
+                <strong>Centro</strong>
+                <p>#B473B1</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-high"></span>
+              <div>
+                <strong>Campo alto</strong>
+                <p>#F1E6F0</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot field-low"></span>
+              <div>
+                <strong>Campo velado</strong>
+                <p>#DEC7DE</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-a"></span>
+              <div>
+                <strong>Acento vivo</strong>
+                <p>#A694D6</p>
+              </div>
+            </div>
+            <div class="token-block">
+              <span class="token-dot accent-b"></span>
+              <div>
+                <strong>Acento denso</strong>
+                <p>#8B77BF</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="family-spectrum"></div>
+
+          <div class="sample-grid">
+            <div class="sample-card field-sample">
+              <strong>Campos</strong>
+              <p>Vai do lavanda rosado ao roxo frio sem pular para um roxo infantil.</p>
+            </div>
+
+            <div class="sample-card interface-sample">
+              <div class="sample-topbar">
+                <span class="sample-chip chip-center">Centro</span>
+                <span class="sample-chip chip-field">Campo</span>
+                <span class="sample-chip chip-a">Acento vivo</span>
+              </div>
+              <div class="sample-line"></div>
+              <div class="sample-pills">
+                <span class="sample-pill pill-b">Acento denso</span>
+                <span class="sample-pill pill-outline">Hover</span>
+              </div>
+            </div>
+
+            <div class="sample-card poster-sample">
+              <div class="poster-orbit"></div>
+              <div class="poster-copy">
+                <strong>Leitura</strong>
+                <p>lavanda rosada para roxo frio</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feedback-card" data-family="Seguranca">
+            <div class="feedback-head">
+              <strong>Feedback da familia</strong>
+              <span>Seguranca</span>
+            </div>
+            <div class="feedback-options" role="group" aria-label="Avaliar Seguranca">
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="aprovado" />
+                <span>Aprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="desaprovado" />
+                <span>Desaprovado</span>
+              </label>
+              <label class="feedback-option">
+                <input type="radio" name="status-seguranca" value="em aberto" />
+                <span>Em aberto</span>
+              </label>
+            </div>
+            <label class="feedback-label" for="obs-seguranca">Observacoes</label>
+            <textarea
+              id="obs-seguranca"
+              class="feedback-notes"
+              data-notes-family="Seguranca"
+              placeholder="O que funciona, o que nao funciona, onde a relacao entre centro, campos e acentos quebra."
+            ></textarea>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel export-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Exportacao</p>
+            <h2>Resumo para compartilhar</h2>
+          </div>
+          <p class="section-note">
+            Use os botoes para copiar ou baixar as respostas. O texto abaixo
+            atualiza conforme voce marca aprovado, desaprovado ou escreve
+            observacoes.
+          </p>
+        </div>
+
+        <textarea
+          id="feedback-export"
+          class="export-output"
+          readonly
+          aria-label="Resumo exportavel do feedback"
+        ></textarea>
+      </section>
+    </main>
+
+    <script src="./color-core-familias.js"></script>
+  </body>
+</html>

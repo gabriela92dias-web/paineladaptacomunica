@@ -1,0 +1,199 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Verde Core v2",
+  "description": "Tokens institucionais do Verde Core v2 da Adapta.",
+  "metadata": {
+    "status": "approved",
+    "scope": "institutional-ui",
+    "source": [
+      "ESPECIFICACAO-VERDE-CORE-V2.md",
+      "APENDICE-CROMATICO-VERDE-CORE-V2.md",
+      "integracao-funcional.html",
+      "estilos.css"
+    ]
+  },
+  "primitives": {
+    "green": {
+      "050": {
+        "value": "#F4F8F0",
+        "type": "color"
+      },
+      "100": {
+        "value": "#DFE8D8",
+        "type": "color"
+      },
+      "signal": {
+        "value": "#BFE5AE",
+        "type": "color"
+      },
+      "300": {
+        "value": "#AAC19D",
+        "type": "color"
+      },
+      "500": {
+        "value": "#77937A",
+        "type": "color"
+      },
+      "700": {
+        "value": "#33564B",
+        "type": "color"
+      },
+      "900": {
+        "value": "#132923",
+        "type": "color"
+      }
+    },
+    "neutral": {
+      "000": {
+        "value": "#FFFFFF",
+        "type": "color"
+      },
+      "050": {
+        "value": "#F7F8F4",
+        "type": "color"
+      },
+      "100": {
+        "value": "#ECEEE7",
+        "type": "color"
+      },
+      "300": {
+        "value": "#C8CDC3",
+        "type": "color"
+      },
+      "500": {
+        "value": "#6E786D",
+        "type": "color"
+      },
+      "700": {
+        "value": "#434A43",
+        "type": "color"
+      },
+      "900": {
+        "value": "#1A211C",
+        "type": "color"
+      },
+      "950": {
+        "value": "#0D110E",
+        "type": "color"
+      }
+    }
+  },
+  "semantic": {
+    "light": {
+      "bg": {
+        "value": "{primitives.neutral.050.value}",
+        "type": "color"
+      },
+      "surface": {
+        "value": "{primitives.neutral.000.value}",
+        "type": "color"
+      },
+      "surfaceSubtle": {
+        "value": "{primitives.neutral.100.value}",
+        "type": "color"
+      },
+      "text": {
+        "value": "{primitives.neutral.900.value}",
+        "type": "color"
+      },
+      "textMuted": {
+        "value": "{primitives.neutral.500.value}",
+        "type": "color"
+      },
+      "brandInk": {
+        "value": "{primitives.green.700.value}",
+        "type": "color"
+      },
+      "brandFill": {
+        "value": "{primitives.green.700.value}",
+        "type": "color"
+      },
+      "brandFillText": {
+        "value": "{primitives.neutral.000.value}",
+        "type": "color"
+      },
+      "brandSignal": {
+        "value": "{primitives.green.signal.value}",
+        "type": "color"
+      },
+      "brandSignalText": {
+        "value": "{primitives.neutral.950.value}",
+        "type": "color"
+      },
+      "brandSoft": {
+        "value": "{primitives.green.100.value}",
+        "type": "color"
+      },
+      "brandBorder": {
+        "value": "{primitives.green.300.value}",
+        "type": "color"
+      },
+      "brandHighlight": {
+        "value": "{primitives.green.500.value}",
+        "type": "color"
+      },
+      "focusRing": {
+        "value": "{primitives.green.500.value}",
+        "type": "color"
+      }
+    },
+    "dark": {
+      "bg": {
+        "value": "{primitives.neutral.950.value}",
+        "type": "color"
+      },
+      "surface": {
+        "value": "{primitives.neutral.900.value}",
+        "type": "color"
+      },
+      "surfaceSubtle": {
+        "value": "#222923",
+        "type": "color"
+      },
+      "text": {
+        "value": "#F7FAF8",
+        "type": "color"
+      },
+      "textMuted": {
+        "value": "{primitives.neutral.300.value}",
+        "type": "color"
+      },
+      "brandInk": {
+        "value": "{primitives.green.100.value}",
+        "type": "color"
+      },
+      "brandFill": {
+        "value": "{primitives.green.300.value}",
+        "type": "color"
+      },
+      "brandFillText": {
+        "value": "{primitives.neutral.950.value}",
+        "type": "color"
+      },
+      "brandSignal": {
+        "value": "{primitives.green.signal.value}",
+        "type": "color"
+      },
+      "brandSignalText": {
+        "value": "{primitives.neutral.950.value}",
+        "type": "color"
+      },
+      "brandSoft": {
+        "value": "rgba(170, 193, 157, 0.16)",
+        "type": "color"
+      },
+      "brandBorder": {
+        "value": "{primitives.green.500.value}",
+        "type": "color"
+      },
+      "brandHighlight": {
+        "value": "{primitives.green.100.value}",
+        "type": "color"
+      },
+      "focusRing": {
+        "value": "{primitives.green.300.value}",
+        "type": "color"
+      }
+    }
+  }
+}
