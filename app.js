@@ -16,6 +16,7 @@ const toolGroups = document.getElementById("tool-groups");
 const overviewMetrics = document.getElementById("overview-metrics");
 const variantButtons = [...document.querySelectorAll("[data-variant-button]")];
 const groupButtons = [...document.querySelectorAll("[data-group-toggle]")];
+const navLinks = [...document.querySelectorAll(".nav-link")];
 
 const currentMonth = "Marco";
 monthLabel.textContent = currentMonth;
@@ -352,6 +353,33 @@ function setSidebarState(nextState) {
   sidebarToggle.textContent = nextState === "compact" ? "Expandir" : "Sidebar";
 }
 
+function setGroupExpanded(groupId, expanded) {
+  const button = groupButtons.find((item) => item.dataset.groupToggle === groupId);
+  const target = document.getElementById(`group-${groupId}`);
+  if (!button || !target) return;
+
+  button.setAttribute("aria-expanded", String(expanded));
+  const caret = button.querySelector(".nav-caret");
+  if (caret) {
+    caret.textContent = expanded ? "-" : "+";
+  }
+  target.hidden = !expanded;
+}
+
+function closeOtherGroups(activeGroupId) {
+  groupButtons.forEach((button) => {
+    const groupId = button.dataset.groupToggle;
+    if (groupId !== activeGroupId) {
+      setGroupExpanded(groupId, false);
+    }
+  });
+}
+
+function setActiveLink(link) {
+  navLinks.forEach((item) => item.classList.remove("nav-link--active"));
+  link.classList.add("nav-link--active");
+}
+
 function colorIcon() {
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -420,15 +448,29 @@ variantButtons.forEach((button) => {
 groupButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const groupId = button.dataset.groupToggle;
-    const target = document.getElementById(`group-${groupId}`);
     const expanded = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", String(!expanded));
-      const caret = button.querySelector(".nav-caret");
-      if (caret) {
-        caret.textContent = expanded ? "+" : "-";
+    if (expanded) {
+      setGroupExpanded(groupId, false);
+    } else {
+      closeOtherGroups(groupId);
+      setGroupExpanded(groupId, true);
+    }
+  });
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    setActiveLink(link);
+    const parentGroup = link.closest(".nav-group");
+    if (parentGroup) {
+      const button = parentGroup.querySelector("[data-group-toggle]");
+      const groupId = button?.getAttribute("data-group-toggle");
+      if (groupId) {
+        closeOtherGroups(groupId);
+        setGroupExpanded(groupId, true);
       }
-    if (target) {
-      target.hidden = expanded;
+    } else {
+      closeOtherGroups("");
     }
   });
 });
