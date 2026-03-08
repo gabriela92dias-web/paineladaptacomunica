@@ -2,6 +2,9 @@
 
 ## Versao enxuta para aprovacao de gestao
 
+**Status:** Cores aprovadas  
+**Escopo aprovado:** Energia, Alegria e Seguranca como familias do Color Core
+
 ---
 
 ## 1. O que e o Color Core
@@ -33,6 +36,10 @@ O que esta sendo aprovado nesta camada e:
 
 Nao e necessario, nesta etapa, abrir todos os tons internos para aprovacao de
 gestao.
+
+### Atualizacao de status
+
+Nesta rodada, a aprovacao das cores foi concluida.
 
 ---
 
@@ -129,14 +136,14 @@ Se for necessario resumir o Color Core em uma frase:
 
 ## 8. Proximo passo
 
-Com a camada de gestao aprovada, o proximo passo e operar o sistema em dois
-niveis separados:
+Com a camada de gestao aprovada e as cores aprovadas, o proximo passo e operar
+o sistema em dois niveis separados:
 
 ### nivel executivo
 
-- aprovacao das familias;
+- registro da aprovacao;
 - leitura da intencao da linguagem;
-- validacao de aderencia a marca.
+- validacao de aderencia nas aplicacoes reais.
 
 ### nivel operacional
 
