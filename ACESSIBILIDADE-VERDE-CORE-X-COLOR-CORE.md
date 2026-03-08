@@ -1,228 +1,241 @@
-# ACESSIBILIDADE - VERDE CORE X COLOR CORE
+# CONVIVENCIA - VERDE CORE X COLOR CORE
 
 ## 1. Objetivo
 
-Este documento registra como o **Verde Core** e o **Color Core** podem
-conviver com seguranca do ponto de vista de contraste e acessibilidade.
+Este documento registra como o **Verde Core** e o **Color Core** se relacionam
+quando aparecem juntos.
 
-O foco aqui nao e discutir identidade ou linguagem.  
-O foco e responder:
+O foco aqui nao e apenas contraste numerico.  
+O foco principal e:
 
-- quando o Verde Core pode entrar sobre o Color Core;
-- quando o Color Core pode entrar sobre o Verde Core;
-- quais combinacoes sao seguras;
-- quais combinacoes devem ser evitadas.
-
----
-
-## 2. Criterio adotado
-
-Leitura baseada em contraste WCAG:
-
-- **AAA-sm** = seguro para texto pequeno
-- **AA-text** = seguro para texto normal
-- **AA-large** = seguro apenas para texto grande / destaque
-- **fail** = evitar
+- papel de cada sistema;
+- responsabilidade de leitura;
+- proporcao entre planos;
+- combinacoes seguras e combinacoes que poluem a peca.
 
 ---
 
-## 3. Resultado geral
+## 2. Regra-matriz
 
-### 3.1 Regra mais importante
+### O Verde Core entra como DONO
 
-**Os tons do Color Core nao devem ser tratados como cor de texto principal sobre
-fundos claros do Verde Core.**
+Quando o Verde Core e o Color Core convivem, o Verde Core nao entra como
+coadjuvante amistoso.  
+Ele entra como **sistema dominante de leitura e organizacao**.
 
-Em quase todos os casos, isso falha ou so passa para texto grande.
+Isso significa:
 
-### 3.2 Regra complementar
-
-**Quando o Color Core entra como fundo, o texto institucional deve preferir os
-tons mais escuros do Verde Core ou os neutros escuros.**
-
-Em especial:
-
-- `green900`
-- `neutral900`
-- `neutral950`
-
-sao os pares mais estaveis.
+- o Verde Core puxa a responsabilidade textual;
+- o Verde Core define o plano estrutural;
+- o Color Core entra como camada convidada;
+- o Color Core nao disputa protagonismo com o Verde Core no mesmo plano.
 
 ---
 
-## 4. O que e seguro por padrao
+## 3. Regra geral de hierarquia
 
-### Seguro como texto sobre fundos Color Core
+### Verde Core
 
-Usar preferencialmente:
+Responsavel por:
 
-- `green900`
-- `neutral900`
-- `neutral950`
+- leitura principal;
+- contraste;
+- hierarquia institucional;
+- fundo estrutural;
+- eixo de organizacao.
 
-Esses tres funcionam bem sobre todos os tons aprovados do Color Core atual.
+### Color Core
 
-### Seguro como apoio institucional sobre fundos Color Core claros
+Responsavel por:
 
-`green700` funciona bem sobre:
-
-- campos altos;
-- campos velados;
-- alguns centros mais claros;
-- alguns marca-textos mais luminosos.
-
-Mas **nao deve ser assumido como seguro universal** sobre todos os acentos.
-
----
-
-## 5. O que evitar por padrao
-
-### Evitar
-
-- texto Color Core sobre fundos claros do Verde Core;
-- texto Color Core sobre branco;
-- usar `green700` como texto padrao sobre acentos mais densos do Color Core;
-- usar acentos densos do Color Core para corpo de texto.
-
-### Motivo
-
-Essas combinacoes tendem a:
-
-- falhar em contraste;
-- funcionar apenas em titulo grande;
-- gerar leitura instavel em materiais reais.
+- campo cromatico editorial;
+- acento;
+- atmosfera;
+- expansao de linguagem;
+- modulacao de clima.
 
 ---
 
-## 6. Regras praticas de convivio
+## 4. Regras praticas de convivio
 
 ### Regra 1
 
-**Color Core funciona melhor como fundo, campo ou acento.**
+**Verdes medios nao sao background.**
 
-Nao como texto principal pequeno sobre superficies claras.
+Em contexto de convivencia com o Color Core:
+
+- verde medio nao deve virar fundo;
+- verde medio deve operar mais como transicao, apoio ou texto;
+- o fundo estrutural tende a ser verde muito claro ou verde escuro.
 
 ### Regra 2
 
-**Texto institucional sobre Color Core deve ser escuro.**
+**Marca-texto do Color Core nao e fundo.**
 
-Escolha recomendada:
+Os tons de marca-texto do Color Core:
 
-- primeiro: `green900`
-- segundo: `neutral900`
-- terceiro: `neutral950`
+- servem para chamada;
+- servem para pulso visual;
+- servem para acento;
+
+mas nao devem ser tratados como plano de fundo principal.
 
 ### Regra 3
 
-**Se a peca pede texto em verde medio (`green700`), restringir isso aos campos
-mais claros do Color Core.**
+**Tons centro, denso e marca-texto do Color Core pedem parcimonia em grandes areas.**
 
-Nao usar `green700` como regra geral sobre:
+Quando usados em grandes massas, eles:
 
-- acentos densos;
-- centros mais saturados;
-- marca-textos do Color Core.
+- disputam propriedade com a peca;
+- pesam demais;
+- geram competicao cromatica com o Verde Core.
 
 ### Regra 4
 
-**Quando o Color Core estiver sobre base Verde Core clara, tratar os tons do
-Color Core como elemento grafico, nao como texto.**
-
-Isso vale para:
-
-- selo;
-- detalhe;
-- icone;
-- shape;
-- linha;
-- destaque grande.
-
-Nao para:
-
-- microtexto;
-- legenda;
-- corpo;
-- link pequeno.
-
----
-
-## 7. Leituras por familia
-
-### 7.1 Energia
-
-#### Seguro
-
-- `green900` sobre todos os tons da familia
-- `neutral900` / `neutral950` sobre todos os tons da familia
-- `green700` sobre campos e tons mais claros
-
-#### Cuidado
-
-`green700` no acento denso da Energia tende a cair para contraste de texto
-grande, nao texto normal.
-
-### 7.2 Alegria
-
-#### Seguro
-
-- `green900` sobre todos os tons
-- `neutral900` / `neutral950` sobre todos os tons
-
-#### Cuidado
-
-Alegria e a familia que mais rapidamente inviabiliza `green700` quando entra em:
-
-- centro;
-- marca-texto;
-- denso.
+**Se o Color Core esta em tom medio, o Verde Core entra como superclaro e escuro.**
 
 Ou seja:
 
-**Alegria pede texto mais escuro por regra.**
-
-### 7.3 Seguranca
-
-#### Seguro
-
-- `green900` sobre todos os tons
-- `neutral900` / `neutral950` sobre todos os tons
-
-#### Cuidado
-
-`green700` funciona nos campos e em alguns tons intermediarios, mas perde
-seguranca no centro e no denso.
+- o Verde Core nao repete o medio do Color Core;
+- ele abre o plano por cima e por baixo;
+- isso evita colisao cromatica entre sistemas.
 
 ---
 
-## 8. Decisao operacional recomendada
+## 5. Combinacoes que sabemos que funcionam
 
-### Para aprovar como regra geral
+### 5.1 Fundo verde clarinho + texto em tom denso do Color Core
 
-**Verde Core e Color Core convivem melhor quando:**
+Funciona bem porque:
 
-- o Color Core ocupa o plano cromatico;
-- o Verde Core escuro ocupa o plano textual/institucional;
-- os neutros escuros entram como alternativa de seguranca;
-- o Verde Core claro nao recebe texto do Color Core como regra.
+- o fundo estrutural continua no Verde Core;
+- o Color Core entra como leitura de destaque;
+- a composicao continua legivel;
+- nao ha disputa entre dois planos medios.
+
+### 5.2 Fundo verde clarinho + elementos Color Core proporcionados
+
+Tambem funciona bem, desde que:
+
+- o Color Core entre como acento, selo, bloco ou detalhe;
+- a proporcao seja controlada;
+- a estrutura continue claramente governada pelo Verde Core.
+
+### 5.3 Fundos em tons campo do Color Core + texto verde medio ou escuro
+
+Funciona bem porque:
+
+- o campo do Color Core recebe a linguagem institucional;
+- o Verde Core recupera a responsabilidade de leitura;
+- o plano continua claro mesmo com mistura cromatica.
+
+Esse e um dos cenarios mais fortes de convivencia.
+
+### 5.4 Fundo escuro do Verde Core + texto Color Core em campo ou marca-texto
+
+Funciona melhor quando:
+
+- o Color Core entra como texto ou detalhe controlado;
+- nao vira bloco medio pesado;
+- o contraste continua suficientemente alto.
 
 ---
 
-## 9. Regra curta para equipe
+## 6. Combinacoes que queremos evitar
+
+### 6.1 Fundo verde escuro + Color Core em tons medios como bloco grande
+
+Evitar usar sobre fundo verde escuro:
+
+- centro do Color Core em massa;
+- denso do Color Core em massa;
+- marca-texto do Color Core como area grande.
+
+Resultado comum:
+
+- poluicao;
+- excesso de propriedade;
+- perda de hierarquia;
+- competicao cromatica desnecessaria.
+
+### 6.2 Verde Core medio repetindo o medio do Color Core
+
+Evitar cenarios em que:
+
+- medio do Verde Core;
+- medio do Color Core;
+
+ficam disputando o mesmo plano de enfase.
+
+Essa repeticao de peso gera confusao e tira a clareza da composicao.
+
+### 6.3 Texto pequeno do Color Core sobre planos claros do Verde Core
+
+Mesmo quando o contraste numerico parece aceitavel em alguns casos, a leitura
+real tende a ser fraca, leve demais ou pouco institucional.
+
+Por regra:
+
+- texto pequeno = Verde Core escuro;
+- Color Core = destaque, detalhe ou titulo.
+
+---
+
+## 7. Regra por plano
+
+### Plano estrutural
+
+Prioridade do Verde Core.
+
+### Plano de leitura
+
+Prioridade do Verde Core escuro.
+
+### Plano de atmosfera
+
+Prioridade do Color Core em tons campo.
+
+### Plano de pulso
+
+Prioridade do Color Core em marca-texto e denso, com uso controlado.
+
+---
+
+## 8. Regra curta para equipe
 
 Se for preciso resumir em uma frase:
 
-> Quando Color Core e Verde Core convivem, o Color Core entra como campo ou
-> acento, e o Verde Core mais escuro segura a leitura principal.
+> Quando Verde Core e Color Core convivem, o Verde Core governa a leitura e a
+> estrutura, e o Color Core entra como atmosfera ou acento sem disputar o mesmo
+> plano de propriedade.
+
+---
+
+## 9. Aplicacao por cenarios
+
+### Bom
+
+- fundo verde clarinho + texto denso do Color Core
+- fundo campo do Color Core + texto verde medio/escuro
+- fundo verde escuro + detalhes pequenos em marca-texto do Color Core
+
+### Ruim
+
+- fundo verde escuro + bloco medio de Color Core
+- verde medio + Color Core medio disputando a mesma area
+- marca-texto do Color Core como fundo
+- denso do Color Core como area extensa sem necessidade
 
 ---
 
 ## 10. Proximo passo sugerido
 
-Aplicar essa regra em:
+Usar essas regras em:
 
-- cards de campanha;
+- cards editoriais;
 - capas;
 - banners;
-- pecas com CTA;
-- blocos com microtexto;
-- testes de impressao e tela.
+- layouts de campanha;
+- peas com CTA;
+- microtextos e URLs;
+- composicoes de impressao.
