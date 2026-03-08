@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Acessibilidade Verde Core x Color Core</title>
+    <link rel="stylesheet" href="./color-core-verde-acessibilidade.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Verde Core x Color Core</p>
+          <h1>Convivencia acessivel</h1>
+          <p class="hero-text">
+            Preview visual do relacionamento entre os dois sistemas. Aqui o foco
+            nao e aprovar cor, mas enxergar quais combinacoes funcionam bem para
+            leitura e quais devem ser evitadas.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">Como ler</p>
+            <ul>
+              <li>Seguro = pode entrar como regra padrao.</li>
+              <li>Seletivo = funciona, mas depende do caso.</li>
+              <li>Evitar = nao usar como combinacao de leitura.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Regra curta</p>
+            <h2>Quem segura o texto</h2>
+          </div>
+          <p class="section-note">
+            Quando os dois sistemas convivem, o Color Core funciona melhor como
+            campo ou acento, enquanto o Verde Core mais escuro segura a leitura.
+          </p>
+        </div>
+
+        <div class="rule-grid">
+          <article>
+            <strong>Seguro por padrao</strong>
+            <p>green900 e neutros escuros sobre fundos do Color Core.</p>
+          </article>
+          <article>
+            <strong>Uso seletivo</strong>
+            <p>green700 sobre campos e tons mais claros do Color Core.</p>
+          </article>
+          <article>
+            <strong>Evitar por padrao</strong>
+            <p>texto do Color Core sobre fundos claros do Verde Core.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Funciona bem</p>
+            <h2>Combinacoes seguras</h2>
+          </div>
+        </div>
+
+        <div class="example-grid">
+          <article
+            class="example-card safe"
+            style="--bg:#FFFAE0; --fg:#132923; --line:#33564B;"
+          >
+            <div class="example-top">
+              <span class="status-badge safe-badge">Seguro</span>
+              <span class="ratio-badge">14.61</span>
+            </div>
+            <div class="example-surface">
+              <h3>green900 sobre Energia / campo alto</h3>
+              <p>
+                Texto institucional escuro sobre fundo claro do Color Core.
+              </p>
+              <div class="example-row">
+                <span class="chip">Leitura</span>
+                <span class="chip line-chip">Apoio</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card safe"
+            style="--bg:#FFA3B1; --fg:#132923; --line:#1A211C;"
+          >
+            <div class="example-top">
+              <span class="status-badge safe-badge">Seguro</span>
+              <span class="ratio-badge">8.13</span>
+            </div>
+            <div class="example-surface">
+              <h3>green900 sobre Alegria / centro</h3>
+              <p>
+                Mesmo em tom mais encarnado, o verde mais escuro sustenta texto
+                normal com folga.
+              </p>
+              <div class="example-row">
+                <span class="chip">Leitura</span>
+                <span class="chip line-chip">CTA institucional</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card safe"
+            style="--bg:#D1B4FE; --fg:#132923; --line:#33564B;"
+          >
+            <div class="example-top">
+              <span class="status-badge safe-badge">Seguro</span>
+              <span class="ratio-badge">8.52</span>
+            </div>
+            <div class="example-surface">
+              <h3>green900 sobre Seguranca / marca-texto</h3>
+              <p>
+                O fundo pode ser luminoso e expresivo desde que a leitura venha
+                do Verde Core escuro.
+              </p>
+              <div class="example-row">
+                <span class="chip">Leitura</span>
+                <span class="chip line-chip">Hierarquia</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card safe"
+            style="--bg:#F58E72; --fg:#1A211C; --line:#0D110E;"
+          >
+            <div class="example-top">
+              <span class="status-badge safe-badge">Seguro</span>
+              <span class="ratio-badge">7.04</span>
+            </div>
+            <div class="example-surface">
+              <h3>neutral900 sobre Energia / denso</h3>
+              <p>
+                Quando o tom do Color Core esquenta e adensa, neutro escuro vira
+                alternativa muito estavel.
+              </p>
+              <div class="example-row">
+                <span class="chip">Leitura</span>
+                <span class="chip line-chip">Texto curto</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Uso seletivo</p>
+            <h2>Passa, mas nao como regra universal</h2>
+          </div>
+        </div>
+
+        <div class="example-grid single">
+          <article
+            class="example-card selective"
+            style="--bg:#FFE2C2; --fg:#33564B; --line:#77937A;"
+          >
+            <div class="example-top">
+              <span class="status-badge selective-badge">Seletivo</span>
+              <span class="ratio-badge">6.57</span>
+            </div>
+            <div class="example-surface">
+              <h3>green700 sobre Energia / centro</h3>
+              <p>
+                Funciona como texto normal, mas e um caso mais sensivel.
+                Recomendado apenas quando a combinacao for realmente necessaria.
+              </p>
+              <div class="example-row">
+                <span class="chip">Texto</span>
+                <span class="chip line-chip">Uso pontual</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Evitar</p>
+            <h2>Combinacoes que nao sustentam leitura</h2>
+          </div>
+        </div>
+
+        <div class="example-grid">
+          <article
+            class="example-card avoid"
+            style="--bg:#FFFFFF; --fg:#FFE2C2; --line:#FFE2C2;"
+          >
+            <div class="example-top">
+              <span class="status-badge avoid-badge">Evitar</span>
+              <span class="ratio-badge">1.24</span>
+            </div>
+            <div class="example-surface">
+              <h3>Energia / centro sobre branco</h3>
+              <p>
+                Parece delicado, mas nao sustenta leitura. Trate como cor de
+                forma, nunca como texto pequeno.
+              </p>
+              <div class="example-row">
+                <span class="chip">Falha</span>
+                <span class="chip line-chip">Cor de texto</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card avoid"
+            style="--bg:#33564B; --fg:#CF6E9B; --line:#CF6E9B;"
+          >
+            <div class="example-top">
+              <span class="status-badge avoid-badge">Evitar</span>
+              <span class="ratio-badge">2.47</span>
+            </div>
+            <div class="example-surface">
+              <h3>Alegria / denso sobre green700</h3>
+              <p>
+                Visualmente pode parecer interessante, mas quebra a leitura
+                normal. Evitar como combinacao textual.
+              </p>
+              <div class="example-row">
+                <span class="chip">Falha</span>
+                <span class="chip line-chip">Texto normal</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card avoid"
+            style="--bg:#F4F8F0; --fg:#D0AEE0; --line:#D0AEE0;"
+          >
+            <div class="example-top">
+              <span class="status-badge avoid-badge">Evitar</span>
+              <span class="ratio-badge">1.81</span>
+            </div>
+            <div class="example-surface">
+              <h3>Seguranca / centro sobre green050</h3>
+              <p>
+                A relacao entre os dois sistemas some em tons claros. Nao usar
+                esse par para corpo ou legenda.
+              </p>
+              <div class="example-row">
+                <span class="chip">Falha</span>
+                <span class="chip line-chip">Campo claro</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="example-card avoid"
+            style="--bg:#FFFFFF; --fg:#D1B4FE; --line:#D1B4FE;"
+          >
+            <div class="example-top">
+              <span class="status-badge avoid-badge">Evitar</span>
+              <span class="ratio-badge">1.80</span>
+            </div>
+            <div class="example-surface">
+              <h3>Seguranca / marca-texto sobre branco</h3>
+              <p>
+                Boa como acento grafico, ruim como texto. O tom pode entrar em
+                shape, nao em leitura pequena.
+              </p>
+              <div class="example-row">
+                <span class="chip">Falha</span>
+                <span class="chip line-chip">Texto pequeno</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
