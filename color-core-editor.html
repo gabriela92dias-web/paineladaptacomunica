@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adapta - Color Core Editor</title>
+    <link rel="stylesheet" href="./color-core-editor.css" />
+  </head>
+  <body data-mode="light">
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Color Core</p>
+          <h1>Editor de ajuste fino</h1>
+          <p class="hero-text">
+            Ferramenta editavel para ajustar as familias do Color Core sem
+            depender de prompt por prompt. Edite os hexes, veja o resultado ao
+            vivo e exporte o estado para me mandar.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="segmented" role="group" aria-label="Alternar modo">
+            <button class="segmented-btn is-active" data-mode-target="light">
+              Light
+            </button>
+            <button class="segmented-btn" data-mode-target="dark">Dark</button>
+          </div>
+
+          <div class="toolbar">
+            <button type="button" class="action-btn" id="copy-state-btn">
+              Copiar estado
+            </button>
+            <button type="button" class="action-btn ghost" id="download-state-btn">
+              Baixar JSON
+            </button>
+            <button type="button" class="action-btn ghost" id="reset-all-btn">
+              Resetar tudo
+            </button>
+          </div>
+
+          <div class="legend-card">
+            <p class="legend-title">Como usar</p>
+            <ul>
+              <li>Edite cor por cor em cada familia.</li>
+              <li>O preview atualiza automaticamente.</li>
+              <li>Use o campo exportavel para me passar o estado final.</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel export-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Estado exportavel</p>
+            <h2>Copie e cole aqui na conversa</h2>
+          </div>
+        </div>
+        <textarea id="export-output" class="export-output" readonly></textarea>
+      </section>
+
+      <section class="editor-grid">
+        <article class="editor-card" data-family-card="energia">
+          <div class="editor-head">
+            <div>
+              <p class="preview-kicker">Familia</p>
+              <h2>Energia</h2>
+            </div>
+            <button type="button" class="mini-btn" data-reset-family="energia">
+              Resetar familia
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="controls-panel">
+              <div class="token-control" data-token="fieldHigh">
+                <label>Campo alto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="energia" data-token="fieldHigh" />
+                  <input type="text" data-text-input data-family="energia" data-token="fieldHigh" />
+                </div>
+              </div>
+              <div class="token-control" data-token="fieldLow">
+                <label>Campo velado</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="energia" data-token="fieldLow" />
+                  <input type="text" data-text-input data-family="energia" data-token="fieldLow" />
+                </div>
+              </div>
+              <div class="token-control" data-token="center">
+                <label>Centro</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="energia" data-token="center" />
+                  <input type="text" data-text-input data-family="energia" data-token="center" />
+                </div>
+              </div>
+              <div class="token-control" data-token="accentA">
+                <label>Marca-texto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="energia" data-token="accentA" />
+                  <input type="text" data-text-input data-family="energia" data-token="accentA" />
+                </div>
+              </div>
+              <div class="token-control" data-token="accentB">
+                <label>Denso</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="energia" data-token="accentB" />
+                  <input type="text" data-text-input data-family="energia" data-token="accentB" />
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel family-preview" data-preview-family="energia">
+              <div class="preview-badge">Energia</div>
+              <div class="swatch-line">
+                <span class="swatch field-high"></span>
+                <span class="swatch field-low"></span>
+                <span class="swatch center"></span>
+                <span class="swatch accent-a"></span>
+                <span class="swatch accent-b"></span>
+              </div>
+              <div class="spectrum-bar"></div>
+              <div class="preview-scene">
+                <div class="preview-field"></div>
+                <div class="preview-bar"></div>
+                <div class="preview-pills">
+                  <span class="pill center-pill">Centro</span>
+                  <span class="pill accent-pill">Marca-texto</span>
+                  <span class="pill dense-pill">Denso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="editor-card" data-family-card="alegria">
+          <div class="editor-head">
+            <div>
+              <p class="preview-kicker">Familia</p>
+              <h2>Alegria</h2>
+            </div>
+            <button type="button" class="mini-btn" data-reset-family="alegria">
+              Resetar familia
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="controls-panel">
+              <div class="token-control">
+                <label>Campo alto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="alegria" data-token="fieldHigh" />
+                  <input type="text" data-text-input data-family="alegria" data-token="fieldHigh" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Campo velado</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="alegria" data-token="fieldLow" />
+                  <input type="text" data-text-input data-family="alegria" data-token="fieldLow" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Centro</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="alegria" data-token="center" />
+                  <input type="text" data-text-input data-family="alegria" data-token="center" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Marca-texto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="alegria" data-token="accentA" />
+                  <input type="text" data-text-input data-family="alegria" data-token="accentA" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Denso</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="alegria" data-token="accentB" />
+                  <input type="text" data-text-input data-family="alegria" data-token="accentB" />
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel family-preview" data-preview-family="alegria">
+              <div class="preview-badge">Alegria</div>
+              <div class="swatch-line">
+                <span class="swatch field-high"></span>
+                <span class="swatch field-low"></span>
+                <span class="swatch center"></span>
+                <span class="swatch accent-a"></span>
+                <span class="swatch accent-b"></span>
+              </div>
+              <div class="spectrum-bar"></div>
+              <div class="preview-scene">
+                <div class="preview-field"></div>
+                <div class="preview-bar"></div>
+                <div class="preview-pills">
+                  <span class="pill center-pill">Centro</span>
+                  <span class="pill accent-pill">Marca-texto</span>
+                  <span class="pill dense-pill">Denso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="editor-card" data-family-card="seguranca">
+          <div class="editor-head">
+            <div>
+              <p class="preview-kicker">Familia</p>
+              <h2>Seguranca</h2>
+            </div>
+            <button type="button" class="mini-btn" data-reset-family="seguranca">
+              Resetar familia
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="controls-panel">
+              <div class="token-control">
+                <label>Campo alto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="seguranca" data-token="fieldHigh" />
+                  <input type="text" data-text-input data-family="seguranca" data-token="fieldHigh" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Campo velado</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="seguranca" data-token="fieldLow" />
+                  <input type="text" data-text-input data-family="seguranca" data-token="fieldLow" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Centro</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="seguranca" data-token="center" />
+                  <input type="text" data-text-input data-family="seguranca" data-token="center" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Marca-texto</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="seguranca" data-token="accentA" />
+                  <input type="text" data-text-input data-family="seguranca" data-token="accentA" />
+                </div>
+              </div>
+              <div class="token-control">
+                <label>Denso</label>
+                <div class="input-row">
+                  <input type="color" data-color-input data-family="seguranca" data-token="accentB" />
+                  <input type="text" data-text-input data-family="seguranca" data-token="accentB" />
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel family-preview" data-preview-family="seguranca">
+              <div class="preview-badge">Seguranca</div>
+              <div class="swatch-line">
+                <span class="swatch field-high"></span>
+                <span class="swatch field-low"></span>
+                <span class="swatch center"></span>
+                <span class="swatch accent-a"></span>
+                <span class="swatch accent-b"></span>
+              </div>
+              <div class="spectrum-bar"></div>
+              <div class="preview-scene">
+                <div class="preview-field"></div>
+                <div class="preview-bar"></div>
+                <div class="preview-pills">
+                  <span class="pill center-pill">Centro</span>
+                  <span class="pill accent-pill">Marca-texto</span>
+                  <span class="pill dense-pill">Denso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./color-core-editor.js"></script>
+  </body>
+</html>
